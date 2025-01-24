@@ -2,13 +2,16 @@ extends Node
 
 # Signal to Emit the new Oxygen/Population state
 signal oxygenBaseChange(val)
+signal oxygenTankChange(val)
 signal populationChange(val)
+
 
 var UIController
 var startTick
 
 var population = 2
 var baseOxygen = 100
+var tankOxygen = 20
 
 var populationIncreaseFactor = 1.0006
 var oxygenConsumtionFactor = 0.0015
@@ -25,6 +28,9 @@ func _process(delta: float) -> void:
 	
 	baseOxygen -= population*oxygenConsumtionFactor
 	oxygenBaseChange.emit(roundf(baseOxygen))
+	
+	tankOxygen -= oxygenConsumtionFactor
+	oxygenTankChange.emit(roundf(tankOxygen))
 	
 	if baseOxygen == 0:
 		print("!!! GAME OVER !!!")

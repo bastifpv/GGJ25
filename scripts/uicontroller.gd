@@ -30,5 +30,8 @@ func setOxygenTank(val):
 func recieveOxygenBase(val: Variant) -> void:
 	setOxygenBase(val)
 
+func recieveOxygenTank(val: Variant) -> void:
+	setOxygenTank(val)
+
 func recievePopulation(val: Variant) -> void:
 	setPopulation(val)
