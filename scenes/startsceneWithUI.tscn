@@ -1,0 +1,169 @@
+[gd_scene load_steps=17 format=3 uid="uid://bimgpi15wkcc1"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_bv1jn"]
+[ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_72nfq"]
+[ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_1s1bm"]
+[ext_resource type="Script" path="res://scripts/uicontroller.gd" id="4_y1q0b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_trtuc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1rncf"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_16omx"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vqeii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6y2i7"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s4qiu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rck6f"]
+size = Vector3(10, 1, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0n1vw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_at1xs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.5
+script = ExtResource("1_bv1jn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_vv0bg")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Player" type="MeshInstance3D" parent="Player"]
+material_override = ExtResource("2_72nfq")
+mesh = SubResource("CapsuleMesh_ba1tw")
+skeleton = NodePath("../..")
+
+[node name="Boden" type="Node3D" parent="."]
+
+[node name="Boden1" type="StaticBody3D" parent="Boden"]
+physics_material_override = SubResource("PhysicsMaterial_trtuc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/Boden1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
+shape = SubResource("BoxShape3D_1rncf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
+material_override = ExtResource("3_1s1bm")
+mesh = SubResource("BoxMesh_16omx")
+skeleton = NodePath("../../..")
+
+[node name="Boden2" type="StaticBody3D" parent="Boden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58737, -1.60015, 0)
+physics_material_override = SubResource("PhysicsMaterial_vqeii")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
+material_override = ExtResource("3_1s1bm")
+mesh = SubResource("BoxMesh_16omx")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/Boden2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
+shape = SubResource("BoxShape3D_6y2i7")
+
+[node name="Boden3" type="StaticBody3D" parent="Boden"]
+transform = Transform3D(0.975215, -0.221259, 0, 0.221259, 0.975215, 0, 0, 0, 1, 19.1747, 0.362009, 0)
+physics_material_override = SubResource("PhysicsMaterial_s4qiu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 2.38419e-07, 0)
+material_override = ExtResource("3_1s1bm")
+mesh = SubResource("BoxMesh_16omx")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/Boden3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
+shape = SubResource("BoxShape3D_rck6f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_0n1vw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+shape = SubResource("SphereShape3D_at1xs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+mesh = SubResource("SphereMesh_tlxp3")
+skeleton = NodePath("../..")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_y1q0b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="OxygenTank" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OxygenTankTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
+layout_mode = 2
+text = "Oxygen im Tank:"
+
+[node name="OxygenTankVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
+layout_mode = 2
+text = "0"
+
+[node name="OxygenBase" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OxygenBaseTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
+layout_mode = 2
+text = "Oxygen in der Basis:"
+
+[node name="OxygenBaseVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
+layout_mode = 2
+text = "0"
+
+[node name="Population" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PopulationTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+layout_mode = 2
+text = "Population:"
+
+[node name="PopulationVal" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+layout_mode = 2
+text = "0"
