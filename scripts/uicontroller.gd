@@ -3,6 +3,9 @@ extends Node
 @onready var oxygenTank = $MarginContainer/VBoxContainer/OxygenTank/OxygenTankVal
 @onready var oxygenBase = $MarginContainer/VBoxContainer/OxygenBase/OxygenBaseVal
 @onready var population = $MarginContainer/VBoxContainer/Population/PopulationVal
+@onready var gamePause = $Pause
+@onready var pauseBtn = $PauseBtn
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	###init set
@@ -26,3 +29,16 @@ func setOxygenBase(val):
 	
 func setOxygenTank(val):
 	oxygenTank.set_text(str(val))
+	
+	
+func _on_pause_btn_pressed() -> void:
+	print("pause")
+	gamePause.visible = true
+	pauseBtn.visible = false
+
+
+
+func _on_pause_end_pause() -> void:
+	print("endPause")
+	gamePause.visible = false
+	pauseBtn.visible = true
