@@ -1,30 +1,35 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=19 format=3 uid="uid://dmt841w82m1p1"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_0grjn"]
-[ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_quuxo"]
-[ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_lp4g4"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
+[ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
+[ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_wft8h"]
+[ext_resource type="Script" path="res://scripts/boden_2.gd" id="4_mslr0"]
+[ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="5_1burn"]
+[ext_resource type="PackedScene" uid="uid://72lbrgq37jdx" path="res://Source Files/FBX/SM_Prop_Skeleton_Ground_01.fbx" id="6_ji6in"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_trtuc"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_1rncf"]
-size = Vector3(10, 1, 1)
+size = Vector3(10, 1, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_16omx"]
-size = Vector3(10, 1, 1)
+size = Vector3(10, 1, 2)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vqeii"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6y2i7"]
-size = Vector3(10, 1, 1)
+size = Vector3(10, 1, 2)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s4qiu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rck6f"]
-size = Vector3(10, 1, 1)
+size = Vector3(10, 1, 2)
+
+[sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
+inner_radius = 0.252
+outer_radius = 0.579
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0n1vw"]
 
@@ -40,8 +45,11 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-gravity_scale = 0.5
-script = ExtResource("1_0grjn")
+gravity_scale = 0.8
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 2.0
+script = ExtResource("1_5xwa5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_vv0bg")
@@ -50,14 +58,13 @@ shape = SubResource("CapsuleShape3D_vv0bg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
 [node name="Player" type="MeshInstance3D" parent="Player"]
-material_override = ExtResource("2_quuxo")
+material_override = ExtResource("2_sroli")
 mesh = SubResource("CapsuleMesh_ba1tw")
 skeleton = NodePath("../..")
 
 [node name="Boden" type="Node3D" parent="."]
 
 [node name="Boden1" type="StaticBody3D" parent="Boden"]
-physics_material_override = SubResource("PhysicsMaterial_trtuc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/Boden1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
@@ -65,17 +72,18 @@ shape = SubResource("BoxShape3D_1rncf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
-material_override = ExtResource("3_lp4g4")
+material_override = ExtResource("3_wft8h")
 mesh = SubResource("BoxMesh_16omx")
 skeleton = NodePath("../../..")
 
 [node name="Boden2" type="StaticBody3D" parent="Boden"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58737, -1.60015, 0)
 physics_material_override = SubResource("PhysicsMaterial_vqeii")
+script = ExtResource("4_mslr0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
-material_override = ExtResource("3_lp4g4")
+material_override = ExtResource("3_wft8h")
 mesh = SubResource("BoxMesh_16omx")
 skeleton = NodePath("../../..")
 
@@ -89,13 +97,19 @@ physics_material_override = SubResource("PhysicsMaterial_s4qiu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 2.38419e-07, 0)
-material_override = ExtResource("3_lp4g4")
+material_override = ExtResource("3_wft8h")
 mesh = SubResource("BoxMesh_16omx")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/Boden3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
 shape = SubResource("BoxShape3D_rck6f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.352, -1.09001, 0)
+mesh = SubResource("TorusMesh_8pnex")
+skeleton = NodePath("")
+script = ExtResource("5_1burn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 0, 0)
@@ -109,3 +123,8 @@ shape = SubResource("SphereShape3D_at1xs")
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 mesh = SubResource("SphereMesh_tlxp3")
 skeleton = NodePath("../..")
+
+[node name="SM_Prop_Skeleton_Ground_01" parent="." instance=ExtResource("6_ji6in")]
+transform = Transform3D(0.439532, 0, -0.898227, 0, 1, 0, 0.898227, 0, 0.439532, 5.37143, 0.5, 0.0670607)
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]

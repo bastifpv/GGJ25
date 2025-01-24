@@ -2,4 +2,4 @@
 
 [resource]
 specular_mode = 1
-albedo_color = Color(0.565289, 0.000244215, 0.569185, 1)
+albedo_color = Color(0.164706, 0.301961, 0.34902, 1)
