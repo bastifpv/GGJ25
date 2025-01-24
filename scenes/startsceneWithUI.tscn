@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="4_y1q0b"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="5_pcuml"]
 
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
@@ -132,6 +133,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+script = ExtResource("5_71iw4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -169,6 +171,10 @@ text = "Population:"
 layout_mode = 2
 text = "0"
 
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
+[connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
+
 [node name="Pause" parent="Control" instance=ExtResource("5_pcuml")]
 visible = false
 layout_mode = 1
@@ -186,3 +192,4 @@ text = "Pause"
 
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
+
