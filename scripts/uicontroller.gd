@@ -26,3 +26,9 @@ func setOxygenBase(val):
 	
 func setOxygenTank(val):
 	oxygenTank.set_text(str(val))
+
+func recieveOxygenBase(val: Variant) -> void:
+	setOxygenBase(val)
+
+func recievePopulation(val: Variant) -> void:
+	setPopulation(val)

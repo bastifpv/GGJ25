@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bimgpi15wkcc1"]
+[gd_scene load_steps=18 format=3 uid="uid://bimgpi15wkcc1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bv1jn"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_72nfq"]
 [ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_1s1bm"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="4_y1q0b"]
+[ext_resource type="Script" path="res://scripts/oxylation.gd" id="5_71iw4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 
@@ -131,6 +132,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+script = ExtResource("5_71iw4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -167,3 +169,6 @@ text = "Population:"
 [node name="PopulationVal" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
 layout_mode = 2
 text = "0"
+
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
