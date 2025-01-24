@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
 [ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_wft8h"]
 [ext_resource type="Script" path="res://scripts/boden_2.gd" id="4_mslr0"]
-[ext_resource type="Script" path="res://scripts/mesh_instance_3d.gd" id="5_1burn"]
+[ext_resource type="Script" path="res://scripts/bubble_spawner.gd" id="5_1burn"]
 [ext_resource type="PackedScene" uid="uid://72lbrgq37jdx" path="res://Source Files/FBX/SM_Prop_Skeleton_Ground_01.fbx" id="6_ji6in"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]

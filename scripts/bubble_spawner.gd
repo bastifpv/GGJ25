@@ -1,6 +1,6 @@
 extends MeshInstance3D
 
-var bubble = preload("res://scene/bubble.tscn")
+var bubble = preload("res://scenes/bubble.tscn")
 var rng = RandomNumberGenerator.new()
 
 func spawnBubble():

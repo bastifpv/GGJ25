@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx71naq4iw5f3"]
 
-[ext_resource type="PackedScene" uid="uid://cqmedomfp5mn4" path="res://scene/background.tscn" id="1_diaa6"]
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_p4t7b"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_hj5gr"]
+[ext_resource type="PackedScene" uid="uid://cqmedomfp5mn4" path="res://scenes/background.tscn" id="2_oreqn"]
 
 [node name="Menu" type="CanvasLayer"]
-script = ExtResource("1_p4t7b")
+script = ExtResource("1_hj5gr")
 
 [node name="Background" type="Node3D" parent="."]
 
-[node name="BackgroundScene" parent="Background" instance=ExtResource("1_diaa6")]
+[node name="BackgroundScene" parent="Background" instance=ExtResource("2_oreqn")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Background"]
 anchors_preset = 15
