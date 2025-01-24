@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsrhetkqx5sb4"]
+
+[ext_resource type="PackedScene" uid="uid://q37s67i8v188" path="res://scene/bubble.tscn" id="1_r7eqm"]
+
+[sub_resource type="Environment" id="Environment_lhq7j"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.460644, 0.859775, 0.693485, 1)
+ambient_light_energy = 0.1
+
+[node name="TestMoritz" type="Node3D"]
+
+[node name="Bubble" parent="." instance=ExtResource("1_r7eqm")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(4.6181e-05, 0.99997, 0.0077141, 0.00598628, -0.00771424, 0.999952, 0.999982, -7.27609e-12, -0.00598646, -2.03716, 2.69011, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235402, 2.44606)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lhq7j")

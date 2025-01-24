@@ -11,5 +11,10 @@ config_version=5
 [application]
 
 config/name="GGJ25"
+run/main_scene="res://scene/test_moritz.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="GGJ25"
