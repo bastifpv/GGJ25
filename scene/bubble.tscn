@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://q37s67i8v188"]
+[gd_scene load_steps=8 format=3 uid="uid://brpcqxftogyip"]
 
 [ext_resource type="Shader" path="res://scene/bubble.gdshader" id="1_54qcv"]
-[ext_resource type="Script" path="res://script/bubble.gd" id="1_imkjo"]
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_ajy6j"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mucwm"]
 noise_type = 3
@@ -23,9 +23,14 @@ shader_parameter/surface_noise_texture = SubResource("NoiseTexture2D_1asoh")
 [sub_resource type="SphereMesh" id="SphereMesh_53kgs"]
 material = SubResource("ShaderMaterial_vqi3u")
 
-[node name="Bubble" type="Node3D"]
-script = ExtResource("1_imkjo")
-bubbleColor = Color(0.596022, 0.788675, 0.830208, 1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_yw4p0"]
+
+[node name="Bubble" type="RigidBody3D"]
+gravity_scale = -0.4
+script = ExtResource("1_ajy6j")
 
 [node name="BubbleMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_53kgs")
+
+[node name="BubbleShape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_yw4p0")

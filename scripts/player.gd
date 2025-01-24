@@ -24,6 +24,6 @@ func _process(delta: float):
 
 func _on_body_entered(body: Node) -> void:
 	var mesh: MeshInstance3D = body.get_node("MeshInstance3D")
-	if mesh.get_active_material(0):
+	if mesh && mesh.get_active_material(0):
 		var rng = RandomNumberGenerator.new()
 		mesh.get_active_material(0).albedo_color = Color(rng.randf(), rng.randf(), rng.randf())
