@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://q37s67i8v188"]
 
-[ext_resource type="Shader" path="res://scene/bubble.gdshader" id="1_54qcv"]
-[ext_resource type="Script" path="res://script/bubble.gd" id="1_imkjo"]
+[ext_resource type="Shader" path="res://scenes/bubble.gdshader" id="1_54qcv"]
+[ext_resource type="Script" path="res://scripts/bubble.gd" id="1_imkjo"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mucwm"]
 noise_type = 3
