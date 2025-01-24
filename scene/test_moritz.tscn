@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsrhetkqx5sb4"]
+[gd_scene load_steps=7 format=3 uid="uid://dsrhetkqx5sb4"]
 
 [ext_resource type="PackedScene" uid="uid://q37s67i8v188" path="res://scene/bubble.tscn" id="1_r7eqm"]
 
@@ -7,16 +7,39 @@ background_mode = 1
 ambient_light_source = 2
 ambient_light_color = Color(0.460644, 0.859775, 0.693485, 1)
 ambient_light_energy = 0.1
+fog_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji2b7"]
+albedo_color = Color(0.881643, 0.841931, 0.735255, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u61ls"]
+material = SubResource("StandardMaterial3D_ji2b7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bd4qo"]
+albedo_color = Color(0.565866, 0.417614, 0.162021, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xwtg"]
+material = SubResource("StandardMaterial3D_bd4qo")
 
 [node name="TestMoritz" type="Node3D"]
 
 [node name="Bubble" parent="." instance=ExtResource("1_r7eqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0083859, 0.857255, -0.00159264)
+bubbleColor = Color(0.892134, 0.649454, 0.926266, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(4.6181e-05, 0.99997, 0.0077141, 0.00598628, -0.00771424, 0.999952, 0.999982, -7.27609e-12, -0.00598646, -2.03716, 2.69011, 0)
+transform = Transform3D(-0.0906504, 0.995883, -0.00071698, -0.0922144, -0.00767697, 0.99571, 0.991604, 0.0903276, 0.0925306, -2.03716, 3.54736, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235402, 2.44606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09266, 2.44606)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lhq7j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.57492, 0, 0, 0, 1, 0, 0, 0, 2.59549, 0, 0, 0)
+mesh = SubResource("PlaneMesh_u61ls")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.26332, 0, 0, 0, 2.5465, 0, 0, 0, 1, 0, 0.781612, -1.15385)
+mesh = SubResource("BoxMesh_8xwtg")
