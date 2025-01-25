@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bc5hxvpqkfomj"]
 
-[ext_resource type="Material" path="res://materials/caustic_rocks.tres" id="1_butoy"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="1_butoy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rar43"]
 resource_name = "LOWPOLY-COLORS"
