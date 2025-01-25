@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsrhetkqx5sb4"]
+[gd_scene load_steps=8 format=3 uid="uid://dsrhetkqx5sb4"]
 
 [ext_resource type="PackedScene" uid="uid://brpcqxftogyip" path="res://scenes/bubble.tscn" id="1_r7eqm"]
 [ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="2_o4868"]
+[ext_resource type="PackedScene" uid="uid://b1jac5at2lm1x" path="res://our_assets/baloon.glb" id="3_wagcv"]
 
 [sub_resource type="Environment" id="Environment_lhq7j"]
 background_mode = 1
@@ -25,10 +26,6 @@ size = Vector3(5.96783, 1, 4.74072)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.743385, 0.816293, -0.00318528)
 bubbleColor = Color(0.145035, 0.600886, 0.186993, 1)
 
-[node name="Bubble" parent="." instance=ExtResource("1_r7eqm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.567683, 0.857255, -0.00159264)
-bubbleColor = Color(0.855846, 0.670181, 0.92421, 1)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0906504, 0.995883, -0.00071698, -0.0922144, -0.00767697, 0.99571, 0.991604, 0.0903276, 0.0925306, -2.03716, 3.54736, 0)
 
@@ -51,3 +48,6 @@ mesh = SubResource("BoxMesh_8xwtg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0726624, 2.53868, 0.164284)
 shape = SubResource("BoxShape3D_mey76")
+
+[node name="baloon2" parent="." instance=ExtResource("3_wagcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585816, 0, -0.0100971)
