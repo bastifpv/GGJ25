@@ -1,15 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsrhetkqx5sb4"]
 
 [ext_resource type="PackedScene" uid="uid://brpcqxftogyip" path="res://scenes/bubble.tscn" id="1_r7eqm"]
+[ext_resource type="Environment" uid="uid://d26xb2qisiyuy" path="res://scenes/environment.tres" id="2_h41m4"]
 [ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="2_o4868"]
 [ext_resource type="PackedScene" uid="uid://b1jac5at2lm1x" path="res://our_assets/baloon.glb" id="3_wagcv"]
-
-[sub_resource type="Environment" id="Environment_lhq7j"]
-background_mode = 1
-ambient_light_source = 2
-ambient_light_color = Color(0.460644, 0.859775, 0.693485, 1)
-ambient_light_energy = 0.1
-fog_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_u61ls"]
 material = ExtResource("2_o4868")
@@ -33,7 +27,7 @@ transform = Transform3D(-0.0906504, 0.995883, -0.00071698, -0.0922144, -0.007676
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09266, 2.44606)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_lhq7j")
+environment = ExtResource("2_h41m4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(7.57492, 0, 0, 0, 1, 0, 0, 0, 2.59549, 0, 0, 0)

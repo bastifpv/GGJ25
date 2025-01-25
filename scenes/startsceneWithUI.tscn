@@ -64,6 +64,7 @@ shape = SubResource("CapsuleShape3D_vv0bg")
 transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, -0.388118, 1.38054, 16.3707)
 
 [node name="Player" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(0.99999, -0.00101876, 0.00432283, 0.00102432, 0.999999, -0.00128888, -0.00432152, 0.00129328, 0.99999, 0, 0, 0)
 material_override = ExtResource("2_72nfq")
 mesh = SubResource("CapsuleMesh_ba1tw")
 skeleton = NodePath("../..")
@@ -209,15 +210,15 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
 shape = SubResource("BoxShape3D_rck6f")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 0, 0)
+[node name="dome" type="StaticBody3D" parent="."]
+transform = Transform3D(0.999999, -0.00130207, 0.000935597, 0.00130273, 0.999999, -0.000688903, -0.000934683, 0.000690142, 0.999999, -5, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_0n1vw")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="dome"]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 shape = SubResource("SphereShape3D_at1xs")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dome"]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 mesh = SubResource("SphereMesh_tlxp3")
 skeleton = NodePath("../..")
