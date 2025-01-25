@@ -1,7 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=37 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
-[ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="4_mq807"]
 [ext_resource type="PackedScene" uid="uid://7pagx8jc7aqd" path="res://scenes/prefabs/rocks/rock_large.tscn" id="4_ufqcl"]
@@ -30,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
+[ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
 inner_radius = 0.252
@@ -44,11 +44,7 @@ outer_radius = 0.579
 [sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
-radius = 0.3
-height = 1.8
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
-radius = 0.3
+radius = 0.141302
 height = 1.8
 
 [node name="Node3D" type="Node3D"]
@@ -82,6 +78,9 @@ mesh = SubResource("TorusMesh_8pnex")
 skeleton = NodePath("")
 script = ExtResource("5_1burn")
 bubble_color = Color(0.858824, 0, 0.654902, 1)
+
+[node name="rock-sharp2" parent="Boden" instance=ExtResource("15_sumeq")]
+transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 13.1948, -0.846959, -5.42688)
 
 [node name="rock-sharp" parent="Boden" instance=ExtResource("15_sumeq")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.1996, -0.928869, 0.572301)
@@ -140,7 +139,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.324
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6725, -1.42262, 3.53185)
 
 [node name="stone-snow" parent="Boden" instance=ExtResource("23_f2f4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2588, 0.0289946, -1.28425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2794, -0.171946, -2.42855)
 
 [node name="Decke" type="Node3D" parent="."]
 
@@ -263,7 +262,7 @@ top_point = NodePath("../Balloon")
 bottom_point = NodePath("../Player")
 
 [node name="Player" type="RigidBody3D" parent="PlayerRig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, -0.0821243)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -275,18 +274,20 @@ linear_damp = 2.0
 script = ExtResource("1_5xwa5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRig/Player"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.313709, 0.839688, 0.101654)
 shape = SubResource("CapsuleShape3D_vv0bg")
 
 [node name="Camera3D" type="Camera3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 
-[node name="Player" type="MeshInstance3D" parent="PlayerRig/Player"]
-material_override = ExtResource("2_sroli")
-mesh = SubResource("CapsuleMesh_ba1tw")
-skeleton = NodePath("../../..")
+[node name="diver" parent="PlayerRig/Player" instance=ExtResource("30_xbtnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838893, 0.106693)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
+
+[node name="coral-small_orange" parent="." instance=ExtResource("5_sfw8e")]
+transform = Transform3D(-0.995897, 0, 0.0904936, 0, 1, 0, -0.0904936, 0, -0.995897, 7.77056, -0.449376, -2.28277)
 
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
 [connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
