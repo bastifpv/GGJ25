@@ -23,10 +23,8 @@ var populationIncreaseFactor = 1.00793
 var oxygenConsumtionFactor = 0.0015
 
 const xp_map = {
-	1: 500,
-#	1: 5000,
-	2: 50000,
-	3: 5000000
+	1: 5000,
+	2: 500000
 }
 
 # Called when the node enters the scene tree for the first time.

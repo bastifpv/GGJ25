@@ -5,7 +5,7 @@ extends Node3D
 @export var bottom_point: PhysicsBody3D
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func init() -> void:
 	$TopJoint.node_a = top_point.get_path()
 	$BottomJoint.node_b = bottom_point.get_path()
 
