@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-var size = .1
+var size = .5
 signal collected
 
 func update_size():
