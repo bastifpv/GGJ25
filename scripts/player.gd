@@ -58,7 +58,7 @@ func _on_body_entered(body: Node) -> void:
 		ball.size += add_scale.x / 10
 		body.queue_free()
 		ball.update_size()
-		ctrl.oxyForMe(add_scale.x * 100)
+		ctrl.oneForMe("o2", add_scale.x * 100)
 
 func _on_level_up(lvl: int) -> void:
 	var new_ball: RigidBody3D = get_parent().get_node("Balloon_" + str(lvl))

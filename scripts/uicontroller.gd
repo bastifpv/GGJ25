@@ -35,11 +35,12 @@ func setPlayerXP(val):
 	playerXP.set_text(str(val))
 	
 
-func recieveOxygenBase(val: Variant) -> void:
+func recieveBaseStorage(type: String, val: int) -> void:
 	setOxygenBase(val)
 
-func recieveOxygenTank(val: Variant) -> void:
-	setOxygenTank(val)
+func recieveTank(type: String, val: int) -> void:
+	if type == "o2":
+		setOxygenTank(val)
 
 
 func _on_margin_container_xp_change(val: Variant) -> void:
