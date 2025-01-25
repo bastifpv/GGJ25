@@ -27,6 +27,19 @@
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="22_5v8x0"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
+[ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_firs7"]
 [ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="28_3vrr1"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
@@ -227,6 +240,7 @@ offset_left = -27.0
 offset_right = 129.0
 offset_bottom = 60.0
 grow_horizontal = 2
+theme = ExtResource("27_ww8tf")
 text = "Pause"
 
 [node name="Node3D" type="Node3D" parent="."]
