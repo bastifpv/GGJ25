@@ -6,7 +6,7 @@ signal collected
 func update_size():
 	gravity_scale = -1 * size
 	$CollisionShape3D.scale = Vector3.ONE * size
-	$MeshInstance3D.scale = Vector3.ONE * size
+	$baloon.scale = Vector3.ONE * size
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

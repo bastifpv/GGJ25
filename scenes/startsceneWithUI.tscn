@@ -210,8 +210,8 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
 shape = SubResource("BoxShape3D_rck6f")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 0, 0)
+[node name="dome" type="StaticBody3D" parent="."]
+transform = Transform3D(0.999999, -0.00130207, 0.000935597, 0.00130273, 0.999999, -0.000688903, -0.000934683, 0.000690142, 0.999999, -5, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_0n1vw")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="dome"]

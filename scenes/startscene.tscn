@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=50 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
@@ -25,21 +25,21 @@
 [ext_resource type="PackedScene" uid="uid://cjym50lv6r43" path="res://scenes/prefabs/rocks/stone-pointy.tscn" id="20_k8v28"]
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="22_5v8x0"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
-[ext_resource type="Script" path="res://scripts/pauseController.gd" id="27_f36qv"]
+[ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
+[ext_resource type="PackedScene" uid="uid://d18tw4xa47hrc" path="res://scenes/baloon.tscn" id="26_2i0iw"]
+[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="27_nspu1"]
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
-radius = 0.3
-height = 1.8
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
-radius = 0.3
-height = 1.8
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_firs7"]
+[ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
+[ext_resource type="Environment" uid="uid://d26xb2qisiyuy" path="res://scenes/environment.tres" id="31_50be8"]
+[ext_resource type="Script" path="res://scripts/ui_needle_oxy.gd" id="31_iakcm"]
+[ext_resource type="Texture2D" uid="uid://bvyohemsjyj78" path="res://materials/png/UI/background.png" id="32_te3ub"]
+[ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="33_bptp4"]
+[ext_resource type="Texture2D" uid="uid://d2lsmcqedlryc" path="res://materials/png/UI/red.png" id="34_7q12g"]
+[ext_resource type="Texture2D" uid="uid://bakdyo1ahgpvq" path="res://materials/png/UI/neelde.png" id="35_j7h2t"]
+[ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="36_f05gd"]
+[ext_resource type="Texture2D" uid="uid://hvdx6s3ncvh6" path="res://materials/png/UI/pop.png" id="37_0wk80"]
+[ext_resource type="Texture2D" uid="uid://coivd5lnqq1pb" path="res://materials/png/UI/arrow.png" id="38_83g8f"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
 inner_radius = 0.252
@@ -51,51 +51,23 @@ outer_radius = 0.579
 
 [sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5uv8a"]
+viewport_path = NodePath("PlayerRig/Player/UI_Overlay/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qla2e"]
+shader = ExtResource("25_g11gl")
+
 [node name="Node3D" type="Node3D"]
-
-[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
-node_a = NodePath("../Player")
-node_b = NodePath("../Balloon")
-
-[node name="Player" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-gravity_scale = 0.8
-contact_monitor = true
-max_contacts_reported = 1
-linear_damp = 2.0
-script = ExtResource("1_5xwa5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_vv0bg")
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
-
-[node name="Player" type="MeshInstance3D" parent="Player"]
-material_override = ExtResource("2_sroli")
-mesh = SubResource("CapsuleMesh_ba1tw")
-skeleton = NodePath("../..")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
-
-[node name="Balloon" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32796, 4.53247, 0)
-gravity_scale = -1.0
-contact_monitor = true
-max_contacts_reported = 1
-script = ExtResource("3_m8vul")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Balloon"]
-shape = SubResource("SphereShape3D_qb4oj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Balloon"]
-mesh = SubResource("SphereMesh_firs7")
 
 [node name="Boden" type="Node3D" parent="."]
 
@@ -155,7 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48445, 0.109068, 1.17696)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2653, -1.51999, 0)
 
 [node name="stone-oval" parent="Boden" instance=ExtResource("18_ey5yx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0524, 0, 2.9004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.022, 0, 2.9004)
 
 [node name="stone-large" parent="Boden" instance=ExtResource("18_vqdin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9576, 0, 0)
@@ -185,6 +157,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6725, -1.42262, 3.53185)
 
 [node name="stone-snow" parent="Boden" instance=ExtResource("23_f2f4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2588, 0.0289946, -1.28425)
+
+[node name="Decke" type="Node3D" parent="."]
+
+[node name="stalags" parent="Decke" instance=ExtResource("16_7558u")]
+transform = Transform3D(0.987683, 2.36262e-08, 0.156469, 0, -1, 1.50996e-07, 0.156469, -1.49136e-07, -0.987683, 12.6839, 6.57825, 0)
+
+[node name="stalags2" parent="Decke" instance=ExtResource("16_7558u")]
+transform = Transform3D(0.853405, -7.87063e-08, -0.521248, 0, -1, 1.50996e-07, -0.521248, -1.28861e-07, -0.853405, 14.4753, 6.33466, 0)
+
+[node name="stalags3" parent="Decke" instance=ExtResource("16_7558u")]
+transform = Transform3D(0.855545, -7.81748e-08, -0.517728, 0, -1, 1.50996e-07, -0.517728, -1.29184e-07, -0.855545, 16.2879, 6.46867, 0)
 
 [node name="Dome" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 0, 0)
@@ -261,24 +244,184 @@ text = "0"
 process_mode = 3
 visible = false
 layout_mode = 1
-script = ExtResource("27_f36qv")
 
 [node name="PauseBtn" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -27.0
-offset_right = 129.0
+offset_left = -120.0
+offset_right = 36.0
 offset_bottom = 60.0
 grow_horizontal = 2
 theme = ExtResource("27_ww8tf")
 text = "Pause"
 
-[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Balloon" to="Balloon" method="_on_body_entered"]
+[node name="PlayerRig" type="Node3D" parent="."]
+
+[node name="Balloon" type="RigidBody3D" parent="PlayerRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26576, 4.04479, 0)
+gravity_scale = -1.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_m8vul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRig/Balloon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759396, 0)
+shape = SubResource("SphereShape3D_qb4oj")
+
+[node name="baloon" parent="PlayerRig/Balloon" instance=ExtResource("26_2i0iw")]
+
+[node name="Rope" parent="PlayerRig" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("27_nspu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26525, 3.06625, 0)
+script = ExtResource("28_ccwwl")
+top_point = NodePath("../Balloon")
+bottom_point = NodePath("../Player")
+
+[node name="Player" type="RigidBody3D" parent="PlayerRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.8
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 2.0
+script = ExtResource("1_5xwa5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRig/Player"]
+shape = SubResource("CapsuleShape3D_vv0bg")
+
+[node name="Camera3D" type="Camera3D" parent="PlayerRig/Player"]
+transform = Transform3D(1, 0, 0, 0, 0.962094, 0.272717, 0, -0.272717, 0.962094, 0, 2.94869, 10.4997)
+
+[node name="Player" type="MeshInstance3D" parent="PlayerRig/Player"]
+material_override = ExtResource("2_sroli")
+mesh = SubResource("CapsuleMesh_ba1tw")
+skeleton = NodePath("../../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="PlayerRig/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
+
+[node name="UI_Overlay" type="Sprite3D" parent="PlayerRig/Player"]
+transform = Transform3D(1, 0, 0, 0, 0.965085, 0.261937, 0, -0.261937, 0.965085, 0.0718358, 0.698994, 4.62374)
+texture = SubResource("ViewportTexture_5uv8a")
+
+[node name="SubViewport" type="SubViewport" parent="PlayerRig/Player/UI_Overlay"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Node2D" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport"]
+script = ExtResource("31_iakcm")
+
+[node name="UiBackground" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
+z_index = 1
+position = Vector2(899, 517)
+texture = ExtResource("32_te3ub")
+
+[node name="Oxy" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
+z_index = 2
+position = Vector2(307, 755)
+scale = Vector2(0.2, 0.2)
+
+[node name="Circle_oxy" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
+position = Vector2(-473, 380)
+scale = Vector2(4.5, 4.487)
+texture = ExtResource("33_bptp4")
+
+[node name="Red_oxy" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
+position = Vector2(-772, 155)
+scale = Vector2(4, 4)
+texture = ExtResource("34_7q12g")
+
+[node name="needle_oxy" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
+position = Vector2(-496, 368)
+rotation = 0.211185
+
+[node name="UiNeedle" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy/needle_oxy"]
+position = Vector2(-3, -200)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("35_j7h2t")
+
+[node name="lbl_oxy" type="Label" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
+offset_left = -825.0
+offset_top = 397.0
+offset_right = -94.0
+offset_bottom = 992.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("36_f05gd")
+theme_override_font_sizes/font_size = 250
+text = "30%"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="population" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
+z_index = 2
+position = Vector2(763, 605)
+scale = Vector2(0.2, 0.2)
+
+[node name="People" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/population"]
+z_index = 1
+position = Vector2(789, 600)
+scale = Vector2(5, 5)
+texture = ExtResource("37_0wk80")
+
+[node name="Circle_population" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/population"]
+position = Vector2(784, 748)
+scale = Vector2(5, 5)
+texture = ExtResource("33_bptp4")
+
+[node name="lbl_population" type="Label" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/population"]
+offset_left = 423.0
+offset_top = 735.0
+offset_right = 1154.0
+offset_bottom = 1330.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("36_f05gd")
+theme_override_font_sizes/font_size = 250
+text = "2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="home" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
+z_index = 2
+position = Vector2(1189, 812)
+scale = Vector2(0.2, 0.2)
+
+[node name="Circle_home" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/home"]
+position = Vector2(2361, 111)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("33_bptp4")
+
+[node name="Arrow_home" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/home"]
+z_index = 1
+position = Vector2(2373, 106)
+scale = Vector2(5, 5)
+texture = ExtResource("38_83g8f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_qla2e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("31_50be8")
+
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="PlayerRig/Player/UI_Overlay/SubViewport/Node2D" method="get_oxy"]
 [connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
+[connection signal="populationChange" from="Control/MarginContainer" to="PlayerRig/Player/UI_Overlay/SubViewport/Node2D" method="get_population"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
+[connection signal="body_entered" from="PlayerRig/Balloon" to="PlayerRig/Balloon" method="_on_body_entered"]
+[connection signal="body_entered" from="PlayerRig/Player" to="PlayerRig/Player" method="_on_body_entered"]

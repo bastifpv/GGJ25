@@ -17,34 +17,32 @@ func _process(delta: float) -> void:
 	relative_oxy = oxy / (pop * 5)
 	if relative_oxy > 1:
 		relative_oxy = 1
+	if relative_oxy < 0:
+		relative_oxy = 0
 	var degree = -90 + 180 * relative_oxy	
 	$Oxy/needle_oxy.rotation_degrees = degree
-	$Oxy/lbl_oxy.text = str(int(relative_oxy)*100) + "%" 
+	$Oxy/lbl_oxy.text = str(int(relative_oxy*100)) + "%" 
+
 	
 	# Dome Posi
 	#print ("X: ")
 	#print($"../../Player".global_position.x)
 	#print ("Y: ")
 	#print($"../../Player".global_position.y)
-	var rel_y = $"../../Player".global_position.y - $"../../../dome".global_position.y
-	var rel_x = $"../../Player".global_position.x - $"../../../dome".global_position.x
+	var rel_y = $"../../..".global_position.y - $"../../../../../Dome".global_position.y
+	var rel_x = $"../../..".global_position.x - $"../../../../../Dome".global_position.x
 	var angle_to_dome = 180 - (tan(rel_y / rel_x)*180/3.1415926)
-	
+
 	$home/Arrow_home.rotation_degrees = angle_to_dome
 
-func receive_oxygen_base_change(val: Variant) -> void:
+
+
+
+
+func get_oxy(val: Variant) -> void:
 	oxy = val
 
 
-func receive_population_change(val: Variant) -> void:
-	pop = val
-	$population/lbl_population.text = str(val)
-
-
-func _on_margin_container_oxygen_base_change(val: Variant) -> void:
-	oxy = val
-
-
-func _on_margin_container_population_change(val: Variant) -> void:
+func get_population(val: Variant) -> void:
 	pop = val
 	$population/lbl_population.text = str(val)
