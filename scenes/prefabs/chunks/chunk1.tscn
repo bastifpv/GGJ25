@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cleey1n3vjrye"]
+[gd_scene load_steps=21 format=3 uid="uid://cleey1n3vjrye"]
 
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="1_boaho"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="2_kd1mi"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="4_e17kh"]
 [ext_resource type="PackedScene" uid="uid://br8wro5o8too4" path="res://scenes/prefabs/anchor.tscn" id="5_i733f"]
 [ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="6_vkc1b"]
-[ext_resource type="Script" path="res://scripts/bubble_spawner.gd" id="7_6p330"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/geyser.tscn" id="7_goxpt"]
 [ext_resource type="PackedScene" uid="uid://cco1mn7jqd3tt" path="res://scenes/prefabs/rocks/rock-sharp.tscn" id="8_fp56q"]
 [ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="9_5ee2t"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="10_ebxoc"]
@@ -20,10 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="18_8hy88"]
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="19_27qal"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="20_4jatg"]
-
-[sub_resource type="TorusMesh" id="TorusMesh_5760g"]
-inner_radius = 0.252
-outer_radius = 0.579
 
 [node name="Chunk1" type="Node3D"]
 
@@ -40,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8614, -1.10646, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89426, -1.05199, -0.015625)
 
 [node name="rock-terrasse" parent="." instance=ExtResource("4_e17kh")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.83696, -1.14728, 0.443867)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.83696, -0.846502, 0.443867)
 
 [node name="anchor" parent="rock-terrasse" instance=ExtResource("5_i733f")]
 transform = Transform3D(-0.822107, 0.564638, 0.0729597, 0.060141, -0.041306, 0.997335, 0.566147, 0.824304, 3.92206e-08, 8.9407e-08, 1.89091, -2.21577)
@@ -48,11 +44,9 @@ transform = Transform3D(-0.822107, 0.564638, 0.0729597, 0.060141, -0.041306, 0.9
 [node name="clam" parent="." instance=ExtResource("6_vkc1b")]
 transform = Transform3D(3.945, 0, 0, 0, 3.945, 0, 0, 0, 3.945, 12.8004, -0.777771, -0.0134068)
 
-[node name="Bubbler" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4985, 0.179218, 0)
-mesh = SubResource("TorusMesh_5760g")
-skeleton = NodePath("")
-script = ExtResource("7_6p330")
+[node name="geyser2" parent="." instance=ExtResource("7_goxpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.68244, 0.387983, 0)
+type = "o2"
 
 [node name="rock-sharp2" parent="." instance=ExtResource("8_fp56q")]
 transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 13.1948, -0.846959, -5.42688)
@@ -79,7 +73,7 @@ transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3793, 0.149457, -4.86725)
 
 [node name="rocks-small" parent="." instance=ExtResource("13_mhrj4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48445, 0.109068, 1.17696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48445, 0.407627, 1.17696)
 
 [node name="stone-flat" parent="." instance=ExtResource("14_33iik")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2653, -1.51999, 0)
@@ -90,20 +84,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.022, 0, 2.9004)
 [node name="stone-large" parent="." instance=ExtResource("16_er6ep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9576, 0, 0)
 
-[node name="Bubbler2" type="MeshInstance3D" parent="stone-large"]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -0.173647, 2.76832, -0.0918618)
-mesh = SubResource("TorusMesh_5760g")
-skeleton = NodePath("")
-script = ExtResource("7_6p330")
+[node name="geyser2" parent="stone-large" instance=ExtResource("7_goxpt")]
+transform = Transform3D(-0.0314595, -0.0580936, -0.997815, 0.117919, 0.991122, -0.0614218, 0.992525, -0.119594, -0.0243298, -0.228012, 2.67285, -0.192853)
+type = "h2"
 
 [node name="stone-pointy" parent="." instance=ExtResource("17_hofp3")]
 transform = Transform3D(0.737277, 0, 0.67559, 0, 1, 0, -0.67559, 0, 0.737277, 30.9771, 0, 0)
 
-[node name="Bubbler2" type="MeshInstance3D" parent="stone-pointy"]
-transform = Transform3D(0.43, 0, 5.96046e-08, 0, 0.43, 0, -5.96046e-08, 0, 0.43, -0.208269, 0.839028, -0.123585)
-mesh = SubResource("TorusMesh_5760g")
-skeleton = NodePath("")
-script = ExtResource("7_6p330")
+[node name="geyser2" parent="stone-pointy" instance=ExtResource("7_goxpt")]
+transform = Transform3D(0.307708, 0.0251044, 0.672521, -0.0364553, 0.739021, -0.0109068, -0.672002, -0.0285958, 0.308538, 0.0807629, 0.830039, -0.0831394)
+type = "n2"
 
 [node name="stone-round2" parent="." instance=ExtResource("18_8hy88")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.3241, 0, 0)

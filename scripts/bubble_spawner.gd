@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 
 @export var type: String = ""
 
@@ -21,6 +21,7 @@ func spawnBubble():
 	bub.get_node("BubbleMesh").scale = scl
 	bub.get_node("BubbleShape").scale = scl
 	bub.global_position = global_position + Vector3(rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1))
+	bub.set_meta("type", type)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

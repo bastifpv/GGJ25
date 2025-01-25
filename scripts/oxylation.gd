@@ -35,6 +35,14 @@ const xp_map = {
 	1: 5000,
 	2: 500000
 }
+const needs_level = {
+	"o2": 1,
+	"h2": 2,
+	"n2": 3
+}
+
+func may_collect(type: String) -> bool:
+	return player_level >= needs_level[type]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -44,9 +52,6 @@ func _process(delta: float) -> void:
 	
 	baseStorage["o2"] -= population * oxygenConsumtionFactor
 	baseStorageChange.emit("o2", roundf(baseStorage["o2"]))
-	
-	tank["o2"] -= oxygenConsumtionFactor
-	tankChange.emit("o2", roundf(tank["o2"]))
 	
 	if baseStorage["o2"] <= 0:
 		print("!!! GAME OVER !!!")
