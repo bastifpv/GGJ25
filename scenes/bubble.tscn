@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://brpcqxftogyip"]
 
-[ext_resource type="Shader" path="res://scenes/bubble.gdshader" id="1_54qcv"]
+[ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="1_54qcv"]
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="1_ajy6j"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mucwm"]
@@ -17,7 +17,6 @@ shader = ExtResource("1_54qcv")
 shader_parameter/height_multiplier = 0.1
 shader_parameter/noise_sample_size = 0.17
 shader_parameter/animation_speed = 0.035
-shader_parameter/bubble_color = Color(0.596022, 0.788675, 0.830208, 1)
 shader_parameter/surface_noise_texture = SubResource("NoiseTexture2D_1asoh")
 
 [sub_resource type="SphereMesh" id="SphereMesh_53kgs"]
@@ -25,7 +24,7 @@ material = SubResource("ShaderMaterial_vqi3u")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yw4p0"]
 
-[node name="Bubble" type="RigidBody3D"]
+[node name="Bubble" type="RigidBody3D" groups=["bubble"]]
 gravity_scale = -0.4
 script = ExtResource("1_ajy6j")
 
