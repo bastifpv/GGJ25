@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwq2j3fenycff"]
+
+[ext_resource type="Texture2D" path="res://materials/pics/UI_circle.png" id="1_ylmlw"]
+[ext_resource type="Texture2D" path="res://materials/pics/UI_red.png" id="2_mxs07"]
+[ext_resource type="Texture2D" path="res://materials/pics/UI_needle.png" id="3_snt3f"]
+[ext_resource type="Texture2D" path="res://materials/pics/UI_people.png" id="4_pyoco"]
+[ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="6_2bntk"]
+[ext_resource type="Texture2D" path="res://materials/pics/UI_arrow.png" id="6_k5itv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8cgxx"]
+load_path = "res://.godot/imported/UI_background.png-ef1be39ede53856f0f82ce9aa151862e.ctex"
+
+[node name="UI" type="VBoxContainer"]
+offset_left = 257.0
+offset_top = 701.0
+offset_right = 257.0
+offset_bottom = 701.0
+scale = Vector2(0.274769, 0.274769)
+
+[node name="UiBackground" type="Sprite2D" parent="."]
+position = Vector2(1533, -1175)
+scale = Vector2(2.71781, 2.71781)
+texture = SubResource("CompressedTexture2D_8cgxx")
+
+[node name="Oxy" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(-243.841, -458.567)
+scale = Vector2(0.6, 0.6)
+
+[node name="Circle_oxy" type="Sprite2D" parent="Oxy"]
+position = Vector2(-473, 380)
+scale = Vector2(1.00702, 1.00434)
+texture = ExtResource("1_ylmlw")
+
+[node name="Red_oxy" type="Sprite2D" parent="Oxy"]
+position = Vector2(-772, 155)
+texture = ExtResource("2_mxs07")
+
+[node name="needle_oxy" type="Node2D" parent="Oxy"]
+position = Vector2(-496, 368)
+rotation = 0.211185
+
+[node name="UiNeedle" type="Sprite2D" parent="Oxy/needle_oxy"]
+position = Vector2(-3, -200)
+texture = ExtResource("3_snt3f")
+
+[node name="lbl_oxy" type="Label" parent="Oxy"]
+offset_left = -825.0
+offset_top = 397.0
+offset_right = -94.0
+offset_bottom = 992.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("6_2bntk")
+theme_override_font_sizes/font_size = 250
+text = "30%"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="population" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(1069.99, -691.49)
+scale = Vector2(0.6, 0.6)
+
+[node name="People" type="Sprite2D" parent="population"]
+z_index = 1
+position = Vector2(789, 600)
+texture = ExtResource("4_pyoco")
+
+[node name="Circle_population" type="Sprite2D" parent="population"]
+position = Vector2(784, 748)
+texture = ExtResource("1_ylmlw")
+
+[node name="lbl_population" type="Label" parent="population"]
+offset_left = 423.0
+offset_top = 735.0
+offset_right = 1154.0
+offset_bottom = 1330.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("6_2bntk")
+theme_override_font_sizes/font_size = 250
+text = "2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="home" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(2169.1, -269.317)
+scale = Vector2(0.6, 0.6)
+
+[node name="Circle_home" type="Sprite2D" parent="home"]
+position = Vector2(2361, 111)
+texture = ExtResource("1_ylmlw")
+
+[node name="Arrow_home" type="Sprite2D" parent="home"]
+z_index = 1
+position = Vector2(2373, 106)
+texture = ExtResource("6_k5itv")
