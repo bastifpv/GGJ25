@@ -63,3 +63,9 @@ func _on_body_entered(body: Node) -> void:
 	if mesh && mesh.get_active_material(0):
 		var rng = RandomNumberGenerator.new()
 		mesh.get_active_material(0).albedo_color = Color(rng.randf(), rng.randf(), rng.randf())
+
+
+func _on_level_up() -> void:
+	var new_ball = ball.instantiate()
+	get_parent().add_child(new_ball)
+	pass # Replace with function body.

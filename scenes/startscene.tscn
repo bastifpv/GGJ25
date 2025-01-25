@@ -104,6 +104,7 @@ layout_mode = 2
 
 [node name="OxygenTank" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="OxygenTankTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
 layout_mode = 2
@@ -115,6 +116,7 @@ text = "0"
 
 [node name="OxygenBase" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="OxygenBaseTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
 layout_mode = 2
@@ -124,14 +126,27 @@ text = "Oxygen in der Basis:"
 layout_mode = 2
 text = "0"
 
-[node name="Population" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+[node name="PlayerLevel" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
-[node name="PopulationTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+[node name="PlayerLevelTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/PlayerLevel"]
 layout_mode = 2
-text = "Population:"
+text = "Player Level:"
 
-[node name="PopulationVal" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+[node name="PlayerLevelVal" type="Label" parent="Control/MarginContainer/VBoxContainer/PlayerLevel"]
+layout_mode = 2
+text = "0"
+
+[node name="PlayerXP" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="PlayerXPTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/PlayerXP"]
+layout_mode = 2
+text = "Player XP:"
+
+[node name="PlayerXPVal" type="Label" parent="Control/MarginContainer/VBoxContainer/PlayerXP"]
 layout_mode = 2
 text = "0"
 
@@ -267,11 +282,11 @@ shape = SubResource("SphereShape3D_qb4oj")
 
 [node name="baloon" parent="PlayerRig/Balloon" instance=ExtResource("26_2i0iw")]
 
-[node name="Rope" parent="PlayerRig" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("27_nspu1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26525, 3.06625, 0)
+[node name="Rope" parent="PlayerRig/Balloon" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("27_nspu1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000509977, -0.97854, 0)
 script = ExtResource("28_ccwwl")
-top_point = NodePath("../Balloon")
-bottom_point = NodePath("../Player")
+top_point = NodePath("..")
+bottom_point = NodePath("../../Player")
 
 [node name="Player" type="RigidBody3D" parent="PlayerRig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, -0.0821243)
@@ -318,11 +333,13 @@ environment = ExtResource("31_50be8")
 [node name="Worldgenerator" type="Node" parent="."]
 script = ExtResource("41_6fcj0")
 
+[connection signal="level_up" from="Control/MarginContainer" to="PlayerRig/Player" method="_on_level_up"]
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]
 [connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_population"]
+[connection signal="xp_change" from="Control/MarginContainer" to="Control" method="_on_margin_container_xp_change"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
 [connection signal="body_entered" from="PlayerRig/Balloon" to="PlayerRig/Balloon" method="_on_body_entered"]
