@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://bgqk81xt23ewx"]
 
-[ext_resource type="Material" uid="uid://dsiml7ngerpa3" path="res://materials/sandstone.tres" id="1_7k0xs"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="1_g5dp3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0503c"]
 resource_name = "LOWPOLY-COLORS"
@@ -52,7 +52,7 @@ height = 0.742314
 [node name="stalags" type="StaticBody3D"]
 
 [node name="stalags" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_7k0xs")
+material_override = ExtResource("1_g5dp3")
 mesh = SubResource("ArrayMesh_hswo5")
 skeleton = NodePath("")
 

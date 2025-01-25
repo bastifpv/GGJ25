@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://bhwitj105m4m3"]
 
-[ext_resource type="Material" uid="uid://dsiml7ngerpa3" path="res://materials/sandstone.tres" id="1_chy60"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="1_xqng1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djtva"]
 resource_name = "LOWPOLY-COLORS"
@@ -46,7 +46,7 @@ size = Vector3(1.29785, 0.749268, 0.946777)
 [node name="stone-snow" type="StaticBody3D"]
 
 [node name="stone-snow" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_chy60")
+material_override = ExtResource("1_xqng1")
 mesh = SubResource("ArrayMesh_7lgpn")
 skeleton = NodePath("")
 
