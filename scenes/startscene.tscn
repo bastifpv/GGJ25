@@ -27,7 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="PackedScene" path="res://scenes/baloon.tscn" id="26_2i0iw"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://scenes/rope.tscn" id="27_nspu1"]
+=======
+[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="27_nspu1"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
@@ -308,6 +312,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
 transform = Transform3D(1, 0, 0, 0, 0.965085, 0.261937, 0, -0.261937, 0.965085, 0.0718358, 0.698994, 4.62374)
 texture = SubResource("ViewportTexture_5uv8a")
 
+<<<<<<< Updated upstream
 [node name="SubViewport" type="SubViewport" parent="PlayerRig/Player/UI_Overlay"]
 transparent_bg = true
 size = Vector2i(1920, 1080)
@@ -402,6 +407,8 @@ position = Vector2(2373, 106)
 scale = Vector2(5, 5)
 texture = ExtResource("38_83g8f")
 
+=======
+>>>>>>> Stashed changes
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]

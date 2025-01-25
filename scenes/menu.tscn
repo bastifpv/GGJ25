@@ -1,9 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx71naq4iw5f3"]
+[gd_scene load_steps=11 format=3 uid="uid://dx71naq4iw5f3"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_hj5gr"]
+[ext_resource type="Texture2D" uid="uid://66p2h5xlb6ii" path="res://materials/png/background_frame.png" id="2_hwohx"]
 [ext_resource type="PackedScene" uid="uid://cqmedomfp5mn4" path="res://scenes/background.tscn" id="2_oreqn"]
+[ext_resource type="Shader" path="res://shaders/bubble.gdshader" id="3_3aevc"]
 [ext_resource type="Texture2D" uid="uid://bf5rn8o27cxsq" path="res://materials/png/background.png" id="3_75lyi"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="4_7qtv7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gfhab"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2qhe2"]
+emission_shape_scale = Vector3(10, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+inherit_velocity_ratio = 2.0
+direction = Vector3(-1, 0, 0)
+gravity = Vector3(0, 20, 0)
+color = Color(0.580175, 0.666799, 0.398702, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvnus"]
+render_priority = 0
+shader = ExtResource("3_3aevc")
+shader_parameter/height_multiplier = 0.1
+shader_parameter/noise_sample_size = 0.5
+shader_parameter/animation_speed = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_pvsky"]
+material = SubResource("ShaderMaterial_dvnus")
+radius = 0.001
+height = 0.001
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_hj5gr")
@@ -25,7 +51,24 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport"]
-transform = Transform3D(0.999976, -0.00699871, 0, 0.00699871, 0.999976, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.999976, -0.00699871, 0, 0.00699871, 0.999976, 0, 0, 0, 1, -1.3286, 0.0596026, 0.0652885)
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(955, 533.5)
+scale = Vector2(0.948869, 0.970149)
+texture = ExtResource("3_75lyi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 8.0
+offset_top = -17.0
+offset_right = 1928.0
+offset_bottom = 1063.0
+texture = SubResource("ViewportTexture_gfhab")
+
+[node name="BackgroundFrame" type="Sprite2D" parent="."]
+position = Vector2(958.5, 537.5)
+scale = Vector2(0.941495, 0.940299)
+texture = ExtResource("2_hwohx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -34,11 +77,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Background2" type="Sprite2D" parent="Control"]
-position = Vector2(955, 533.5)
-scale = Vector2(0.948869, 0.970149)
-texture = ExtResource("3_75lyi")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -107,6 +145,82 @@ offset_bottom = 316.0
 size_flags_horizontal = 0
 theme = ExtResource("4_7qtv7")
 text = "Quit"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22898, 0, 0.30143)
+
+[node name="GPUParticles3D4" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(0.0001, 0, 0, 0, 0.0001, 0, 0, 0, 0.0001, 1.3361, -1.71464, -1.50017)
+instance_shader_parameters/bubble_color = Color(0.817441, 0.408999, 0.00626374, 1)
+lifetime = 3.0
+speed_scale = 0.04
+randomness = 0.26
+fixed_fps = 240
+process_material = SubResource("ParticleProcessMaterial_2qhe2")
+draw_pass_1 = SubResource("SphereMesh_pvsky")
+
+[node name="GPUParticles3D5" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0.890238, -1.71544, -1.53132)
+instance_shader_parameters/bubble_color = Color(0.901961, 0.619608, 0.568627, 1)
+lifetime = 3.0
+speed_scale = 0.04
+randomness = 0.26
+fixed_fps = 240
+process_material = SubResource("ParticleProcessMaterial_2qhe2")
+draw_pass_1 = SubResource("SphereMesh_pvsky")
+
+[node name="GPUParticles3D6" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.80123, -1.72344, -1.50692)
+instance_shader_parameters/bubble_color = Color(0, 0.407843, 0, 1)
+lifetime = 3.0
+speed_scale = 0.04
+randomness = 0.26
+fixed_fps = 240
+process_material = SubResource("ParticleProcessMaterial_2qhe2")
+draw_pass_1 = SubResource("SphereMesh_pvsky")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0.802814, -1.47879, -1.3024)
+instance_shader_parameters/bubble_color = Color(0.817441, 0.408999, 0.00626374, 1)
+lifetime = 3.0
+speed_scale = 0.04
+randomness = 0.26
+fixed_fps = 240
+process_material = SubResource("ParticleProcessMaterial_2qhe2")
+draw_pass_1 = SubResource("SphereMesh_pvsky")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.0833, -1.48679, -1.44408)
+instance_shader_parameters/bubble_color = Color(0.901961, 0.619608, 0.568627, 1)
+lifetime = 3.0
+speed_scale = 0.04
+randomness = 0.26
+fixed_fps = 240
+process_material = SubResource("ParticleProcessMaterial_2qhe2")
+draw_pass_1 = SubResource("SphereMesh_pvsky")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.63693, -1.56676, -1.36993)
+instance_shader_parameters/bubble_color = Color(0, 0.407843, 0, 1)
+lifetime = 3.0
+speed_scale = 0.04
+randomness = 0.26
+fixed_fps = 240
+process_material = SubResource("ParticleProcessMaterial_2qhe2")
+draw_pass_1 = SubResource("SphereMesh_pvsky")
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -0.894373, 0.447322, 0, -0.447322, -0.894373, 1.6116, 2.5194, -4.20957)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.0781808, 0.996939, 0, -0.996939, 0.0781808, 1.19247, 3.79542, -1.24127)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.9725, 0.232902, 0, -0.232902, 0.9725, 0.944438, 1.65623, 1.32466)
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control/Start" to="." method="startGame"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control3/credits" to="." method="showCredits"]
