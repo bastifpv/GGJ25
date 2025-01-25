@@ -197,8 +197,9 @@ dome = NodePath("../../../Dome")
 [node name="UiBackground" type="Sprite2D" parent="Control/UIOverlay/Node2D"]
 z_index = 1
 position = Vector2(930.89, 540)
-scale = Vector2(1.355, 1.355)
+scale = Vector2(1.49, 1.49)
 texture = ExtResource("32_te3ub")
+offset = Vector2(0, 19.01)
 
 [node name="Oxy" type="Node2D" parent="Control/UIOverlay/Node2D"]
 z_index = 2
@@ -239,7 +240,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="population" type="Node2D" parent="Control/UIOverlay/Node2D"]
 z_index = 2
-position = Vector2(794.635, 694.2)
+position = Vector2(794.635, 726.315)
 scale = Vector2(0.2, 0.2)
 
 [node name="People" type="Sprite2D" parent="Control/UIOverlay/Node2D/population"]
