@@ -4,7 +4,7 @@ var size = .5
 signal collected
 
 func update_size():
-	gravity_scale = -1 * size
+	gravity_scale = -1 * (size + 1)
 	$CollisionShape3D.scale = Vector3.ONE * size
 	$baloon.scale = Vector3.ONE * size
 
