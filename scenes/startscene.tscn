@@ -25,13 +25,15 @@
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="22_5v8x0"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
-[ext_resource type="PackedScene" path="res://scenes/baloon.tscn" id="26_2i0iw"]
-[ext_resource type="PackedScene" path="res://scenes/rope.tscn" id="27_nspu1"]
+[ext_resource type="PackedScene" uid="uid://d18tw4xa47hrc" path="res://scenes/baloon.tscn" id="26_2i0iw"]
+[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="27_nspu1"]
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
+
 [ext_resource type="Environment" uid="uid://d26xb2qisiyuy" path="res://scenes/environment.tres" id="31_50be8"]
+
 [ext_resource type="Script" path="res://scripts/ui_needle_oxy.gd" id="31_iakcm"]
 [ext_resource type="Texture2D" uid="uid://bvyohemsjyj78" path="res://materials/png/UI/background.png" id="32_te3ub"]
 [ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="33_bptp4"]
@@ -40,6 +42,7 @@
 [ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="36_f05gd"]
 [ext_resource type="Texture2D" uid="uid://hvdx6s3ncvh6" path="res://materials/png/UI/pop.png" id="37_0wk80"]
 [ext_resource type="Texture2D" uid="uid://coivd5lnqq1pb" path="res://materials/png/UI/arrow.png" id="38_83g8f"]
+[ext_resource type="Script" path="res://scripts/worldgenerator.gd" id="41_6fcj0"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
 inner_radius = 0.252
@@ -523,6 +526,9 @@ mouse_filter = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_50be8")
+
+[node name="Worldgenerator" type="Node" parent="."]
+script = ExtResource("41_6fcj0")
 
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://7pagx8jc7aqd"]
 
-[ext_resource type="Material" path="res://materials/caustic_rocks.tres" id="1_l1nm1"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="1_l1nm1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fv04b"]
 resource_name = "LOWPOLY-COLORS"
@@ -49,6 +49,7 @@ radius = 0.382804
 height = 0.969771
 
 [node name="rock-large" type="StaticBody3D"]
+collision_layer = 2
 
 [node name="rock-large" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_l1nm1")
