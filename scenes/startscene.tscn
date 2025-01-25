@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=51 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
@@ -40,6 +40,7 @@
 [ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="36_f05gd"]
 [ext_resource type="Texture2D" uid="uid://hvdx6s3ncvh6" path="res://materials/png/UI/pop.png" id="37_0wk80"]
 [ext_resource type="Texture2D" uid="uid://coivd5lnqq1pb" path="res://materials/png/UI/arrow.png" id="38_83g8f"]
+[ext_resource type="Script" path="res://scripts/worldgenerator.gd" id="41_6fcj0"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
 inner_radius = 0.252
@@ -415,6 +416,9 @@ mouse_filter = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_50be8")
+
+[node name="Worldgenerator" type="Node" parent="."]
+script = ExtResource("41_6fcj0")
 
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="PlayerRig/Player/UI_Overlay/SubViewport/Node2D" method="get_oxy"]
