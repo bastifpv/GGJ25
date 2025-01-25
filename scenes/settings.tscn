@@ -77,6 +77,7 @@ autowrap_mode = 2
 
 [node name="musicVolume" type="HSlider" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_vi8hg")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -91,6 +92,7 @@ autowrap_mode = 2
 
 [node name="fxVolume" type="HSlider" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_vi8hg")
 max_value = 1.0
 step = 0.01
 value = 1.0
