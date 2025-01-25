@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-var size = .05
+var size = .1
 signal collected
 
 func update_size():
@@ -19,9 +19,8 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node3D) -> void:
-	print(body.is_in_group("bubble"))
 	if body.is_in_group("bubble"):
-		var add_scale = body.scale
+		var add_scale = body.get_node("BubbleMesh").scale
 		size += add_scale.x / 10
 		body.queue_free()
 		collected.emit(add_scale)

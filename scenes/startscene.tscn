@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=25 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://scripts/boden_2.gd" id="4_mslr0"]
 [ext_resource type="Script" path="res://scripts/bubble_spawner.gd" id="5_1burn"]
 [ext_resource type="PackedScene" uid="uid://72lbrgq37jdx" path="res://Source Files/FBX/SM_Prop_Skeleton_Ground_01.fbx" id="6_ji6in"]
+[ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
+[ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
+[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="10_xeve3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 radius = 0.3
@@ -154,5 +157,84 @@ skeleton = NodePath("../..")
 [node name="SM_Prop_Skeleton_Ground_01" parent="." instance=ExtResource("6_ji6in")]
 transform = Transform3D(0.439532, 0, -0.898227, 0, 1, 0, 0.898227, 0, 0.439532, 5.37143, 0.5, 0.0670607)
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_b8ppg")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("9_bkbyw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="OxygenTank" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OxygenTankTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
+layout_mode = 2
+text = "Oxygen im Tank:"
+
+[node name="OxygenTankVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
+layout_mode = 2
+text = "0"
+
+[node name="OxygenBase" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OxygenBaseTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
+layout_mode = 2
+text = "Oxygen in der Basis:"
+
+[node name="OxygenBaseVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
+layout_mode = 2
+text = "0"
+
+[node name="Population" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PopulationTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+layout_mode = 2
+text = "Population:"
+
+[node name="PopulationVal" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+layout_mode = 2
+text = "0"
+
+[node name="Pause" parent="Control" instance=ExtResource("10_xeve3")]
+process_mode = 3
+visible = false
+layout_mode = 1
+
+[node name="PauseBtn" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_right = 129.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Pause"
+
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="body_entered" from="Balloon" to="Balloon" method="_on_body_entered"]
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
+[connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
+[connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
+[connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
