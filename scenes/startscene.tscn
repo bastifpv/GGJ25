@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=50 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="9_777iw"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
-[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="10_xeve3"]
+[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
 [ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="11_054hc"]
 [ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="14_11g7h"]
 [ext_resource type="PackedScene" uid="uid://cco1mn7jqd3tt" path="res://scenes/prefabs/rocks/rock-sharp.tscn" id="15_sumeq"]
@@ -30,12 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
-
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
-
 [ext_resource type="Environment" uid="uid://b4xyrints63uk" path="res://scenes/environment.tres" id="31_50be8"]
-
-
 [ext_resource type="Script" path="res://scripts/ui_needle_oxy.gd" id="31_iakcm"]
 [ext_resource type="Texture2D" uid="uid://bvyohemsjyj78" path="res://materials/png/UI/background.png" id="32_te3ub"]
 [ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="33_bptp4"]
@@ -195,8 +191,84 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_b8ppg")
 
+[node name="TextureRect" type="TextureRect" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("ViewportTexture_ttpit")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("9_bkbyw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="OxygenTank" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OxygenTankTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
+layout_mode = 2
+text = "Oxygen im Tank:"
+
+[node name="OxygenTankVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
+layout_mode = 2
+text = "0"
+
+[node name="OxygenBase" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OxygenBaseTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
+layout_mode = 2
+text = "Oxygen in der Basis:"
+
+[node name="OxygenBaseVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
+layout_mode = 2
+text = "0"
+
+[node name="Population" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PopulationTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+layout_mode = 2
+text = "Population:"
+
+[node name="PopulationVal" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
+layout_mode = 2
+text = "0"
+
+[node name="Pause" parent="Control" instance=ExtResource("10_xeve3")]
+process_mode = 3
+visible = false
+z_index = 2
+layout_mode = 1
+
+[node name="PauseBtn" type="Button" parent="Control"]
+z_index = 3
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_right = 36.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme = ExtResource("27_ww8tf")
+text = "Pause"
+
 [node name="UIOverlay" type="SubViewport" parent="Control"]
 transparent_bg = true
+gui_disable_input = true
 size = Vector2i(1920, 1080)
 
 [node name="Node2D" type="Node2D" parent="Control/UIOverlay" node_paths=PackedStringArray("player", "dome")]
@@ -291,78 +363,6 @@ z_index = 1
 position = Vector2(2373, 106)
 scale = Vector2(5, 5)
 texture = ExtResource("38_83g8f")
-
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-script = ExtResource("9_bkbyw")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
-layout_mode = 2
-
-[node name="OxygenTank" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="OxygenTankTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
-layout_mode = 2
-text = "Oxygen im Tank:"
-
-[node name="OxygenTankVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenTank"]
-layout_mode = 2
-text = "0"
-
-[node name="OxygenBase" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="OxygenBaseTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
-layout_mode = 2
-text = "Oxygen in der Basis:"
-
-[node name="OxygenBaseVal" type="Label" parent="Control/MarginContainer/VBoxContainer/OxygenBase"]
-layout_mode = 2
-text = "0"
-
-[node name="Population" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PopulationTxt" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
-layout_mode = 2
-text = "Population:"
-
-[node name="PopulationVal" type="Label" parent="Control/MarginContainer/VBoxContainer/Population"]
-layout_mode = 2
-text = "0"
-
-[node name="Pause" parent="Control" instance=ExtResource("10_xeve3")]
-process_mode = 3
-visible = false
-layout_mode = 1
-
-[node name="PauseBtn" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -120.0
-offset_right = 36.0
-offset_bottom = 60.0
-grow_horizontal = 2
-theme = ExtResource("27_ww8tf")
-text = "Pause"
-
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = SubResource("ViewportTexture_ttpit")
 
 [node name="PlayerRig" type="Node3D" parent="."]
 
