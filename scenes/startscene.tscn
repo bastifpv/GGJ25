@@ -49,6 +49,7 @@ outer_radius = 0.579
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0n1vw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_at1xs"]
+radius = 0.498221
 
 [sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
 
@@ -169,7 +170,7 @@ transform = Transform3D(0.853405, -7.87063e-08, -0.521248, 0, -1, 1.50996e-07, -
 [node name="stalags3" parent="Decke" instance=ExtResource("16_7558u")]
 transform = Transform3D(0.855545, -7.81748e-08, -0.517728, 0, -1, 1.50996e-07, -0.517728, -1.29184e-07, -0.855545, 16.2879, 6.46867, 0)
 
-[node name="Dome" type="StaticBody3D" parent="."]
+[node name="Dome" type="StaticBody3D" parent="." groups=["dome"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_0n1vw")
 
@@ -199,6 +200,7 @@ offset_bottom = 1080.0
 texture = SubResource("ViewportTexture_ttpit")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
+z_index = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

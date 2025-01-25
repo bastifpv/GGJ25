@@ -41,5 +41,17 @@ func _process(delta: float) -> void:
 	
 	pass
 
+# People die (abs num)
 func anotherOneBitesTheDust(val):
 	deadpeople += val
+
+# Collect oxygen
+func oxyForMe(val):
+	tankOxygen += val
+	oxygenTankChange.emit(roundf(tankOxygen))
+	
+# Deliver oxygen
+func deliver():
+	baseOxygen += tankOxygen
+	tankOxygen = 0
+	oxygenTankChange.emit(roundf(baseOxygen))
