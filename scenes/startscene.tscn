@@ -1,15 +1,24 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=22 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
+[ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
 [ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_wft8h"]
 [ext_resource type="Script" path="res://scripts/boden_2.gd" id="4_mslr0"]
 [ext_resource type="Script" path="res://scripts/bubble_spawner.gd" id="5_1burn"]
 [ext_resource type="PackedScene" uid="uid://72lbrgq37jdx" path="res://Source Files/FBX/SM_Prop_Skeleton_Ground_01.fbx" id="6_ji6in"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
+radius = 0.3
+height = 1.8
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_firs7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1rncf"]
 size = Vector3(10, 1, 2)
@@ -39,6 +48,11 @@ outer_radius = 0.579
 
 [node name="Node3D" type="Node3D"]
 
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
+node_a = NodePath("../Player")
+node_b = NodePath("../Balloon")
+
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
 axis_lock_linear_z = true
@@ -61,6 +75,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 material_override = ExtResource("2_sroli")
 mesh = SubResource("CapsuleMesh_ba1tw")
 skeleton = NodePath("../..")
+
+[node name="Balloon" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32796, 4.53247, 0)
+gravity_scale = -1.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_m8vul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balloon"]
+shape = SubResource("SphereShape3D_qb4oj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balloon"]
+mesh = SubResource("SphereMesh_firs7")
 
 [node name="Boden" type="Node3D" parent="."]
 
@@ -128,3 +155,4 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.439532, 0, -0.898227, 0, 1, 0, 0.898227, 0, 0.439532, 5.37143, 0.5, 0.0670607)
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[connection signal="body_entered" from="Balloon" to="Balloon" method="_on_body_entered"]
