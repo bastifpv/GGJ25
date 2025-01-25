@@ -5,7 +5,7 @@ uniform float height_multiplier = 0.1;
 uniform float noise_sample_size = 0.5;
 uniform float animation_speed = 0.05;
 
-uniform vec4 bubble_color : source_color;
+instance uniform vec4 bubble_color : source_color;
 
 varying float height;
 
