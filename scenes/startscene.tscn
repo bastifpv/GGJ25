@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=51 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
@@ -51,6 +51,9 @@ outer_radius = 0.579
 
 [sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ttpit"]
+viewport_path = NodePath("Control/UIOverlay")
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
@@ -62,7 +65,7 @@ radius = 0.3
 height = 1.8
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5uv8a"]
-viewport_path = NodePath("PlayerRig/Player/UI_Overlay/SubViewport")
+viewport_path = NodePath("Control/UIOverlay")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qla2e"]
 shader = ExtResource("25_g11gl")
@@ -191,6 +194,103 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_b8ppg")
 
+[node name="UIOverlay" type="SubViewport" parent="Control"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Node2D" type="Node2D" parent="Control/UIOverlay" node_paths=PackedStringArray("player", "dome")]
+script = ExtResource("31_iakcm")
+player = NodePath("../../../PlayerRig/Player")
+dome = NodePath("../../../Dome")
+
+[node name="UiBackground" type="Sprite2D" parent="Control/UIOverlay/Node2D"]
+z_index = 1
+position = Vector2(930.89, 540)
+scale = Vector2(1.07, 1.07)
+texture = ExtResource("32_te3ub")
+
+[node name="Oxy" type="Node2D" parent="Control/UIOverlay/Node2D"]
+z_index = 2
+position = Vector2(236.28, 860)
+scale = Vector2(0.2, 0.2)
+
+[node name="Circle_oxy" type="Sprite2D" parent="Control/UIOverlay/Node2D/Oxy"]
+position = Vector2(-473, 380)
+scale = Vector2(4.5, 4.487)
+texture = ExtResource("33_bptp4")
+
+[node name="Red_oxy" type="Sprite2D" parent="Control/UIOverlay/Node2D/Oxy"]
+position = Vector2(-772, 155)
+scale = Vector2(4, 4)
+texture = ExtResource("34_7q12g")
+
+[node name="needle_oxy" type="Node2D" parent="Control/UIOverlay/Node2D/Oxy"]
+position = Vector2(-496, 368)
+rotation = 0.211185
+
+[node name="UiNeedle" type="Sprite2D" parent="Control/UIOverlay/Node2D/Oxy/needle_oxy"]
+position = Vector2(-3, -200)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("35_j7h2t")
+
+[node name="lbl_oxy" type="Label" parent="Control/UIOverlay/Node2D/Oxy"]
+offset_left = -825.0
+offset_top = 397.0
+offset_right = -94.0
+offset_bottom = 992.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("36_f05gd")
+theme_override_font_sizes/font_size = 250
+text = "30%"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="population" type="Node2D" parent="Control/UIOverlay/Node2D"]
+z_index = 2
+position = Vector2(794.635, 694.2)
+scale = Vector2(0.2, 0.2)
+
+[node name="People" type="Sprite2D" parent="Control/UIOverlay/Node2D/population"]
+z_index = 1
+position = Vector2(789, 600)
+scale = Vector2(5, 5)
+texture = ExtResource("37_0wk80")
+
+[node name="Circle_population" type="Sprite2D" parent="Control/UIOverlay/Node2D/population"]
+position = Vector2(784, 748)
+scale = Vector2(5, 5)
+texture = ExtResource("33_bptp4")
+
+[node name="lbl_population" type="Label" parent="Control/UIOverlay/Node2D/population"]
+offset_left = 423.0
+offset_top = 735.0
+offset_right = 1154.0
+offset_bottom = 1330.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("36_f05gd")
+theme_override_font_sizes/font_size = 250
+text = "2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="home" type="Node2D" parent="Control/UIOverlay/Node2D"]
+z_index = 2
+position = Vector2(1296.93, 912.175)
+scale = Vector2(0.2, 0.2)
+
+[node name="Circle_home" type="Sprite2D" parent="Control/UIOverlay/Node2D/home"]
+position = Vector2(2361, 111)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("33_bptp4")
+
+[node name="Arrow_home" type="Sprite2D" parent="Control/UIOverlay/Node2D/home"]
+z_index = 1
+position = Vector2(2373, 106)
+scale = Vector2(5, 5)
+texture = ExtResource("38_83g8f")
+
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -257,6 +357,12 @@ grow_horizontal = 2
 theme = ExtResource("27_ww8tf")
 text = "Pause"
 
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("ViewportTexture_ttpit")
+
 [node name="PlayerRig" type="Node3D" parent="."]
 
 [node name="Balloon" type="RigidBody3D" parent="PlayerRig"]
@@ -294,7 +400,7 @@ script = ExtResource("1_5xwa5")
 shape = SubResource("CapsuleShape3D_vv0bg")
 
 [node name="Camera3D" type="Camera3D" parent="PlayerRig/Player"]
-transform = Transform3D(1, 0, 0, 0, 0.962094, 0.272717, 0, -0.272717, 0.962094, 0, 2.94869, 10.4997)
+transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 0, 1.214, 7.205)
 
 [node name="Player" type="MeshInstance3D" parent="PlayerRig/Player"]
 material_override = ExtResource("2_sroli")
@@ -306,103 +412,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
 
 [node name="UI_Overlay" type="Sprite3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 0.965085, 0.261937, 0, -0.261937, 0.965085, 0.0718358, 0.698994, 4.62374)
+visible = false
 texture = SubResource("ViewportTexture_5uv8a")
 
-[node name="SubViewport" type="SubViewport" parent="PlayerRig/Player/UI_Overlay"]
-transparent_bg = true
-size = Vector2i(1920, 1080)
-
-[node name="Node2D" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport"]
-script = ExtResource("31_iakcm")
-
-[node name="UiBackground" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
-z_index = 1
-position = Vector2(899, 517)
-texture = ExtResource("32_te3ub")
-
-[node name="Oxy" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
-z_index = 2
-position = Vector2(307, 755)
-scale = Vector2(0.2, 0.2)
-
-[node name="Circle_oxy" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
-position = Vector2(-473, 380)
-scale = Vector2(4.5, 4.487)
-texture = ExtResource("33_bptp4")
-
-[node name="Red_oxy" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
-position = Vector2(-772, 155)
-scale = Vector2(4, 4)
-texture = ExtResource("34_7q12g")
-
-[node name="needle_oxy" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
-position = Vector2(-496, 368)
-rotation = 0.211185
-
-[node name="UiNeedle" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy/needle_oxy"]
-position = Vector2(-3, -200)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("35_j7h2t")
-
-[node name="lbl_oxy" type="Label" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/Oxy"]
-offset_left = -825.0
-offset_top = 397.0
-offset_right = -94.0
-offset_bottom = 992.0
-theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
-theme_override_fonts/font = ExtResource("36_f05gd")
-theme_override_font_sizes/font_size = 250
-text = "30%"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="population" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
-z_index = 2
-position = Vector2(763, 605)
-scale = Vector2(0.2, 0.2)
-
-[node name="People" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/population"]
-z_index = 1
-position = Vector2(789, 600)
-scale = Vector2(5, 5)
-texture = ExtResource("37_0wk80")
-
-[node name="Circle_population" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/population"]
-position = Vector2(784, 748)
-scale = Vector2(5, 5)
-texture = ExtResource("33_bptp4")
-
-[node name="lbl_population" type="Label" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/population"]
-offset_left = 423.0
-offset_top = 735.0
-offset_right = 1154.0
-offset_bottom = 1330.0
-theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
-theme_override_fonts/font = ExtResource("36_f05gd")
-theme_override_font_sizes/font_size = 250
-text = "2000"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="home" type="Node2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D"]
-z_index = 2
-position = Vector2(1189, 812)
-scale = Vector2(0.2, 0.2)
-
-[node name="Circle_home" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/home"]
-position = Vector2(2361, 111)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("33_bptp4")
-
-[node name="Arrow_home" type="Sprite2D" parent="PlayerRig/Player/UI_Overlay/SubViewport/Node2D/home"]
-z_index = 1
-position = Vector2(2373, 106)
-scale = Vector2(5, 5)
-texture = ExtResource("38_83g8f")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_qla2e")
@@ -417,10 +431,10 @@ mouse_filter = 2
 environment = ExtResource("31_50be8")
 
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
-[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="PlayerRig/Player/UI_Overlay/SubViewport/Node2D" method="get_oxy"]
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]
 [connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
-[connection signal="populationChange" from="Control/MarginContainer" to="PlayerRig/Player/UI_Overlay/SubViewport/Node2D" method="get_population"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_population"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
 [connection signal="body_entered" from="PlayerRig/Balloon" to="PlayerRig/Balloon" method="_on_body_entered"]
