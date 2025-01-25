@@ -49,7 +49,6 @@ radius = 0.382804
 height = 0.969771
 
 [node name="rock-large" type="StaticBody3D"]
-collision_layer = 2
 
 [node name="rock-large" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_l1nm1")

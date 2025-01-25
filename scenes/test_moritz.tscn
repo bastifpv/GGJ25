@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsrhetkqx5sb4"]
 
 [ext_resource type="PackedScene" uid="uid://brpcqxftogyip" path="res://scenes/bubble.tscn" id="1_r7eqm"]
-[ext_resource type="Environment" uid="uid://d26xb2qisiyuy" path="res://scenes/environment.tres" id="2_h41m4"]
+[ext_resource type="Environment" uid="uid://b4xyrints63uk" path="res://scenes/environment.tres" id="2_h41m4"]
 [ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="2_o4868"]
 [ext_resource type="PackedScene" uid="uid://b1jac5at2lm1x" path="res://our_assets/baloon.glb" id="3_wagcv"]
 
