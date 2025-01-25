@@ -19,6 +19,11 @@ func showCredits():
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	pass
 
+func showSettings():
+	print("showSettings")
+	get_tree().change_scene_to_file("res://scenes/settings.tscn")
+	pass
+
 func quitGame():
 	print("QuitGame")
 	get_tree().quit()

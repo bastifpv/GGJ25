@@ -1,18 +1,14 @@
-[gd_scene load_steps=33 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=27 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
-[ext_resource type="Shader" path="res://shaders/glass.gdshader" id="2_00ffh"]
-[ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
+[ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="16_7558u"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
-[ext_resource type="PackedScene" uid="uid://d18tw4xa47hrc" path="res://scenes/baloon.tscn" id="26_2i0iw"]
-[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="27_nspu1"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
-[ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
 [ext_resource type="Environment" uid="uid://b4xyrints63uk" path="res://scenes/environment.tres" id="31_50be8"]
 [ext_resource type="Script" path="res://scripts/ui_needle_oxy.gd" id="31_iakcm"]
@@ -30,21 +26,10 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_at1xs"]
 radius = 0.498221
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_72uue"]
-render_priority = 0
-shader = ExtResource("2_00ffh")
-shader_parameter/albedo = Color(1, 1, 1, 0)
-shader_parameter/roughness = 0.15
-shader_parameter/normal_strength = 1.0
-shader_parameter/edge_color = Color(0, 0, 0, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
-material = SubResource("ShaderMaterial_72uue")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ttpit"]
 viewport_path = NodePath("Control/UIOverlay")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 radius = 0.141302
@@ -76,11 +61,6 @@ shape = SubResource("SphereShape3D_at1xs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Dome"]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
-mesh = SubResource("SphereMesh_tlxp3")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Dome"]
-transform = Transform3D(11.74, 0, 0, 0, 11.74, 0, 0, 0, 11.74, 0, 0, 0)
 mesh = SubResource("SphereMesh_tlxp3")
 skeleton = NodePath("../..")
 
@@ -177,8 +157,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -78.0
-offset_right = 78.0
+offset_left = -120.0
+offset_right = 36.0
 offset_bottom = 60.0
 grow_horizontal = 2
 theme = ExtResource("27_ww8tf")
@@ -203,8 +183,8 @@ offset = Vector2(0, 19.01)
 
 [node name="Oxy" type="Node2D" parent="Control/UIOverlay/Node2D"]
 z_index = 2
-position = Vector2(225.255, 871.895)
-scale = Vector2(0.18, 0.18)
+position = Vector2(236.28, 860)
+scale = Vector2(0.2, 0.2)
 
 [node name="Circle_oxy" type="Sprite2D" parent="Control/UIOverlay/Node2D/Oxy"]
 position = Vector2(-473, 380)
@@ -269,8 +249,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="home" type="Node2D" parent="Control/UIOverlay/Node2D"]
 z_index = 2
-position = Vector2(1357.72, 925.305)
-scale = Vector2(0.18, 0.18)
+position = Vector2(1296.93, 912.175)
+scale = Vector2(0.2, 0.2)
 
 [node name="Circle_home" type="Sprite2D" parent="Control/UIOverlay/Node2D/home"]
 position = Vector2(2361, 111)
@@ -284,28 +264,19 @@ scale = Vector2(5, 5)
 texture = ExtResource("38_83g8f")
 
 [node name="PlayerRig" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78291, 2.98399, 0)
 
-[node name="Balloon" type="RigidBody3D" parent="PlayerRig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26576, 4.04479, 0)
-gravity_scale = -1.0
-contact_monitor = true
-max_contacts_reported = 1
-script = ExtResource("3_m8vul")
+[node name="Balloon" parent="PlayerRig" instance=ExtResource("14_2s8vx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.035, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRig/Balloon"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759396, 0)
-shape = SubResource("SphereShape3D_qb4oj")
+[node name="Balloon_2" parent="PlayerRig" instance=ExtResource("14_2s8vx")]
+transform = Transform3D(-4.37114e-08, -0.23005, 0.973179, 0, 0.973179, 0.23005, -1, 1.00558e-08, -4.2539e-08, -0.243219, 1.01542, -0.000162721)
 
-[node name="baloon" parent="PlayerRig/Balloon" instance=ExtResource("26_2i0iw")]
-
-[node name="Rope" parent="PlayerRig/Balloon" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("27_nspu1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000509977, -0.97854, 0)
-script = ExtResource("28_ccwwl")
-top_point = NodePath("..")
-bottom_point = NodePath("../../Player")
+[node name="Balloon_3" parent="PlayerRig" instance=ExtResource("14_2s8vx")]
+transform = Transform3D(-4.37114e-08, 0.23005, 0.973179, 0, 0.973179, -0.23005, -1, -1.00558e-08, -4.2539e-08, 0.233021, 0.989553, 0.00621954)
 
 [node name="Player" type="RigidBody3D" parent="PlayerRig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, -0.0821243)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0899534)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -317,18 +288,20 @@ linear_damp = 2.0
 script = ExtResource("1_5xwa5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRig/Player"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.313709, 0.839688, 0.101654)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.314, -0.0330127, 0.102)
 shape = SubResource("CapsuleShape3D_vv0bg")
 
 [node name="Camera3D" type="Camera3D" parent="PlayerRig/Player"]
-transform = Transform3D(1, 0, 0, 0, 0.915136, 0.403146, 0, -0.403146, 0.915136, 0, 2.04143, 4.93879)
-fov = 84.5
+transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 0, 1.214, 7.205)
 
 [node name="diver" parent="PlayerRig/Player" instance=ExtResource("30_xbtnc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838893, 0.106693)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.107)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
+
+[node name="Balloonbefestigung" type="Marker3D" parent="PlayerRig/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00637841, 0.897872, 0.0839639)
 
 [node name="coral-small_orange" parent="." instance=ExtResource("5_sfw8e")]
 transform = Transform3D(-0.995897, 0, 0.0904936, 0, 1, 0, -0.0904936, 0, -0.995897, 7.77056, -0.449376, -2.28277)
@@ -350,14 +323,12 @@ environment = ExtResource("31_50be8")
 [node name="Worldgenerator" type="Node" parent="."]
 script = ExtResource("41_6fcj0")
 
+[connection signal="baseStorageChange" from="Control/MarginContainer" to="Control" method="recieveBaseStorage"]
 [connection signal="level_up" from="Control/MarginContainer" to="PlayerRig/Player" method="_on_level_up"]
-[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
-[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]
-[connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_population"]
+[connection signal="tankChange" from="Control/MarginContainer" to="Control" method="recieveTank"]
 [connection signal="xp_change" from="Control/MarginContainer" to="Control" method="_on_margin_container_xp_change"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
-[connection signal="body_entered" from="PlayerRig/Balloon" to="PlayerRig/Balloon" method="_on_body_entered"]
 [connection signal="body_entered" from="PlayerRig/Player" to="PlayerRig/Player" method="_on_body_entered"]
