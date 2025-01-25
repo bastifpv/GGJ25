@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=36 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="22_5v8x0"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
+[ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 radius = 0.3
@@ -269,6 +270,7 @@ offset_left = -27.0
 offset_right = 129.0
 offset_bottom = 60.0
 grow_horizontal = 2
+theme = ExtResource("27_ww8tf")
 text = "Pause"
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
