@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx71naq4iw5f3"]
+[gd_scene load_steps=7 format=3 uid="uid://dx71naq4iw5f3"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_hj5gr"]
 [ext_resource type="PackedScene" uid="uid://cqmedomfp5mn4" path="res://scenes/background.tscn" id="2_oreqn"]
 [ext_resource type="Texture2D" uid="uid://bf5rn8o27cxsq" path="res://materials/png/background.png" id="3_75lyi"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="4_7qtv7"]
+[ext_resource type="AudioStream" uid="uid://bs4odonuoepd0" path="res://our_assets/bgMusic.mp3" id="5_lcoee"]
+[ext_resource type="Script" path="res://scripts/audioController.gd" id="6_3ntti"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_hj5gr")
@@ -107,6 +109,12 @@ offset_bottom = 316.0
 size_flags_horizontal = 0
 theme = ExtResource("4_7qtv7")
 text = "Quit"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lcoee")
+volume_db = 5.448
+autoplay = true
+script = ExtResource("6_3ntti")
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control/Start" to="." method="startGame"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control3/credits" to="." method="showCredits"]
