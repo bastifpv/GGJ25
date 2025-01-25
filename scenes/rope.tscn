@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://0rudqscbrs5u"]
+[gd_scene load_steps=4 format=3 uid="uid://0rudqscbrs5u"]
+
+[ext_resource type="Material" uid="uid://bdauwvvtyqi4l" path="res://materials/rope.tres" id="1_pfdkl"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_c0dg7"]
-top_radius = 0.02
-bottom_radius = 0.02
+material = ExtResource("1_pfdkl")
+top_radius = 0.01
+bottom_radius = 0.01
 height = 0.2
 radial_segments = 8
 rings = 1

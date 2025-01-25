@@ -4,6 +4,7 @@ extends MeshInstance3D
 
 var bubble = preload("res://scenes/bubble.tscn")
 var rng = RandomNumberGenerator.new()
+@export var player : Node3D
 
 func spawnBubble():
 	var bub: RigidBody3D =  bubble.instantiate()
@@ -22,5 +23,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if rng.randf() > .95:
 		spawnBubble()

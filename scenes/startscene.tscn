@@ -1,6 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=33 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
+[ext_resource type="Shader" path="res://shaders/glass.gdshader" id="2_00ffh"]
+[ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
@@ -26,7 +28,16 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_at1xs"]
 radius = 0.498221
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72uue"]
+render_priority = 0
+shader = ExtResource("2_00ffh")
+shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/roughness = 0.15
+shader_parameter/normal_strength = 1.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
+material = SubResource("ShaderMaterial_72uue")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ttpit"]
 viewport_path = NodePath("Control/UIOverlay")
@@ -61,6 +72,11 @@ shape = SubResource("SphereShape3D_at1xs")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Dome"]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
+mesh = SubResource("SphereMesh_tlxp3")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Dome"]
+transform = Transform3D(11.74, 0, 0, 0, 11.74, 0, 0, 0, 11.74, 0, 0, 0)
 mesh = SubResource("SphereMesh_tlxp3")
 skeleton = NodePath("../..")
 
@@ -157,8 +173,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -120.0
-offset_right = 36.0
+offset_left = -78.0
+offset_right = 78.0
 offset_bottom = 60.0
 grow_horizontal = 2
 theme = ExtResource("27_ww8tf")
@@ -177,13 +193,13 @@ dome = NodePath("../../../Dome")
 [node name="UiBackground" type="Sprite2D" parent="Control/UIOverlay/Node2D"]
 z_index = 1
 position = Vector2(930.89, 540)
-scale = Vector2(1.07, 1.07)
+scale = Vector2(1.355, 1.355)
 texture = ExtResource("32_te3ub")
 
 [node name="Oxy" type="Node2D" parent="Control/UIOverlay/Node2D"]
 z_index = 2
-position = Vector2(236.28, 860)
-scale = Vector2(0.2, 0.2)
+position = Vector2(225.255, 871.895)
+scale = Vector2(0.18, 0.18)
 
 [node name="Circle_oxy" type="Sprite2D" parent="Control/UIOverlay/Node2D/Oxy"]
 position = Vector2(-473, 380)
@@ -248,8 +264,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="home" type="Node2D" parent="Control/UIOverlay/Node2D"]
 z_index = 2
-position = Vector2(1296.93, 912.175)
-scale = Vector2(0.2, 0.2)
+position = Vector2(1357.72, 925.305)
+scale = Vector2(0.18, 0.18)
 
 [node name="Circle_home" type="Sprite2D" parent="Control/UIOverlay/Node2D/home"]
 position = Vector2(2361, 111)
@@ -291,7 +307,8 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.314
 shape = SubResource("CapsuleShape3D_vv0bg")
 
 [node name="Camera3D" type="Camera3D" parent="PlayerRig/Player"]
-transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 0, 1.214, 7.205)
+transform = Transform3D(1, 0, 0, 0, 0.915136, 0.403146, 0, -0.403146, 0.915136, 0, 2.04143, 4.93879)
+fov = 84.5
 
 [node name="diver" parent="PlayerRig/Player" instance=ExtResource("30_xbtnc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.107)
