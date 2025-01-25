@@ -30,6 +30,7 @@ script = ExtResource("1_ajy6j")
 bubbleColor = Color(0.353153, 0.654218, 0.635119, 1)
 
 [node name="BubbleMesh" type="MeshInstance3D" parent="."]
+instance_shader_parameters/bubble_color = Color(0.353153, 0.654218, 0.635119, 1)
 mesh = SubResource("SphereMesh_53kgs")
 
 [node name="BubbleShape" type="CollisionShape3D" parent="."]
