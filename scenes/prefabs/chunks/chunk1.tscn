@@ -1,7 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://cleey1n3vjrye"]
 
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="1_boaho"]
-[ext_resource type="Script" path="res://scripts/chunk.gd" id="1_iu7c3"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="2_kd1mi"]
 [ext_resource type="PackedScene" uid="uid://7pagx8jc7aqd" path="res://scenes/prefabs/rocks/rock_large.tscn" id="3_pmla0"]
 [ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="4_e17kh"]
