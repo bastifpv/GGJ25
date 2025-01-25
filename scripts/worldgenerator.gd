@@ -24,7 +24,6 @@ func _process(delta: float) -> void:
 	player = get_node("../PlayerRig/Player")
 	on_move_generate_sand(player.position)
 	on_move_place_chunk(player.position)
-	pass
 
 func generate_sand_initial():
 	const SAND_LENGHT = 10
@@ -58,34 +57,33 @@ func on_move_generate_sand(player_position):
 
 func generate_initial_world():
 	#Generate left Chunk 
-	var chunk_right1 : Node3D = chunk1.instantiate()
+	var chunk_right1 : Node3D = get_random_chunk().instantiate()
 	add_child(chunk_right1)
 	chunk_right1.position = Vector3(0,0,0)
 	#Generate right Chunk
-	var chunk_left1 : Node3D = chunk1.instantiate()
+	var chunk_left1 : Node3D = get_random_chunk().instantiate()
 	add_child(chunk_left1)
 	chunk_left1.position = Vector3(0-CHUNK_SIZE,0,0)
-	
 	MaxPlacedChunks = 1
 	MinPlacedChunks = 1
-	pass
 
 func on_move_place_chunk(player_position):
-	print(str((player_position.x + RENDER_DISTANCE)/CHUNK_SIZE))
+	#print(str((player_position.x + RENDER_DISTANCE)/CHUNK_SIZE))
 	if (((player_position.x + RENDER_DISTANCE)/CHUNK_SIZE)>MaxPlacedChunks):
-		var chunk_right : Node3D = chunk1.instantiate()
+		var chunk_right : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_right)
 		chunk_right.position = Vector3(0+(CHUNK_SIZE*MaxPlacedChunks),0,0)
-		print(CHUNK_SIZE*MaxPlacedChunks)
 		MaxPlacedChunks = MaxPlacedChunks + 1
 		print("place new chunk right")
 		
 	if (((player_position.x - RENDER_DISTANCE)/CHUNK_SIZE)<MinPlacedChunks):
-		var chunk_left : Node3D = chunk1.instantiate()
+		var chunk_left : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_left)
 		chunk_left.position = Vector3(0-(CHUNK_SIZE*abs(MinPlacedChunks)),0,0)
-		print(CHUNK_SIZE*MinPlacedChunks)
 		MinPlacedChunks = MinPlacedChunks - 1
 		print("place new chunk left")
 		
-	pass
+func get_random_chunk():
+	var chunks = [chunk1]
+	var random_index = randf_range(0, chunks.size()-1)
+	return chunks[random_index]
