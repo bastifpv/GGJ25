@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d18tw4xa47hrc"]
+
+[ext_resource type="PackedScene" uid="uid://b1jac5at2lm1x" path="res://our_assets/baloon.glb" id="1_ep0f7"]
+
+[node name="baloon" instance=ExtResource("1_ep0f7")]

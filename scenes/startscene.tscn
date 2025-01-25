@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
-[ext_resource type="Script" path="res://scripts/rope.gd" id="3_fy083"]
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="4_mq807"]
 [ext_resource type="PackedScene" uid="uid://7pagx8jc7aqd" path="res://scenes/prefabs/rocks/rock_large.tscn" id="4_ufqcl"]
@@ -26,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cjym50lv6r43" path="res://scenes/prefabs/rocks/stone-pointy.tscn" id="20_k8v28"]
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="22_5v8x0"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
+[ext_resource type="Script" path="res://scripts/pauseController.gd" id="27_f36qv"]
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 
@@ -40,7 +40,6 @@ height = 1.8
 [sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_firs7"]
-[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="28_3vrr1"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
 inner_radius = 0.252
@@ -52,19 +51,51 @@ outer_radius = 0.579
 
 [sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
-radius = 0.3
-height = 1.8
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
-radius = 0.3
-height = 1.8
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_firs7"]
-
 [node name="Node3D" type="Node3D"]
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
+node_a = NodePath("../Player")
+node_b = NodePath("../Balloon")
+
+[node name="Player" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.8
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 2.0
+script = ExtResource("1_5xwa5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_vv0bg")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="Player" type="MeshInstance3D" parent="Player"]
+material_override = ExtResource("2_sroli")
+mesh = SubResource("CapsuleMesh_ba1tw")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
+
+[node name="Balloon" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32796, 4.53247, 0)
+gravity_scale = -1.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("3_m8vul")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Balloon"]
+shape = SubResource("SphereShape3D_qb4oj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Balloon"]
+mesh = SubResource("SphereMesh_firs7")
 
 [node name="Boden" type="Node3D" parent="."]
 
@@ -230,6 +261,7 @@ text = "0"
 process_mode = 3
 visible = false
 layout_mode = 1
+script = ExtResource("27_f36qv")
 
 [node name="PauseBtn" type="Button" parent="Control"]
 layout_mode = 1
@@ -243,58 +275,10 @@ grow_horizontal = 2
 theme = ExtResource("27_ww8tf")
 text = "Pause"
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2604, 3.0829, 0)
-
-[node name="Player" type="RigidBody3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000578165, -0.917752, 0)
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-gravity_scale = 0.8
-contact_monitor = true
-max_contacts_reported = 1
-linear_damp = 2.0
-script = ExtResource("1_5xwa5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Player"]
-shape = SubResource("CapsuleShape3D_vv0bg")
-
-[node name="Camera3D" type="Camera3D" parent="Node3D/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
-
-[node name="Player" type="MeshInstance3D" parent="Node3D/Player"]
-material_override = ExtResource("2_sroli")
-mesh = SubResource("CapsuleMesh_ba1tw")
-skeleton = NodePath("../../..")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
-
-[node name="Rope" parent="Node3D" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("28_3vrr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016, 0)
-script = ExtResource("3_fy083")
-top_point = NodePath("../Balloon")
-bottom_point = NodePath("../Player")
-
-[node name="Balloon" type="RigidBody3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48641, 0)
-gravity_scale = -1.0
-contact_monitor = true
-max_contacts_reported = 1
-script = ExtResource("3_m8vul")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Balloon"]
-shape = SubResource("SphereShape3D_qb4oj")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Balloon"]
-mesh = SubResource("SphereMesh_firs7")
-
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[connection signal="body_entered" from="Balloon" to="Balloon" method="_on_body_entered"]
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
 [connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
-[connection signal="body_entered" from="Node3D/Player" to="Node3D/Player" method="_on_body_entered"]
-[connection signal="body_entered" from="Node3D/Balloon" to="Node3D/Balloon" method="_on_body_entered"]

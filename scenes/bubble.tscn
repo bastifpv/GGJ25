@@ -29,6 +29,7 @@ gravity_scale = -0.4
 script = ExtResource("1_ajy6j")
 
 [node name="BubbleMesh" type="MeshInstance3D" parent="."]
+instance_shader_parameters/bubble_color = Color(0, 0, 0, 1)
 mesh = SubResource("SphereMesh_53kgs")
 
 [node name="BubbleShape" type="CollisionShape3D" parent="."]
