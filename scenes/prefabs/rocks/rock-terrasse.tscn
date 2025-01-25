@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bc5hxvpqkfomj"]
 
-[ext_resource type="Material" uid="uid://dsiml7ngerpa3" path="res://materials/sandstone.tres" id="1_upgb5"]
+[ext_resource type="Material" path="res://materials/caustic_rocks.tres" id="1_butoy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rar43"]
 resource_name = "LOWPOLY-COLORS"
@@ -54,7 +54,7 @@ size = Vector3(1, 1.02734, 0.964844)
 [node name="rock-terrasse" type="StaticBody3D"]
 
 [node name="rock-terrasse" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_upgb5")
+material_override = ExtResource("1_butoy")
 mesh = SubResource("ArrayMesh_cuw6o")
 skeleton = NodePath("")
 
