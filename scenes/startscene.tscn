@@ -416,7 +416,6 @@ visible = false
 texture = SubResource("ViewportTexture_5uv8a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_qla2e")
