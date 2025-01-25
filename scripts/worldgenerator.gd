@@ -7,8 +7,9 @@ var MaxRenderd = 0
 var MinRenderd = 0
 var MaxPlacedChunks = 0
 var MinPlacedChunks = 0
-var player
+var player : Node3D
 const CHUNK_SIZE = 50
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
