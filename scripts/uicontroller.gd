@@ -43,6 +43,7 @@ func recievePopulation(val: Variant) -> void:
 	
 func _on_pause_btn_pressed() -> void:
 	print("pause")
+	get_tree().paused = true
 	gamePause.visible = true
 	pauseBtn.visible = false
 
@@ -50,3 +51,4 @@ func _on_pause_end_pause() -> void:
 	print("endPause")
 	gamePause.visible = false
 	pauseBtn.visible = true
+	get_tree().paused = false

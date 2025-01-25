@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsrhetkqx5sb4"]
+[gd_scene load_steps=8 format=3 uid="uid://dsrhetkqx5sb4"]
 
-[ext_resource type="PackedScene" uid="uid://q37s67i8v188" path="res://scenes/bubble.tscn" id="1_r7eqm"]
+[ext_resource type="PackedScene" uid="uid://brpcqxftogyip" path="res://scenes/bubble.tscn" id="1_r7eqm"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="2_o4868"]
+[ext_resource type="PackedScene" uid="uid://b1jac5at2lm1x" path="res://our_assets/baloon.glb" id="3_wagcv"]
 
 [sub_resource type="Environment" id="Environment_lhq7j"]
 background_mode = 1
@@ -9,23 +11,20 @@ ambient_light_color = Color(0.460644, 0.859775, 0.693485, 1)
 ambient_light_energy = 0.1
 fog_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji2b7"]
-albedo_color = Color(0.881643, 0.841931, 0.735255, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_u61ls"]
-material = SubResource("StandardMaterial3D_ji2b7")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bd4qo"]
-albedo_color = Color(0.565866, 0.417614, 0.162021, 1)
+material = ExtResource("2_o4868")
 
 [sub_resource type="BoxMesh" id="BoxMesh_8xwtg"]
-material = SubResource("StandardMaterial3D_bd4qo")
+material = ExtResource("2_o4868")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mey76"]
+size = Vector3(5.96783, 1, 4.74072)
 
 [node name="TestMoritz" type="Node3D"]
 
-[node name="Bubble" parent="." instance=ExtResource("1_r7eqm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0083859, 0.857255, -0.00159264)
-bubbleColor = Color(0.892134, 0.649454, 0.926266, 1)
+[node name="Bubble2" parent="." instance=ExtResource("1_r7eqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.743385, 0.816293, -0.00318528)
+bubbleColor = Color(0.145035, 0.600886, 0.186993, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0906504, 0.995883, -0.00071698, -0.0922144, -0.00767697, 0.99571, 0.991604, 0.0903276, 0.0925306, -2.03716, 3.54736, 0)
@@ -43,3 +42,12 @@ mesh = SubResource("PlaneMesh_u61ls")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.26332, 0, 0, 0, 2.5465, 0, 0, 0, 1, 0, 0.781612, -1.15385)
 mesh = SubResource("BoxMesh_8xwtg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0726624, 2.53868, 0.164284)
+shape = SubResource("BoxShape3D_mey76")
+
+[node name="baloon2" parent="." instance=ExtResource("3_wagcv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585816, 0, -0.0100971)

@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://boiyof61hkrhc"]
+
+[ext_resource type="FontFile" uid="uid://beku71awwdaib" path="res://materials/font/OpenDyslexic3-Bold.ttf" id="1_5djia"]
+[ext_resource type="StyleBox" uid="uid://bv5wlgkf4f55h" path="res://materials/theme/texture/button_hover.tres" id="2_ryvkn"]
+[ext_resource type="StyleBox" uid="uid://ck3r007egisjo" path="res://materials/theme/texture/button.tres" id="3_jrre0"]
+
+[resource]
+Button/colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+Button/colors/font_hover_color = Color(0.0509804, 0.231373, 0.4, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_5djia")
+Button/styles/focus = ExtResource("2_ryvkn")
+Button/styles/hover = ExtResource("2_ryvkn")
+Button/styles/hover_pressed = ExtResource("2_ryvkn")
+Button/styles/normal = ExtResource("3_jrre0")
+Button/styles/pressed = ExtResource("2_ryvkn")
+Label/colors/font_color = Color(0.980392, 0.941176, 0.792157, 1)

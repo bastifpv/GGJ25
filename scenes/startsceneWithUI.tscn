@@ -1,15 +1,26 @@
-[gd_scene load_steps=18 format=3 uid="uid://bimgpi15wkcc1"]
+[gd_scene load_steps=28 format=3 uid="uid://c7aoicj0ibdbc"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bv1jn"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_72nfq"]
 [ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_1s1bm"]
+[ext_resource type="Script" path="res://scripts/ui_needle_oxy.gd" id="3_igeef"]
+[ext_resource type="Texture2D" uid="uid://bvyohemsjyj78" path="res://materials/png/UI/background.png" id="4_q4so6"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="4_y1q0b"]
-[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="5_pcuml"]
-
+[ext_resource type="Script" path="res://scripts/oxylation.gd" id="5_71iw4"]
+[ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="5_cif7j"]
+[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="5_pcuml"]
+[ext_resource type="Texture2D" uid="uid://d2lsmcqedlryc" path="res://materials/png/UI/red.png" id="6_orsgr"]
+[ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="7_8thku"]
+[ext_resource type="Texture2D" uid="uid://bakdyo1ahgpvq" path="res://materials/png/UI/neelde.png" id="7_yk40i"]
+[ext_resource type="Texture2D" uid="uid://hvdx6s3ncvh6" path="res://materials/png/UI/pop.png" id="9_ddpbw"]
+[ext_resource type="Texture2D" uid="uid://coivd5lnqq1pb" path="res://materials/png/UI/arrow.png" id="10_1i2nf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ba1tw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ydks"]
+viewport_path = NodePath("Player/SubViewport")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_trtuc"]
 
@@ -50,12 +61,110 @@ script = ExtResource("1_bv1jn")
 shape = SubResource("CapsuleShape3D_vv0bg")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+transform = Transform3D(1, 0, 0, 0, 0.990268, 0.139173, 0, -0.139173, 0.990268, -0.388118, 1.38054, 16.3707)
 
 [node name="Player" type="MeshInstance3D" parent="Player"]
 material_override = ExtResource("2_72nfq")
 mesh = SubResource("CapsuleMesh_ba1tw")
 skeleton = NodePath("../..")
+
+[node name="UI_Sprite" type="Sprite3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.9961, 0.0882337, 0, -0.0882337, 0.9961, 0, 0, 9.98668)
+texture = SubResource("ViewportTexture_1ydks")
+
+[node name="SubViewport" type="SubViewport" parent="Player"]
+transparent_bg = true
+size = Vector2i(1920, 1080)
+
+[node name="Node2D" type="Node2D" parent="Player/SubViewport"]
+script = ExtResource("3_igeef")
+
+[node name="UiBackground" type="Sprite2D" parent="Player/SubViewport/Node2D"]
+z_index = 1
+position = Vector2(899, 517)
+texture = ExtResource("4_q4so6")
+
+[node name="Oxy" type="Node2D" parent="Player/SubViewport/Node2D"]
+z_index = 2
+position = Vector2(305, 791)
+scale = Vector2(0.2, 0.2)
+
+[node name="Circle_oxy" type="Sprite2D" parent="Player/SubViewport/Node2D/Oxy"]
+position = Vector2(-473, 380)
+scale = Vector2(4.5, 4.487)
+texture = ExtResource("5_cif7j")
+
+[node name="Red_oxy" type="Sprite2D" parent="Player/SubViewport/Node2D/Oxy"]
+position = Vector2(-772, 155)
+scale = Vector2(4, 4)
+texture = ExtResource("6_orsgr")
+
+[node name="needle_oxy" type="Node2D" parent="Player/SubViewport/Node2D/Oxy"]
+position = Vector2(-496, 368)
+rotation = 0.211185
+
+[node name="UiNeedle" type="Sprite2D" parent="Player/SubViewport/Node2D/Oxy/needle_oxy"]
+position = Vector2(-3, -200)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("7_yk40i")
+
+[node name="lbl_oxy" type="Label" parent="Player/SubViewport/Node2D/Oxy"]
+offset_left = -825.0
+offset_top = 397.0
+offset_right = -94.0
+offset_bottom = 992.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("7_8thku")
+theme_override_font_sizes/font_size = 250
+text = "30%"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="population" type="Node2D" parent="Player/SubViewport/Node2D"]
+z_index = 2
+position = Vector2(758, 691)
+scale = Vector2(0.2, 0.2)
+
+[node name="People" type="Sprite2D" parent="Player/SubViewport/Node2D/population"]
+z_index = 1
+position = Vector2(789, 600)
+scale = Vector2(5, 5)
+texture = ExtResource("9_ddpbw")
+
+[node name="Circle_population" type="Sprite2D" parent="Player/SubViewport/Node2D/population"]
+position = Vector2(784, 748)
+scale = Vector2(5, 5)
+texture = ExtResource("5_cif7j")
+
+[node name="lbl_population" type="Label" parent="Player/SubViewport/Node2D/population"]
+offset_left = 423.0
+offset_top = 735.0
+offset_right = 1154.0
+offset_bottom = 1330.0
+theme_override_colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
+theme_override_fonts/font = ExtResource("7_8thku")
+theme_override_font_sizes/font_size = 250
+text = "2000"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="home" type="Node2D" parent="Player/SubViewport/Node2D"]
+z_index = 2
+position = Vector2(1168, 841)
+scale = Vector2(0.2, 0.2)
+
+[node name="Circle_home" type="Sprite2D" parent="Player/SubViewport/Node2D/home"]
+position = Vector2(2361, 111)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("5_cif7j")
+
+[node name="Arrow_home" type="Sprite2D" parent="Player/SubViewport/Node2D/home"]
+z_index = 1
+position = Vector2(2373, 106)
+scale = Vector2(5, 5)
+texture = ExtResource("10_1i2nf")
 
 [node name="Boden" type="Node3D" parent="."]
 
@@ -171,10 +280,6 @@ text = "Population:"
 layout_mode = 2
 text = "0"
 
-[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
-[connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
-[connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
-
 [node name="Pause" parent="Control" instance=ExtResource("5_pcuml")]
 visible = false
 layout_mode = 1
@@ -190,6 +295,12 @@ offset_bottom = 60.0
 grow_horizontal = 2
 text = "Pause"
 
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="_on_margin_container_oxygen_base_change"]
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_oxygen_base_change"]
+[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
+[connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_population_change"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="_on_margin_container_population_change"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
-
