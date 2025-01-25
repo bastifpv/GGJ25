@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2qxa78rmhewd"]
+
+[ext_resource type="Script" path="res://scripts/balloon.gd" id="1_gktto"]
+[ext_resource type="PackedScene" uid="uid://d18tw4xa47hrc" path="res://scenes/baloon.tscn" id="2_x6dnl"]
+[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="3_8ydmd"]
+[ext_resource type="Script" path="res://scripts/rope.gd" id="4_k5336"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qb4oj"]
+
+[node name="Balloon" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26576, 4.04479, 0)
+gravity_scale = -1.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_gktto")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.759396, 0)
+shape = SubResource("SphereShape3D_qb4oj")
+
+[node name="baloon" parent="." instance=ExtResource("2_x6dnl")]
+
+[node name="Rope" parent="." node_paths=PackedStringArray("top_point") instance=ExtResource("3_8ydmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000509977, -0.97854, 0)
+script = ExtResource("4_k5336")
+top_point = NodePath("..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
