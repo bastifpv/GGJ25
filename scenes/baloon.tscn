@@ -1,5 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d18tw4xa47hrc"]
+[gd_scene load_steps=3 format=3 uid="uid://d18tw4xa47hrc"]
 
 [ext_resource type="PackedScene" uid="uid://b1jac5at2lm1x" path="res://our_assets/baloon.glb" id="1_ep0f7"]
+[ext_resource type="Material" uid="uid://bdauwvvtyqi4l" path="res://materials/rope.tres" id="2_u0ig0"]
 
 [node name="baloon" instance=ExtResource("1_ep0f7")]
+
+[node name="net" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_u0ig0")
