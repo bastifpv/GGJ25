@@ -16,7 +16,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# berechnet wie viele Minuten das Oxy noch ausreicht
 	# 1 min ist die Grenze zum roten bereich
-	relative_oxy = oxy / (pop * 5)
+	relative_oxy = oxy / (pop * 5.4)
+	
 	if relative_oxy > 1:
 		relative_oxy = 1
 	if relative_oxy < 0:
