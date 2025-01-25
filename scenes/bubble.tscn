@@ -24,7 +24,7 @@ material = SubResource("ShaderMaterial_vqi3u")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yw4p0"]
 
-[node name="Bubble" type="RigidBody3D"]
+[node name="Bubble" type="RigidBody3D" groups=["bubble"]]
 gravity_scale = -0.4
 script = ExtResource("1_ajy6j")
 bubbleColor = Color(0.353153, 0.654218, 0.635119, 1)

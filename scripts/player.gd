@@ -2,10 +2,8 @@ extends RigidBody3D
 
 var force = 1500
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
@@ -23,7 +21,9 @@ func _process(delta: float):
 
 
 func _on_body_entered(body: Node) -> void:
-	var mesh: MeshInstance3D = body.get_node("MeshInstance3D")
+	if !body.has_node("MeshInstance3D"):
+		return
+	var mesh = body.get_node("MeshInstance3D")
 	if mesh && mesh.get_active_material(0):
 		var rng = RandomNumberGenerator.new()
 		mesh.get_active_material(0).albedo_color = Color(rng.randf(), rng.randf(), rng.randf())
