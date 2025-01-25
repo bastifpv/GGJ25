@@ -1,4 +1,4 @@
-extends MeshInstance3D
+extends Node3D
 
 @export var bubble_color: Color
 

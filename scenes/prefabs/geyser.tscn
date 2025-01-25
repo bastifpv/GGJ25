@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbxq4e155qo32"]
+
+[ext_resource type="PackedScene" uid="uid://bxsx7m8nem675" path="res://our_assets/geyser.glb" id="1_nlraq"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="2_mpger"]
+[ext_resource type="Script" path="res://scripts/bubble_spawner.gd" id="2_rs0ya"]
+
+[node name="geyser" instance=ExtResource("1_nlraq")]
+script = ExtResource("2_rs0ya")
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_mpger")
