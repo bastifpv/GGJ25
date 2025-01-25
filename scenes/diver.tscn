@@ -4,7 +4,15 @@
 
 [node name="diver" instance=ExtResource("1_1wqy3")]
 
-[node name="metarig" parent="." index="0"]
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="0"]
+transform = Transform3D(-3.09086e-08, 0.707107, -0.707107, 3.09086e-08, 0.707107, 0.707107, 1, 0, -4.37114e-08, 0.532023, -0.109742, 0)
+light_energy = 2.351
+shadow_enabled = true
+spot_range = 15.0
+spot_attenuation = 2.0
+spot_angle = 58.6
+
+[node name="metarig" parent="." index="1"]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.24014, 0, 0)
 
 [node name="Skeleton3D" parent="metarig" index="0"]
@@ -18,10 +26,10 @@ bones/6/rotation = Quaternion(-0.184884, -3.51463e-07, -2.20399e-08, 0.98276)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/rotation = Quaternion(0.052961, 0.746232, -0.612322, 0.255724)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/rotation = Quaternion(-0.000363642, -0.0733345, 0.00349236, 0.997301)
-bones/10/rotation = Quaternion(0.114296, 0.00815477, 0.00629684, 0.993393)
-bones/12/rotation = Quaternion(0.182981, -0.713015, 0.253867, 0.627438)
-bones/13/rotation = Quaternion(-0.000363668, 0.0733345, -0.00349236, 0.997301)
+bones/9/rotation = Quaternion(0.123389, -0.0844827, -0.126246, 0.980663)
+bones/10/rotation = Quaternion(0.209126, 0.517947, -0.0722602, 0.826302)
+bones/12/rotation = Quaternion(-0.0586967, -0.711095, 0.64803, 0.266375)
+bones/13/rotation = Quaternion(0.171389, 0.0709341, 0.090427, 0.978477)
 bones/13/scale = Vector3(1, 1, 1)
 bones/14/rotation = Quaternion(0.184896, -0.103326, 0.145817, 0.966372)
 bones/14/scale = Vector3(1, 1, 1)
@@ -48,5 +56,5 @@ bones/27/scale = Vector3(1, 1, 1)
 bones/28/rotation = Quaternion(-0.681879, 0.724204, -0.0667023, -0.0782334)
 bones/28/scale = Vector3(1, 1, 1)
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"

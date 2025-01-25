@@ -9,7 +9,8 @@ var ctrl: MarginContainer
 
 func _ready():
 	ap = $diver/AnimationPlayer
-	ap.autoplay = idle_anim
+	ap.playback_default_blend_time = 1.0
+	#ap.autoplay = idle_anim
 	ball = get_parent().get_node("Balloon")
 	ctrl = get_node("/root/Node3D/Control/MarginContainer")
 	return
@@ -56,14 +57,6 @@ func _on_body_entered(body: Node) -> void:
 		body.queue_free()
 		ball.update_size()
 		ctrl.oxyForMe(add_scale.x * 100)
-		
-	if !body.has_node("MeshInstance3D"):
-		return
-	var mesh = body.get_node("MeshInstance3D")
-	if mesh && mesh.get_active_material(0):
-		var rng = RandomNumberGenerator.new()
-		mesh.get_active_material(0).albedo_color = Color(rng.randf(), rng.randf(), rng.randf())
-
 
 func _on_level_up() -> void:
 	var new_ball = ball.instantiate()
