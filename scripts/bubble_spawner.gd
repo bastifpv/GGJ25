@@ -1,11 +1,13 @@
 extends MeshInstance3D
 
+@export var bubble_color: Color
+
 var bubble = preload("res://scenes/bubble.tscn")
 var rng = RandomNumberGenerator.new()
 
 func spawnBubble():
 	var bub: RigidBody3D =  bubble.instantiate()
-	bub.bubbleColor = Color.MIDNIGHT_BLUE
+	bub.bubbleColor = bubble_color
 	add_child(bub)
 	var scl = Vector3.ONE * rng.randf_range(0.01, 0.4)
 	bub.gravity_scale *= scl.x

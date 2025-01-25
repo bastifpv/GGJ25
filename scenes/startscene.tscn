@@ -1,15 +1,20 @@
-[gd_scene load_steps=25 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=29 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
 [ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="3_wft8h"]
+[ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/stone-diamond.tscn" id="4_mq807"]
 [ext_resource type="Script" path="res://scripts/boden_2.gd" id="4_mslr0"]
+[ext_resource type="PackedScene" uid="uid://7pagx8jc7aqd" path="res://scenes/prefabs/rock_large.tscn" id="4_ufqcl"]
 [ext_resource type="Script" path="res://scripts/bubble_spawner.gd" id="5_1burn"]
-[ext_resource type="PackedScene" uid="uid://72lbrgq37jdx" path="res://Source Files/FBX/SM_Prop_Skeleton_Ground_01.fbx" id="6_ji6in"]
+[ext_resource type="PackedScene" uid="uid://br8wro5o8too4" path="res://scenes/prefabs/anchor.tscn" id="7_onxqn"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
+[ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="9_777iw"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
-[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="10_xeve3"]
+[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
+[ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="11_054hc"]
+[ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rock-terrasse.tscn" id="14_11g7h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vv0bg"]
 radius = 0.3
@@ -23,13 +28,10 @@ height = 1.8
 
 [sub_resource type="SphereMesh" id="SphereMesh_firs7"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1rncf"]
-size = Vector3(10, 1, 2)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vqeii"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_16omx"]
 size = Vector3(10, 1, 2)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vqeii"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6y2i7"]
 size = Vector3(10, 1, 2)
@@ -79,6 +81,9 @@ material_override = ExtResource("2_sroli")
 mesh = SubResource("CapsuleMesh_ba1tw")
 skeleton = NodePath("../..")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
+
 [node name="Balloon" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32796, 4.53247, 0)
 gravity_scale = -1.0
@@ -94,22 +99,25 @@ mesh = SubResource("SphereMesh_firs7")
 
 [node name="Boden" type="Node3D" parent="."]
 
-[node name="Boden1" type="StaticBody3D" parent="Boden"]
+[node name="stone-diamond" parent="Boden" instance=ExtResource("4_mq807")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8614, -1.10646, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boden/Boden1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
-shape = SubResource("BoxShape3D_1rncf")
+[node name="rock-large" parent="Boden" instance=ExtResource("4_ufqcl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89426, -1.05199, -0.015625)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
-material_override = ExtResource("3_wft8h")
-mesh = SubResource("BoxMesh_16omx")
-skeleton = NodePath("../../..")
+[node name="rock-terrasse" parent="Boden" instance=ExtResource("14_11g7h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.83696, -1.14728, 0.443867)
+
+[node name="anchor" parent="Boden/rock-terrasse" instance=ExtResource("7_onxqn")]
+transform = Transform3D(-0.822107, 0.564638, 0.0729597, 0.060141, -0.041306, 0.997335, 0.566147, 0.824304, 3.92206e-08, 8.9407e-08, 1.89091, -2.21577)
 
 [node name="Boden2" type="StaticBody3D" parent="Boden"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58737, -1.60015, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.773, -1.58281, -0.0134068)
 physics_material_override = SubResource("PhysicsMaterial_vqeii")
 script = ExtResource("4_mslr0")
+
+[node name="clam" parent="Boden/Boden2" instance=ExtResource("9_777iw")]
+transform = Transform3D(3.945, 0, 0, 0, 3.945, 0, 0, 0, 3.945, 1.99446, 0.578842, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
@@ -121,8 +129,11 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
 shape = SubResource("BoxShape3D_6y2i7")
 
+[node name="clam-pearl" parent="Boden/Boden2" instance=ExtResource("11_054hc")]
+transform = Transform3D(2.36572, 0, -5.09231, 0, 5.615, 0, 5.09231, 0, 2.36572, 8.23193, 0.752555, 0.36037)
+
 [node name="Boden3" type="StaticBody3D" parent="Boden"]
-transform = Transform3D(0.975215, -0.221259, 0, 0.221259, 0.975215, 0, 0, 0, 1, 19.1747, 0.362009, 0)
+transform = Transform3D(0.975215, -0.221259, 0, 0.221259, 0.975215, 0, 0, 0, 1, 19.1747, 0.905081, 0)
 physics_material_override = SubResource("PhysicsMaterial_s4qiu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boden/Boden3"]
@@ -135,11 +146,19 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.987, 0, 0)
 shape = SubResource("BoxShape3D_rck6f")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Boden"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.352, -1.09001, 0)
+[node name="Bubbler" type="MeshInstance3D" parent="Boden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4985, 0.179218, 0)
 mesh = SubResource("TorusMesh_8pnex")
 skeleton = NodePath("")
 script = ExtResource("5_1burn")
+bubble_color = Color(0.858824, 0, 0.654902, 1)
+
+[node name="Bubbler2" type="MeshInstance3D" parent="Boden"]
+transform = Transform3D(0.977669, -0.210147, 0.00141128, 0.210148, 0.977669, -0.00052458, -0.00126954, 0.000809431, 0.999999, 22.4961, 2.14414, 0)
+mesh = SubResource("TorusMesh_8pnex")
+skeleton = NodePath("")
+script = ExtResource("5_1burn")
+bubble_color = Color(0.262745, 0.576471, 0.321569, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 0, 0)
@@ -153,9 +172,6 @@ shape = SubResource("SphereShape3D_at1xs")
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
 mesh = SubResource("SphereMesh_tlxp3")
 skeleton = NodePath("../..")
-
-[node name="SM_Prop_Skeleton_Ground_01" parent="." instance=ExtResource("6_ji6in")]
-transform = Transform3D(0.439532, 0, -0.898227, 0, 1, 0, 0.898227, 0, 0.439532, 5.37143, 0.5, 0.0670607)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
