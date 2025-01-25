@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	var degree = -90 + 180 * relative_oxy	
 	$Oxy/needle_oxy.rotation_degrees = degree
 	$Oxy/lbl_oxy.text = str(int(relative_oxy*100)) + "%" 
+
 	
 	# Dome Posi
 	#print ("X: ")
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 	var rel_y = player.global_position.y - dome.global_position.y
 	var rel_x = player.global_position.x - dome.global_position.x
 	var angle_to_dome = 180 - (tan(rel_y / rel_x)*180/3.1415926)
+
 	$home/Arrow_home.rotation_degrees = angle_to_dome
 
 
