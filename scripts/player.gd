@@ -4,10 +4,14 @@ extends RigidBody3D
 var ap: AnimationPlayer
 var force = 1500
 var targetDirection = Vector3.ZERO
+var ball: RigidBody3D
+var ctrl: MarginContainer
 
 func _ready():
 	ap = $diver/AnimationPlayer
 	ap.autoplay = idle_anim
+	ball = get_parent().get_node("Balloon")
+	ctrl = get_node("/root/Node3D/Control/MarginContainer")
 	return
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,14 +40,32 @@ func _process(delta: float):
 	apply_central_force(add_vec * delta)
 	$diver.rotation_degrees = lerp($diver.rotation_degrees, targetDirection, delta * 2)
 	if new_anim != cur_anim:
-		print(new_anim, cur_anim)
 		ap.play(new_anim)
 
 
 func _on_body_entered(body: Node) -> void:
+	# Deliver O2
+	if body.is_in_group("dome"):
+		ctrl.deliver()
+		ball.reset()
+
+	# Collect Bubbles
+	if body.is_in_group("bubble"):
+		var add_scale = body.get_node("BubbleMesh").scale
+		ball.size += add_scale.x / 10
+		body.queue_free()
+		ball.update_size()
+		ctrl.oxyForMe(add_scale.x * 100)
+		
 	if !body.has_node("MeshInstance3D"):
 		return
 	var mesh = body.get_node("MeshInstance3D")
 	if mesh && mesh.get_active_material(0):
 		var rng = RandomNumberGenerator.new()
 		mesh.get_active_material(0).albedo_color = Color(rng.randf(), rng.randf(), rng.randf())
+
+
+func _on_level_up() -> void:
+	var new_ball = ball.instantiate()
+	get_parent().add_child(new_ball)
+	pass # Replace with function body.

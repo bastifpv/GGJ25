@@ -2,16 +2,17 @@ extends Node
 
 @onready var oxygenTank = $MarginContainer/VBoxContainer/OxygenTank/OxygenTankVal
 @onready var oxygenBase = $MarginContainer/VBoxContainer/OxygenBase/OxygenBaseVal
-@onready var population = $MarginContainer/VBoxContainer/Population/PopulationVal
+@onready var playerLevel = $MarginContainer/VBoxContainer/PlayerLevel/PlayerLevelVal
+@onready var playerXP = $MarginContainer/VBoxContainer/PlayerXP/PlayerXPVal
 @onready var gamePause = $Pause
 @onready var pauseBtn = $PauseBtn
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	###init set
-	setPopulation(10)
 	setOxygenBase(20)
 	setOxygenTank(30)
+	setPlayerLevel(1)
 	
 	pass # Replace with function body.
 
@@ -21,15 +22,18 @@ func _process(delta: float) -> void:
 	pass
 	
 
-func setPopulation(val):
-	population.set_text(str(val))
-	
 func setOxygenBase(val):
 	oxygenBase.set_text(str(val))
-	
+
 func setOxygenTank(val):
 	oxygenTank.set_text(str(val))
 
+func setPlayerLevel(val):
+	playerLevel.set_text(str(val))
+	
+func setPlayerXP(val):
+	playerXP.set_text(str(val))
+	
 
 func recieveOxygenBase(val: Variant) -> void:
 	setOxygenBase(val)
@@ -37,8 +41,10 @@ func recieveOxygenBase(val: Variant) -> void:
 func recieveOxygenTank(val: Variant) -> void:
 	setOxygenTank(val)
 
-func recievePopulation(val: Variant) -> void:
-	setPopulation(val)
+
+func _on_margin_container_xp_change(val: Variant) -> void:
+	setPlayerLevel(val["lvl"])
+	setPlayerXP(val["xp"])
 
 	
 func _on_pause_btn_pressed() -> void:
