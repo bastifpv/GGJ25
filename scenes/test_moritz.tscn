@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsrhetkqx5sb4"]
 
-[ext_resource type="PackedScene" uid="uid://q37s67i8v188" path="res://scenes/bubble.tscn" id="1_r7eqm"]
+[ext_resource type="PackedScene" uid="uid://brpcqxftogyip" path="res://scenes/bubble.tscn" id="1_r7eqm"]
 
 [sub_resource type="Environment" id="Environment_lhq7j"]
 background_mode = 1
@@ -25,7 +25,11 @@ material = SubResource("StandardMaterial3D_bd4qo")
 
 [node name="Bubble" parent="." instance=ExtResource("1_r7eqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0083859, 0.857255, -0.00159264)
-bubbleColor = Color(0.892134, 0.649454, 0.926266, 1)
+bubbleColor = Color(2.88785e-06, 0.849464, 0.901969, 1)
+
+[node name="Bubble" parent="Bubble" instance=ExtResource("1_r7eqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14493, -0.000131965, -0.00159264)
+bubbleColor = Color(0.962034, 0.627699, 0.825571, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0906504, 0.995883, -0.00071698, -0.0922144, -0.00767697, 0.99571, 0.991604, 0.0903276, 0.0925306, -2.03716, 3.54736, 0)

@@ -14,5 +14,6 @@ func _ready():
 	_setBubbleColor(bubbleColor)
 
 func _setBubbleColor(color: Color):
-	var material = $BubbleMesh.get_active_material(0)
-	material.set_shader_parameter("bubble_color", color)
+	$BubbleMesh.set_instance_shader_parameter("bubble_color", color)
+	#var material = $BubbleMesh.get_active_material(0)
+	#material.set_shader_parameter("bubble_color", color)
