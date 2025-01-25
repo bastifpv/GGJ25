@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://fdxy3g28s8kb"
-valid=false
+path="res://.godot/imported/fish2.blend-a5ff93120742e5eb5aa12a64cccb52fd.scn"
 
 [deps]
 
 source_file="res://materials/fish2.blend"
+dest_files=["res://.godot/imported/fish2.blend-a5ff93120742e5eb5aa12a64cccb52fd.scn"]
 
 [params]
 
