@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://cl7aov3gwfnso"]
 
-[ext_resource type="Material" uid="uid://dsiml7ngerpa3" path="res://materials/sandstone.tres" id="1_7tog8"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="1_x8suc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k1rs3"]
 resource_name = "LOWPOLY-COLORS"
@@ -43,6 +43,6 @@ shadow_mesh = SubResource("ArrayMesh_w7wdw")
 [node name="rocks-small" type="Node3D"]
 
 [node name="rocks-small" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_7tog8")
+material_override = ExtResource("1_x8suc")
 mesh = SubResource("ArrayMesh_cfhg2")
 skeleton = NodePath("")

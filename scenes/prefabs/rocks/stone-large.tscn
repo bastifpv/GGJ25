@@ -1,11 +1,10 @@
 [gd_scene load_steps=7 format=4 uid="uid://c84qhjblumy7e"]
 
-[ext_resource type="Material" uid="uid://dsiml7ngerpa3" path="res://materials/sandstone.tres" id="1_6u5kd"]
+[ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="1_oyoj1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc61t"]
 resource_name = "LOWPOLY-COLORS"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bm5ub"]
@@ -51,7 +50,7 @@ radius = 0.823004
 [node name="stone-large" type="StaticBody3D"]
 
 [node name="stone-large" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_6u5kd")
+material_override = ExtResource("1_oyoj1")
 mesh = SubResource("ArrayMesh_qouom")
 skeleton = NodePath("")
 
