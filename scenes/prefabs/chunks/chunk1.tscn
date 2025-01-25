@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="4_e17kh"]
 [ext_resource type="PackedScene" uid="uid://br8wro5o8too4" path="res://scenes/prefabs/anchor.tscn" id="5_i733f"]
 [ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="6_vkc1b"]
-[ext_resource type="PackedScene" uid="uid://bbxq4e155qo32" path="res://scenes/prefabs/geyser.tscn" id="7_goxpt"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/geyser.tscn" id="7_goxpt"]
 [ext_resource type="PackedScene" uid="uid://cco1mn7jqd3tt" path="res://scenes/prefabs/rocks/rock-sharp.tscn" id="8_fp56q"]
 [ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="9_5ee2t"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="10_ebxoc"]
@@ -46,7 +46,7 @@ transform = Transform3D(3.945, 0, 0, 0, 3.945, 0, 0, 0, 3.945, 12.8004, -0.77777
 
 [node name="geyser2" parent="." instance=ExtResource("7_goxpt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.68244, 0.387983, 0)
-bubble_color = Color(0.626212, 0.858413, 0.876029, 1)
+type = "o2"
 
 [node name="rock-sharp2" parent="." instance=ExtResource("8_fp56q")]
 transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 13.1948, -0.846959, -5.42688)
@@ -86,14 +86,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9576, 0, 0)
 
 [node name="geyser2" parent="stone-large" instance=ExtResource("7_goxpt")]
 transform = Transform3D(-0.0314595, -0.0580936, -0.997815, 0.117919, 0.991122, -0.0614218, 0.992525, -0.119594, -0.0243298, -0.228012, 2.67285, -0.192853)
-bubble_color = Color(0.571773, 0.726563, 0.638202, 1)
+type = "h2"
 
 [node name="stone-pointy" parent="." instance=ExtResource("17_hofp3")]
 transform = Transform3D(0.737277, 0, 0.67559, 0, 1, 0, -0.67559, 0, 0.737277, 30.9771, 0, 0)
 
 [node name="geyser2" parent="stone-pointy" instance=ExtResource("7_goxpt")]
 transform = Transform3D(0.307708, 0.0251044, 0.672521, -0.0364553, 0.739021, -0.0109068, -0.672002, -0.0285958, 0.308538, 0.0807629, 0.830039, -0.0831394)
-bubble_color = Color(0.686009, 0.461835, 0.448247, 1)
+type = "n2"
 
 [node name="stone-round2" parent="." instance=ExtResource("18_8hy88")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.3241, 0, 0)

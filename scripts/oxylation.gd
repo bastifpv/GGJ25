@@ -1,8 +1,8 @@
 extends Node
 
 # Signal to Emit the new Oxygen/Population state
-signal oxygenBaseChange(val)
-signal oxygenTankChange(val)
+signal baseStorageChange(type, val)
+signal tankChange(type, val)
 signal populationChange(val)
 signal xp_change(val)
 signal level_up
@@ -11,8 +11,16 @@ var UIController
 var startTick
 
 var population = 65.0
-var baseOxygen = 700
-var tankOxygen = 20
+var baseStorage = {
+	"o2": 700,
+	"h2": 0,
+	"n2": 0
+}
+var tank = {
+	"o2": 20,
+	"h2": 0,
+	"n2": 0
+}
 var player_level = 1
 var xp = 0
 
@@ -22,15 +30,19 @@ var time = 0
 var populationIncreaseFactor = 1.00793
 var oxygenConsumtionFactor = 0.0015
 
+const types = ["o2", "h2", "n2"]
 const xp_map = {
 	1: 5000,
 	2: 500000
 }
+const needs_level = {
+	"o2": 1,
+	"h2": 2,
+	"n2": 3
+}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print("Starting Oxygen Script")
-	#startTick = Engine.get_physics_frames()
+func may_collect(type: String) -> bool:
+	return player_level >= needs_level[type]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -38,13 +50,10 @@ func _process(delta: float) -> void:
 	population = (65 * pow(populationIncreaseFactor, time)) - deadpeople
 	populationChange.emit(roundf(population))
 	
-	baseOxygen -= population * oxygenConsumtionFactor
-	oxygenBaseChange.emit(roundf(baseOxygen))
+	baseStorage["o2"] -= population * oxygenConsumtionFactor
+	baseStorageChange.emit("o2", roundf(baseStorage["o2"]))
 	
-	tankOxygen -= oxygenConsumtionFactor
-	oxygenTankChange.emit(roundf(tankOxygen))
-	
-	if baseOxygen == 0:
+	if baseStorage["o2"] <= 0:
 		print("!!! GAME OVER !!!")
 
 func add_xp(val):
@@ -59,14 +68,15 @@ func add_xp(val):
 func anotherOneBitesTheDust(val):
 	deadpeople += val
 
-# Collect oxygen
-func oxyForMe(val):
-	tankOxygen += val
-	oxygenTankChange.emit(roundf(tankOxygen))
+# Collect gases
+func oneForMe(type, val):
+	tank[type] += val
+	tankChange.emit(type, roundf(tank[type]))
 	
-# Deliver oxygen
+# Deliver gases
 func deliver():
-	baseOxygen += tankOxygen
-	add_xp(tankOxygen)
-	tankOxygen = 0
-	oxygenTankChange.emit(roundf(baseOxygen))
+	for i in types:
+		baseStorage[i] += tank[i]
+		add_xp(tank[i])
+		tank[i] = 0
+		tankChange.emit(i, roundf(baseStorage[i]))

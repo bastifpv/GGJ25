@@ -54,11 +54,15 @@ func _on_body_entered(body: Node) -> void:
 
 	# Collect Bubbles
 	if body.is_in_group("bubble"):
+		# Bist du schon groß? Prüfe ob man schon sammeln darf
+		var type = body.get_meta("type")
+		if !ctrl.may_collect(type):
+			return
 		var add_scale = body.get_node("BubbleMesh").scale
 		ball.size += add_scale.x / 10
 		body.queue_free()
 		ball.update_size()
-		ctrl.oxyForMe(add_scale.x * 100)
+		ctrl.oneForMe(type, add_scale.x * 100)
 
 func _on_level_up(lvl: int) -> void:
 	var new_ball: RigidBody3D = get_parent().get_node("Balloon_" + str(lvl))
