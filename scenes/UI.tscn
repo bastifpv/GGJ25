@@ -1,11 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwq2j3fenycff"]
+[gd_scene load_steps=3 format=3 uid="uid://ciwnxwurimp4o"]
 
-[ext_resource type="Texture2D" path="res://materials/pics/UI_circle.png" id="1_ylmlw"]
-[ext_resource type="Texture2D" path="res://materials/pics/UI_red.png" id="2_mxs07"]
-[ext_resource type="Texture2D" path="res://materials/pics/UI_needle.png" id="3_snt3f"]
-[ext_resource type="Texture2D" path="res://materials/pics/UI_people.png" id="4_pyoco"]
 [ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="6_2bntk"]
-[ext_resource type="Texture2D" path="res://materials/pics/UI_arrow.png" id="6_k5itv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8cgxx"]
 load_path = "res://.godot/imported/UI_background.png-ef1be39ede53856f0f82ce9aa151862e.ctex"
@@ -30,11 +25,9 @@ scale = Vector2(0.6, 0.6)
 [node name="Circle_oxy" type="Sprite2D" parent="Oxy"]
 position = Vector2(-473, 380)
 scale = Vector2(1.00702, 1.00434)
-texture = ExtResource("1_ylmlw")
 
 [node name="Red_oxy" type="Sprite2D" parent="Oxy"]
 position = Vector2(-772, 155)
-texture = ExtResource("2_mxs07")
 
 [node name="needle_oxy" type="Node2D" parent="Oxy"]
 position = Vector2(-496, 368)
@@ -42,7 +35,6 @@ rotation = 0.211185
 
 [node name="UiNeedle" type="Sprite2D" parent="Oxy/needle_oxy"]
 position = Vector2(-3, -200)
-texture = ExtResource("3_snt3f")
 
 [node name="lbl_oxy" type="Label" parent="Oxy"]
 offset_left = -825.0
@@ -65,11 +57,9 @@ scale = Vector2(0.6, 0.6)
 [node name="People" type="Sprite2D" parent="population"]
 z_index = 1
 position = Vector2(789, 600)
-texture = ExtResource("4_pyoco")
 
 [node name="Circle_population" type="Sprite2D" parent="population"]
 position = Vector2(784, 748)
-texture = ExtResource("1_ylmlw")
 
 [node name="lbl_population" type="Label" parent="population"]
 offset_left = 423.0
@@ -91,9 +81,7 @@ scale = Vector2(0.6, 0.6)
 
 [node name="Circle_home" type="Sprite2D" parent="home"]
 position = Vector2(2361, 111)
-texture = ExtResource("1_ylmlw")
 
 [node name="Arrow_home" type="Sprite2D" parent="home"]
 z_index = 1
 position = Vector2(2373, 106)
-texture = ExtResource("6_k5itv")

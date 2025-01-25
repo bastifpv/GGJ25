@@ -10,7 +10,7 @@ var UIController
 var startTick
 
 var population = 65.0
-var baseOxygen = 100
+var baseOxygen = 700
 var tankOxygen = 20
 
 var deadpeople = 0

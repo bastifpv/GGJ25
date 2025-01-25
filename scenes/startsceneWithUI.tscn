@@ -46,7 +46,7 @@ size = Vector3(10, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26098, 2.16515, 0)
@@ -300,8 +300,8 @@ text = "Pause"
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_oxygen_base_change"]
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
 [connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
-[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_population_change"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="_on_margin_container_population_change"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_population_change"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
