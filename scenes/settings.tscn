@@ -73,7 +73,6 @@ theme = ExtResource("4_vi8hg")
 theme_override_font_sizes/font_size = 20
 text = "Music Volume"
 horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="musicVolume" type="HSlider" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,7 +87,6 @@ theme = ExtResource("4_vi8hg")
 theme_override_font_sizes/font_size = 20
 text = "FX Volume"
 horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="fxVolume" type="HSlider" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -110,6 +108,6 @@ size_flags_horizontal = 0
 theme = ExtResource("4_vi8hg")
 text = "back"
 
-[connection signal="mouse_exited" from="Control/MarginContainer/VBoxContainer/musicVolume" to="Control" method="_on_slider_update"]
-[connection signal="mouse_exited" from="Control/MarginContainer/VBoxContainer/fxVolume" to="Control" method="_on_slider_update"]
+[connection signal="drag_ended" from="Control/MarginContainer/VBoxContainer/musicVolume" to="Control" method="_on_slider_update"]
+[connection signal="drag_ended" from="Control/MarginContainer/VBoxContainer/fxVolume" to="Control" method="_on_slider_update"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control2/Back" to="Control" method="_on_back_pressed"]
