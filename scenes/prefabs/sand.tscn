@@ -4,10 +4,9 @@
 size = Vector3(10, 0.5, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgqb5"]
+size = Vector3(10, 0.5, 10)
 
-[node name="Sand" type="RigidBody3D"]
-collision_layer = 4
-gravity_scale = 0.0
+[node name="Sand" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 layers = 4

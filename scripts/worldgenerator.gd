@@ -27,7 +27,7 @@ func generate_sand_initial():
 	var i = (max_x - min_x) / SAND_LENGHT
 	var current_place = min_x
 	while current_place < max_x:
-		var sand_inst : RigidBody3D =  sand.instantiate()
+		var sand_inst : StaticBody3D =  sand.instantiate()
 		if (current_place < MinRenderd or current_place  > MaxRenderd):
 			add_child(sand_inst)
 			sand_inst.position =  Vector3(current_place, 0, 0)
@@ -39,13 +39,13 @@ func generate_sand_initial():
 
 func on_move_generate_sand(player_position):
 	if (player_position.x + RENDER_DISTANCE > MaxRenderd):
-		var sand_inst : RigidBody3D =  sand.instantiate()
+		var sand_inst : StaticBody3D =  sand.instantiate()
 		add_child(sand_inst)
 		sand_inst.position =  Vector3(MaxRenderd+10, 0, 0)
 		MaxRenderd = MaxRenderd+10
 		
 	if (player_position.x - RENDER_DISTANCE < MinRenderd):
-		var sand_inst : RigidBody3D =  sand.instantiate()
+		var sand_inst : StaticBody3D =  sand.instantiate()
 		add_child(sand_inst)
 		sand_inst.position =  Vector3(MinRenderd-10, 0, 0)
 		MinRenderd=MinRenderd-10
