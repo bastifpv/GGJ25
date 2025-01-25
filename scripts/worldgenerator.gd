@@ -1,10 +1,12 @@
 extends Node
 
 var sand = preload("res://scenes/prefabs/sand.tscn")
+var chunk1 = preload("res://scenes/prefabs/chunks/chunk1.tscn")
 const RENDER_DISTANCE = 50
 var MaxRenderd = 0
 var MinRenderd = 0
 var player
+const CHUNK_SIZE = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +15,7 @@ func _ready() -> void:
 	print("Y: " + str(player.position.y))
 	print("Z: " + str(player.position.z))
 	generate_sand_initial()
+	generate_initial_world()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,7 +29,7 @@ func generate_sand_initial():
 	var max_x = 0 + RENDER_DISTANCE
 	var i = (max_x - min_x) / SAND_LENGHT
 	var current_place = min_x
-	while current_place < max_x:
+	while current_place <= max_x:
 		var sand_inst : StaticBody3D =  sand.instantiate()
 		if (current_place < MinRenderd or current_place  > MaxRenderd):
 			add_child(sand_inst)
@@ -49,3 +52,19 @@ func on_move_generate_sand(player_position):
 		add_child(sand_inst)
 		sand_inst.position =  Vector3(MinRenderd-10, 0, 0)
 		MinRenderd=MinRenderd-10
+
+func generate_initial_world():
+	#Generate left Chunk 
+	var chunk_right : Node3D = chunk1.instantiate()
+	add_child(chunk_right)
+	chunk_right.position = Vector3(0,0,0)
+	#Generate right Chunk
+	var chunk_left : Node3D = chunk1.instantiate()
+	add_child(chunk_left)
+	chunk_left.position = Vector3(0-CHUNK_SIZE,0,0)
+	
+	
+	
+	print("generate initial world")
+	
+	pass

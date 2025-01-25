@@ -1,33 +1,15 @@
-[gd_scene load_steps=50 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=31 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
-[ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="4_mq807"]
-[ext_resource type="PackedScene" uid="uid://7pagx8jc7aqd" path="res://scenes/prefabs/rocks/rock_large.tscn" id="4_ufqcl"]
-[ext_resource type="Script" path="res://scripts/bubble_spawner.gd" id="5_1burn"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
-[ext_resource type="PackedScene" uid="uid://br8wro5o8too4" path="res://scenes/prefabs/anchor.tscn" id="7_onxqn"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
-[ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="9_777iw"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
-[ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="11_054hc"]
-[ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="14_11g7h"]
-[ext_resource type="PackedScene" uid="uid://cco1mn7jqd3tt" path="res://scenes/prefabs/rocks/rock-sharp.tscn" id="15_sumeq"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="16_7558u"]
-[ext_resource type="PackedScene" uid="uid://by5uso73huqbn" path="res://scenes/prefabs/rocks/stone-big.tscn" id="17_6357k"]
-[ext_resource type="PackedScene" uid="uid://0n2qiyv0r61" path="res://scenes/prefabs/rocks/stone-big-tall.tscn" id="17_pv57s"]
-[ext_resource type="PackedScene" uid="uid://dolr0epvciw3e" path="res://scenes/prefabs/rocks/stone-oval.tscn" id="18_ey5yx"]
-[ext_resource type="PackedScene" uid="uid://cl7aov3gwfnso" path="res://scenes/prefabs/rocks/rocks-small.tscn" id="18_l5on8"]
-[ext_resource type="PackedScene" uid="uid://c84qhjblumy7e" path="res://scenes/prefabs/rocks/stone-large.tscn" id="18_vqdin"]
-[ext_resource type="PackedScene" uid="uid://c4b3xfea66s5p" path="res://scenes/prefabs/rocks/stone-flat.tscn" id="18_x5bi2"]
-[ext_resource type="PackedScene" uid="uid://cjym50lv6r43" path="res://scenes/prefabs/rocks/stone-pointy.tscn" id="20_k8v28"]
-[ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="22_5v8x0"]
-[ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="PackedScene" uid="uid://d18tw4xa47hrc" path="res://scenes/baloon.tscn" id="26_2i0iw"]
 [ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="27_nspu1"]
-[ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
@@ -41,10 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://hvdx6s3ncvh6" path="res://materials/png/UI/pop.png" id="37_0wk80"]
 [ext_resource type="Texture2D" uid="uid://coivd5lnqq1pb" path="res://materials/png/UI/arrow.png" id="38_83g8f"]
 [ext_resource type="Script" path="res://scripts/worldgenerator.gd" id="41_6fcj0"]
-
-[sub_resource type="TorusMesh" id="TorusMesh_8pnex"]
-inner_radius = 0.252
-outer_radius = 0.579
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0n1vw"]
 
@@ -66,98 +44,6 @@ height = 1.8
 shader = ExtResource("25_g11gl")
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Boden" type="Node3D" parent="."]
-
-[node name="stone-diamond2" parent="Boden" instance=ExtResource("4_mq807")]
-transform = Transform3D(0.395642, 0, -0.918405, 0, 1, 0, 0.918405, 0, 0.395642, 13.8096, -1.38234, -2.14781)
-
-[node name="coral-small_orange" parent="Boden/stone-diamond2" instance=ExtResource("5_sfw8e")]
-transform = Transform3D(0.11097, 0.00280955, 0.99382, -0.00375756, 0.99999, -0.00240744, -0.993817, -0.00346719, 0.110979, -0.0193641, 0.310705, -0.218658)
-
-[node name="stone-diamond" parent="Boden" instance=ExtResource("4_mq807")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8614, -1.10646, 0)
-
-[node name="rock-large" parent="Boden" instance=ExtResource("4_ufqcl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89426, -1.05199, -0.015625)
-
-[node name="rock-terrasse" parent="Boden" instance=ExtResource("14_11g7h")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.83696, -1.14728, 0.443867)
-
-[node name="anchor" parent="Boden/rock-terrasse" instance=ExtResource("7_onxqn")]
-transform = Transform3D(-0.822107, 0.564638, 0.0729597, 0.060141, -0.041306, 0.997335, 0.566147, 0.824304, 3.92206e-08, 8.9407e-08, 1.89091, -2.21577)
-
-[node name="clam" parent="Boden" instance=ExtResource("9_777iw")]
-transform = Transform3D(3.945, 0, 0, 0, 3.945, 0, 0, 0, 3.945, 12.8004, -0.777771, -0.0134068)
-
-[node name="Bubbler" type="MeshInstance3D" parent="Boden"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4985, 0.179218, 0)
-mesh = SubResource("TorusMesh_8pnex")
-skeleton = NodePath("")
-script = ExtResource("5_1burn")
-bubble_color = Color(0.858824, 0, 0.654902, 1)
-
-[node name="rock-sharp2" parent="Boden" instance=ExtResource("15_sumeq")]
-transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 13.1948, -0.846959, -5.42688)
-
-[node name="rock-sharp" parent="Boden" instance=ExtResource("15_sumeq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.1996, -0.928869, 0.572301)
-
-[node name="clam-pearl" parent="Boden/rock-sharp" instance=ExtResource("11_054hc")]
-transform = Transform3D(5.09231, 0, 2.36572, 0, 5.615, 0, -2.36572, 0, 5.09231, 1.22818, 0.867487, 0.018837)
-
-[node name="stalags" parent="Boden" instance=ExtResource("16_7558u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5225, 0.149457, 0.102029)
-
-[node name="stalags2" parent="Boden" instance=ExtResource("16_7558u")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 26.1187, 0.298914, -0.00383091)
-
-[node name="stone-big-tall" parent="Boden" instance=ExtResource("17_pv57s")]
-transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 9.18258, 0.149457, -3.77678)
-
-[node name="stone-big-tall2" parent="Boden/stone-big-tall" instance=ExtResource("17_pv57s")]
-transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 19.8914, 0.149457, 1.38346)
-
-[node name="stone-big" parent="Boden" instance=ExtResource("17_6357k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3793, 0.149457, -4.86725)
-
-[node name="rocks-small" parent="Boden" instance=ExtResource("18_l5on8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48445, 0.109068, 1.17696)
-
-[node name="stone-flat" parent="Boden" instance=ExtResource("18_x5bi2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2653, -1.51999, 0)
-
-[node name="stone-oval" parent="Boden" instance=ExtResource("18_ey5yx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.022, 0, 2.9004)
-
-[node name="stone-large" parent="Boden" instance=ExtResource("18_vqdin")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9576, 0, 0)
-
-[node name="Bubbler2" type="MeshInstance3D" parent="Boden/stone-large"]
-transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, -0.173647, 2.76832, -0.0918618)
-mesh = SubResource("TorusMesh_8pnex")
-skeleton = NodePath("")
-script = ExtResource("5_1burn")
-bubble_color = Color(0.262745, 0.576471, 0.321569, 1)
-
-[node name="stone-pointy" parent="Boden" instance=ExtResource("20_k8v28")]
-transform = Transform3D(0.737277, 0, 0.67559, 0, 1, 0, -0.67559, 0, 0.737277, 30.9771, 0, 0)
-
-[node name="Bubbler2" type="MeshInstance3D" parent="Boden/stone-pointy"]
-transform = Transform3D(0.43, 0, 5.96046e-08, 0, 0.43, 0, -5.96046e-08, 0, 0.43, -0.208269, 0.839028, -0.123585)
-mesh = SubResource("TorusMesh_8pnex")
-skeleton = NodePath("")
-script = ExtResource("5_1burn")
-bubble_color = Color(0.986436, 0.175153, 0.174503, 1)
-
-[node name="stone-round2" parent="Boden" instance=ExtResource("27_s7028")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.3241, 0, 0)
-
-[node name="stone-small-flat" parent="Boden" instance=ExtResource("22_5v8x0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6725, -1.42262, 3.53185)
-
-[node name="stone-snow" parent="Boden" instance=ExtResource("23_f2f4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2794, -0.171946, -2.42855)
 
 [node name="Decke" type="Node3D" parent="."]
 
