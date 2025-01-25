@@ -1,6 +1,8 @@
 extends RigidBody3D
 
 @export var idle_anim: String = "idle"
+
+var balloon_rigged = preload("res://scenes/balloon_rigged.tscn")
 var ap: AnimationPlayer
 var force = 1500
 var targetDirection = Vector3.ZERO
@@ -58,7 +60,6 @@ func _on_body_entered(body: Node) -> void:
 		ball.update_size()
 		ctrl.oxyForMe(add_scale.x * 100)
 
-func _on_level_up() -> void:
-	var new_ball = ball.instantiate()
-	get_parent().add_child(new_ball)
-	pass # Replace with function body.
+func _on_level_up(lvl: int) -> void:
+	var new_ball: RigidBody3D = get_parent().get_node("Balloon_" + str(lvl))
+	new_ball.enable()
