@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=50 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Material" uid="uid://cefhows7qtmxt" path="res://materials/player.tres" id="2_sroli"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="9_777iw"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
-[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="10_xeve3"]
+[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
 [ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="11_054hc"]
 [ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="14_11g7h"]
 [ext_resource type="PackedScene" uid="uid://cco1mn7jqd3tt" path="res://scenes/prefabs/rocks/rock-sharp.tscn" id="15_sumeq"]
@@ -25,11 +25,13 @@
 [ext_resource type="PackedScene" uid="uid://cjym50lv6r43" path="res://scenes/prefabs/rocks/stone-pointy.tscn" id="20_k8v28"]
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="22_5v8x0"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="23_f2f4m"]
-[ext_resource type="PackedScene" path="res://scenes/baloon.tscn" id="26_2i0iw"]
-[ext_resource type="PackedScene" path="res://scenes/rope.tscn" id="27_nspu1"]
+[ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
+[ext_resource type="PackedScene" uid="uid://d18tw4xa47hrc" path="res://scenes/baloon.tscn" id="26_2i0iw"]
+[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="27_nspu1"]
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="27_s7028"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
+[ext_resource type="Environment" uid="uid://d26xb2qisiyuy" path="res://scenes/environment.tres" id="31_50be8"]
 [ext_resource type="Script" path="res://scripts/ui_needle_oxy.gd" id="31_iakcm"]
 [ext_resource type="Texture2D" uid="uid://bvyohemsjyj78" path="res://materials/png/UI/background.png" id="32_te3ub"]
 [ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="33_bptp4"]
@@ -61,6 +63,9 @@ height = 1.8
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5uv8a"]
 viewport_path = NodePath("PlayerRig/Player/UI_Overlay/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qla2e"]
+shader = ExtResource("25_g11gl")
 
 [node name="Node3D" type="Node3D"]
 
@@ -396,6 +401,20 @@ z_index = 1
 position = Vector2(2373, 106)
 scale = Vector2(5, 5)
 texture = ExtResource("38_83g8f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_qla2e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("31_50be8")
 
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
 [connection signal="oxygenBaseChange" from="Control/MarginContainer" to="PlayerRig/Player/UI_Overlay/SubViewport/Node2D" method="get_oxy"]
