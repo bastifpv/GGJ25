@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://0rudqscbrs5u"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c86st"]
+[gd_scene load_steps=3 format=3 uid="uid://0rudqscbrs5u"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_c0dg7"]
 top_radius = 0.02
@@ -15,12 +13,13 @@ height = 0.2
 
 [node name="Rope" type="Node3D"]
 
-[node name="BottomJoint" type="PinJoint3D" parent="."]
+[node name="BottomJoint" type="Generic6DOFJoint3D" parent="."]
 node_a = NodePath("../RigidBody3D")
+angular_limit_z/enabled = false
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-mass = 0.5
-physics_material_override = SubResource("PhysicsMaterial_c86st")
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
@@ -39,8 +38,8 @@ node_b = NodePath("../RigidBody3D")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-mass = 0.5
-physics_material_override = SubResource("PhysicsMaterial_c86st")
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
@@ -59,8 +58,8 @@ node_b = NodePath("../RigidBody3D2")
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-mass = 0.5
-physics_material_override = SubResource("PhysicsMaterial_c86st")
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
@@ -79,8 +78,8 @@ node_b = NodePath("../RigidBody3D3")
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-mass = 0.5
-physics_material_override = SubResource("PhysicsMaterial_c86st")
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
@@ -99,8 +98,8 @@ node_b = NodePath("../RigidBody3D4")
 
 [node name="RigidBody3D5" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00190529, 0.8, -6.31809e-05)
-mass = 0.5
-physics_material_override = SubResource("PhysicsMaterial_c86st")
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D5"]

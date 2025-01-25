@@ -52,7 +52,6 @@ size = Vector3(4.43164, 2.0498, 7.17432)
 size = Vector3(1, 1.02734, 0.964844)
 
 [node name="rock-terrasse" type="StaticBody3D"]
-collision_layer = 2
 
 [node name="rock-terrasse" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_butoy")
