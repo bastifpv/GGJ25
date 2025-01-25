@@ -33,10 +33,10 @@ func generate_sand_initial():
 	var current_place = min_x
 	while current_place <= max_x:
 		var sand_inst : StaticBody3D =  sand.instantiate()
-		if (current_place < MinRenderd or current_place  > MaxRenderd):
+		if (current_place <= MinRenderd or current_place  > MaxRenderd):
 			add_child(sand_inst)
 			sand_inst.position =  Vector3(current_place, 0, 0)
-			print("Added Sand on X:" + str(current_place))
+			#print("Added Sand on X:" + str(current_place))
 		current_place = current_place + SAND_LENGHT
 	MaxRenderd = max_x
 	MinRenderd = min_x
@@ -74,14 +74,14 @@ func on_move_place_chunk(player_position):
 		add_child(chunk_right)
 		chunk_right.position = Vector3(0+(CHUNK_SIZE*MaxPlacedChunks),0,0)
 		MaxPlacedChunks = MaxPlacedChunks + 1
-		print("place new chunk right")
+		#print("place new chunk right")
 		
 	if (((player_position.x - RENDER_DISTANCE)/CHUNK_SIZE)<MinPlacedChunks):
 		var chunk_left : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_left)
 		chunk_left.position = Vector3(0-(CHUNK_SIZE*abs(MinPlacedChunks)),0,0)
 		MinPlacedChunks = MinPlacedChunks - 1
-		print("place new chunk left")
+		#print("place new chunk left")
 		
 func get_random_chunk():
 	var chunks = [chunk1]
