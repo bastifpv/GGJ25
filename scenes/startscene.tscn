@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=51 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="Script" path="res://scripts/balloon.gd" id="3_m8vul"]
@@ -31,7 +31,7 @@
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="28_ccwwl"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
-[ext_resource type="Environment" uid="uid://b4xyrints63uk" path="res://scenes/environment.tres" id="31_50be8"]
+[ext_resource type="Environment" uid="uid://d26xb2qisiyuy" path="res://scenes/environment.tres" id="31_50be8"]
 [ext_resource type="Script" path="res://scripts/ui_needle_oxy.gd" id="31_iakcm"]
 [ext_resource type="Texture2D" uid="uid://bvyohemsjyj78" path="res://materials/png/UI/background.png" id="32_te3ub"]
 [ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="33_bptp4"]
