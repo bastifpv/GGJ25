@@ -26,7 +26,7 @@ func generate_sand_initial():
 	var max_x = 0 + RENDER_DISTANCE
 	var i = (max_x - min_x) / SAND_LENGHT
 	var current_place = min_x
-	while current_place < max_x:
+	while current_place <= max_x:
 		var sand_inst : StaticBody3D =  sand.instantiate()
 		if (current_place < MinRenderd or current_place  > MaxRenderd):
 			add_child(sand_inst)
