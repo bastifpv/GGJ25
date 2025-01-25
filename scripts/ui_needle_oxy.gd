@@ -3,6 +3,8 @@ var oxy = 1000
 var pop = 2
 var relative_oxy
 
+@export var player: Node3D
+@export var dome: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
@@ -22,15 +24,17 @@ func _process(delta: float) -> void:
 	var degree = -90 + 180 * relative_oxy	
 	$Oxy/needle_oxy.rotation_degrees = degree
 	$Oxy/lbl_oxy.text = str(int(relative_oxy*100)) + "%" 
+
 	
 	# Dome Posi
 	#print ("X: ")
 	#print($"../../Player".global_position.x)
 	#print ("Y: ")
 	#print($"../../Player".global_position.y)
-	var rel_y = $"../../..".global_position.y - $"../../../../../Dome".global_position.y
-	var rel_x = $"../../..".global_position.x - $"../../../../../Dome".global_position.x
+	var rel_y = player.global_position.y - dome.global_position.y
+	var rel_x = player.global_position.x - dome.global_position.x
 	var angle_to_dome = 180 - (tan(rel_y / rel_x)*180/3.1415926)
+
 	$home/Arrow_home.rotation_degrees = angle_to_dome
 
 
