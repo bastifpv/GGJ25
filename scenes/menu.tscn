@@ -81,18 +81,33 @@ size_flags_stretch_ratio = 1.7
 theme = ExtResource("4_7qtv7")
 text = "Start Game"
 
+[node name="Control3" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="credits" type="Button" parent="Control/MarginContainer/VBoxContainer/Control3"]
+layout_mode = 2
+offset_left = 238.0
+offset_top = 136.0
+offset_right = 528.0
+offset_bottom = 220.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.7
+theme = ExtResource("4_7qtv7")
+text = "Credits"
+
 [node name="Control2" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer/Control2"]
 layout_mode = 2
-offset_left = 238.0
-offset_top = 137.0
-offset_right = 528.0
-offset_bottom = 221.0
+offset_left = 240.0
+offset_top = 232.0
+offset_right = 530.0
+offset_bottom = 316.0
 size_flags_horizontal = 0
 theme = ExtResource("4_7qtv7")
 text = "Quit"
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control/Start" to="." method="startGame"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control3/credits" to="." method="showCredits"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control2/Quit" to="." method="quitGame"]
