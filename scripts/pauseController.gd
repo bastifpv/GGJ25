@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 func _on_restart_pressed() -> void:
 	print("Restart")
+	end_pause.emit()
 	get_tree().reload_current_scene()
 	
 func _on_back_pressed() -> void:

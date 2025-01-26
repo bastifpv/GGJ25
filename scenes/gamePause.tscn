@@ -40,11 +40,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="pause" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_0xih4")
 theme_override_font_sizes/font_size = 90
 text = "Pause"
+horizontal_alignment = 1
 
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
@@ -59,7 +60,8 @@ text = "Restart"
 [node name="Back" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_0xih4")
-text = "Back"
+text = "Back
+"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

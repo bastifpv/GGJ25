@@ -6,6 +6,7 @@ extends Node
 @onready var playerXP = $MarginContainer/VBoxContainer/PlayerXP/PlayerXPVal
 @onready var gamePause = $Pause
 @onready var pauseBtn = $PauseBtn
+@onready var gameOver = $gameOver
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,6 +53,11 @@ func _on_pause_btn_pressed() -> void:
 	get_tree().paused = true
 	gamePause.visible = true
 	pauseBtn.visible = false
+
+func _on_game_over(population: Variant) -> void:
+	Global.population = population
+	print("Game Over")
+	get_tree().change_scene_to_file("res://scenes/gameOver.tscn")
 
 func _on_pause_end_pause() -> void:
 	print("endPause")

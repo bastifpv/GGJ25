@@ -6,6 +6,7 @@ signal oxygenTankChange(val)
 signal populationChange(val)
 signal xp_change(val)
 signal level_up
+signal gameOver(population)
 
 var UIController
 var startTick
@@ -44,8 +45,8 @@ func _process(delta: float) -> void:
 	tankOxygen -= oxygenConsumtionFactor
 	oxygenTankChange.emit(roundf(tankOxygen))
 	
-	if baseOxygen == 0:
-		print("!!! GAME OVER !!!")
+	if baseOxygen <= 0:
+		gameOver.emit(roundf(population))
 
 func add_xp(val):
 	xp += val

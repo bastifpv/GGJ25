@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0qpj6ojdbngd"]
+
+[ext_resource type="Script" path="res://scripts/pauseController.gd" id="1_81tvd"]
+[ext_resource type="Texture2D" uid="uid://bf5rn8o27cxsq" path="res://materials/png/background.png" id="2_l6ubu"]
+[ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="3_0xih4"]
+[ext_resource type="Script" path="res://scripts/gameOver.gd" id="4_w5py3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq01l"]
+texture = ExtResource("2_l6ubu")
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81tvd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tq01l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -200.0
+offset_right = 125.5
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="gameOver" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0xih4")
+theme_override_font_sizes/font_size = 90
+text = "Game Over
+"
+
+[node name="subtitle" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_0xih4")
+theme_override_font_sizes/font_size = 30
+text = "Your civilisation cruelly suffocated.
+"
+
+[node name="text" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0xih4")
+theme_override_constants/line_spacing = -14
+theme_override_font_sizes/font_size = 25
+text = "Only 326,748 gasped their final breath as the last embers of your world faded to darkness."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("4_w5py3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 125
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Restart" type="Button" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0xih4")
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0xih4")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0xih4")
+text = "Quit"
+
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
