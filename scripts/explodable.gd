@@ -5,7 +5,9 @@ var destroying = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_meta("explodable", true)
 	$"stone-snow".material_override = soft_mat
+	set_collision_layer(5)
 
 func destroy():
 	destroying = true

@@ -78,8 +78,8 @@ func oneForMe(type, val):
 	
 # Deliver gases
 func deliver():
-	for i in types:
-		baseStorage[i] += tank[i]
-		add_xp(tank[i])
-		tank[i] = 0
-		tankChange.emit(i, roundf(baseStorage[i]))
+	for type in types:
+		baseStorage[type] += tank[type]
+		add_xp(tank[type] * (1 << needs_level[type]))
+		tank[type] = 0
+		tankChange.emit(type, roundf(baseStorage[type]))

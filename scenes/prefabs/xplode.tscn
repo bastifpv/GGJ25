@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqcwoscoepw7i"]
+
+[ext_resource type="Script" path="res://scripts/xplode.gd" id="1_01kl6"]
+[ext_resource type="Material" uid="uid://c0l581r3pf2vw" path="res://materials/explosion.tres" id="1_38rib"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8ei7f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4we3e"]
+
+[node name="Xplode" type="Node3D"]
+script = ExtResource("1_01kl6")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+collision_layer = 16
+collision_mask = 0
+mass = 0.001
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = ExtResource("1_38rib")
+mesh = SubResource("SphereMesh_8ei7f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_4we3e")
+
+[connection signal="body_entered" from="RigidBody3D" to="." method="on_explosion_hit"]

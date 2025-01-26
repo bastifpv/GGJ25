@@ -3,11 +3,13 @@ extends RigidBody3D
 @export var idle_anim: String = "idle"
 
 var balloon_rigged = preload("res://scenes/balloon_rigged.tscn")
+var xplosion = preload("res://scenes/prefabs/xplode.tscn")
 var ap: AnimationPlayer
 var force = 1500
 var targetDirection = Vector3.ZERO
 var balls: Array
 var ctrl: MarginContainer
+var bomb_action = false
 
 const release_per_second = .5
 
@@ -49,6 +51,14 @@ func _process(delta: float):
 			ball.size -= rel / 10
 			ball.update_size()
 			ctrl.oneForMe(ball.type, rel * -100)
+	if Input.is_action_pressed("bomb"):
+		if bomb_action == false:
+			var bang: Node3D = xplosion.instantiate()
+			$Kopf.add_child(bang)
+			bang.position = Vector3.ZERO
+			bomb_action = true
+	else:
+		bomb_action = false
 	
 	apply_central_force(add_vec * delta)
 	$diver.rotation_degrees = lerp($diver.rotation_degrees, targetDirection, delta * 2)
