@@ -33,8 +33,8 @@ var oxygenConsumtionFactor = 0.0015
 
 const types = ["o2", "h2", "n2"]
 const xp_map = {
-	1: 500,
-	2: 1000
+	1: 5000,
+	2: 10000
 }
 const needs_level = {
 	"o2": 1,
@@ -61,8 +61,7 @@ func _process(delta: float) -> void:
 
 func add_xp(val):
 	xp += val
-
-	if len(xp_map) > player_level && xp > xp_map[player_level]:
+	if xp_map.has(player_level) && xp > xp_map[player_level]:
 		xp -= xp_map[player_level]
 		player_level += 1
 		level_up.emit(player_level)
