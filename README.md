@@ -1,3 +1,5 @@
+<img src=./our_assets/img/ingame.png width="100%">
+
 ## Oxygen Odyssey
  
 In Oxygen Odyssey your goal is to save your underwater community by constantly collecting air bubbles floating around and bringing them in your air-ballon back to the home base.
