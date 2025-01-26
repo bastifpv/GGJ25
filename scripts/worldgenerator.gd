@@ -10,8 +10,8 @@ var chunks = [
 const RENDER_DISTANCE = 50
 var MaxRenderd = 0
 var MinRenderd = 0
-var MaxPlacedChunks = 1
-var MinPlacedChunks = 1
+var MaxPlacedChunks = 0
+var MinPlacedChunks = -1
 var player : Node3D
 const CHUNK_SIZE = 50.0
 const CHUNK_DISPLACEMENT = .5
@@ -22,9 +22,6 @@ const SAND_Y_DISPLACEMENT = -.25
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_node("../PlayerRig/Player")
-	print("X: " + str(player.position.x))
-	print("Y: " + str(player.position.y))
-	print("Z: " + str(player.position.z))
 	generate_sand_initial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,20 +60,17 @@ func on_move_generate_sand(player_position):
 		MinRenderd=MinRenderd-10
 
 func on_move_place_chunk(player_position):
-	#print(str((player_position.x + RENDER_DISTANCE)/CHUNK_SIZE))
-	if (((player_position.x + RENDER_DISTANCE)/CHUNK_SIZE)>MaxPlacedChunks):
+	if (player_position.x + (2 * RENDER_DISTANCE) > CHUNK_SIZE * MaxPlacedChunks):
 		var chunk_right : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_right)
-		chunk_right.position = Vector3(0+(CHUNK_SIZE*MaxPlacedChunks),CHUNK_DISPLACEMENT,0)
+		chunk_right.position = Vector3((CHUNK_SIZE/2)+(CHUNK_SIZE*MaxPlacedChunks),CHUNK_DISPLACEMENT,0)
 		MaxPlacedChunks = MaxPlacedChunks + 1
-		#print("place new chunk right")
 		
-	if (((player_position.x - RENDER_DISTANCE)/CHUNK_SIZE)<MinPlacedChunks):
+	if (player_position.x - (2 * RENDER_DISTANCE) < MinPlacedChunks * CHUNK_SIZE):
 		var chunk_left : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_left)
-		chunk_left.position = Vector3(0-(CHUNK_SIZE*abs(MinPlacedChunks)),CHUNK_DISPLACEMENT,0)
+		chunk_left.position = Vector3((CHUNK_SIZE/2)-(CHUNK_SIZE*abs(MinPlacedChunks)),CHUNK_DISPLACEMENT,0)
 		MinPlacedChunks = MinPlacedChunks - 1
-		#print("place new chunk left")
 		
 func get_random_chunk():
 	var random_index = randi_range(0, chunks.size()-1)
