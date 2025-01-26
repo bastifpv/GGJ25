@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=26 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
 [ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
-[ext_resource type="PackedScene" uid="uid://k86unkwgb2lh" path="res://scenes/prefabs/dome.tscn" id="20_6d5p3"]
+[ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="15_23t65"]
+[ext_resource type="Script" path="res://scripts/rope.gd" id="16_aptq5"]
+[ext_resource type="PackedScene" uid="uid://bnrfupwvinku" path="res://scenes/prefabs/dome.tscn" id="20_6d5p3"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
@@ -243,12 +245,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78291, 3.70364, 0)
 
 [node name="Balloon" parent="PlayerRig" instance=ExtResource("14_2s8vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.035, 0)
+axis_lock_linear_z = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+
+[node name="Rope" parent="PlayerRig" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("15_23t65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("16_aptq5")
+top_point = NodePath("../Balloon")
+bottom_point = NodePath("../Player")
 
 [node name="Balloon_2" parent="PlayerRig" instance=ExtResource("14_2s8vx")]
 transform = Transform3D(-4.37114e-08, -0.23005, 0.973179, 0, 0.973179, 0.23005, -1, 1.00558e-08, -4.2539e-08, -0.243219, 1.01542, -0.000162721)
 
+[node name="Rope_2" parent="PlayerRig" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("15_23t65")]
+transform = Transform3D(0.993191, -0.116497, 0, 0.116497, 0.993191, 0, 0, 0, 1, -0.126585, 0.010432, 0)
+visible = false
+script = ExtResource("16_aptq5")
+top_point = NodePath("../Balloon_2")
+bottom_point = NodePath("../Player")
+
 [node name="Balloon_3" parent="PlayerRig" instance=ExtResource("14_2s8vx")]
 transform = Transform3D(-4.37114e-08, 0.23005, 0.973179, 0, 0.973179, -0.23005, -1, -1.00558e-08, -4.2539e-08, 0.233021, 0.989553, 0.00621954)
+
+[node name="Rope_3" parent="PlayerRig" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("15_23t65")]
+transform = Transform3D(0.99564, 0.0932742, 0, -0.0932742, 0.99564, 0, 0, 0, 1, 0.141077, -0.0130491, 0)
+visible = false
+script = ExtResource("16_aptq5")
+top_point = NodePath("../Balloon_3")
+bottom_point = NodePath("../Player")
 
 [node name="Player" type="RigidBody3D" parent="PlayerRig"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0899534)
@@ -262,26 +287,26 @@ max_contacts_reported = 1
 linear_damp = 2.0
 script = ExtResource("1_5xwa5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRig/Player"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.314, -0.0330127, 0.102)
-shape = SubResource("CapsuleShape3D_vv0bg")
-
 [node name="Camera3D" type="Camera3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 0, 1.214, 6.57374)
 
 [node name="Sprite3D" type="Sprite3D" parent="PlayerRig/Player/Camera3D"]
 
-[node name="diver" parent="PlayerRig/Player" instance=ExtResource("30_xbtnc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.107)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerRig/Player"]
+transform = Transform3D(-4.37114e-08, -1, 0, 0.999048, -4.36698e-08, 0.0436194, -0.0436194, 1.90666e-09, 0.999048, -0.314, -0.0330126, 0.102)
+shape = SubResource("CapsuleShape3D_vv0bg")
+
+[node name="diver" parent="PlayerRig/Player/CollisionShape3D" instance=ExtResource("30_xbtnc")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0330126, -0.314, 0.005)
+
+[node name="Kopf" type="Marker3D" parent="PlayerRig/Player/CollisionShape3D/diver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569805, -0.00759411, -0.0250852)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
 
 [node name="Balloonbefestigung" type="Marker3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00637841, 0.897872, 0.0839639)
-
-[node name="Kopf" type="Marker3D" parent="PlayerRig/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569805, -0.00759411, 0.0819148)
 
 [node name="coral-small_orange" parent="." instance=ExtResource("5_sfw8e")]
 transform = Transform3D(-0.995897, 0, 0.0904936, 0, 1, 0, -0.0904936, 0, -0.995897, 7.77056, -0.449376, -2.28277)

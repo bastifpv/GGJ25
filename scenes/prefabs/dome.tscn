@@ -47,7 +47,7 @@ script = ExtResource("2_ujo66")
 
 [node name="DomeDock" type="StaticBody3D" parent="." index="0" groups=["dome"]]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="DomeDock" index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DomeDock" index="0" groups=["dome"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335693, -0.488403, 0.0592957)
 shape = SubResource("BoxShape3D_v1gwm")
 

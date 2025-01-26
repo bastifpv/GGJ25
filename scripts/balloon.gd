@@ -16,6 +16,7 @@ func update_size():
 	gravity_scale = -1 * size
 	$CollisionShape3D.scale = Vector3.ONE * size
 	$baloon.scale = Vector3.ONE * size
+	$CollisionShape3D.position = Vector3(0, size * .75, 0)
 
 func reset():
 	size = default_size
@@ -23,16 +24,18 @@ func reset():
 
 func disable():
 	hide()
+	$CollisionShape3D.disabled = true
 	set_process(false)
 
 func enable():
 	show()
+	$CollisionShape3D.disabled = false
 	set_process(true)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ctrl = get_node("/root/Node3D/Control/MarginContainer")
-	$Rope.bottom_point = get_parent().get_node("Player")
+	#$CollisionShape3D/Rope.bottom_point = get_node("/root/Node3D/PlayerRig/Player")
 	match name:
 		"Balloon":
 			set_color(Color.MEDIUM_BLUE)
@@ -44,7 +47,7 @@ func _ready() -> void:
 			disable()
 			set_color(Color.DARK_GREEN)
 			type = "n2"
-	$Rope.init()
+	#$CollisionShape3D/Rope.init()
 	update_size()
 	
 
