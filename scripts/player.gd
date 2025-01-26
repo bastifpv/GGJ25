@@ -54,8 +54,8 @@ func _process(delta: float):
 	if Input.is_action_pressed("bomb"):
 		if bomb_action == false:
 			var bang: Node3D = xplosion.instantiate()
-			$Kopf.add_child(bang)
-			bang.position = Vector3.ZERO
+			get_parent().add_child(bang)
+			bang.global_position = $Kopf.global_position
 			bomb_action = true
 	else:
 		bomb_action = false

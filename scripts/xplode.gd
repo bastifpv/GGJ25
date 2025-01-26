@@ -16,5 +16,6 @@ func _process(delta: float) -> void:
 
 
 func on_explosion_hit(body: Node) -> void:
+	print(body.name, " hit by explosion")
 	if body.get_meta("explodable", false):
 		print(body.name, " hit by explosion")

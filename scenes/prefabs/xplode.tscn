@@ -12,12 +12,10 @@ script = ExtResource("1_01kl6")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-collision_layer = 16
-collision_mask = 0
-mass = 0.001
-gravity_scale = 0.0
+collision_mask = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+layers = 17
 material_override = ExtResource("1_38rib")
 mesh = SubResource("SphereMesh_8ei7f")
 
