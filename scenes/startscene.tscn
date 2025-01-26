@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
-[ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
+[ext_resource type="PackedScene" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="16_7558u"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
@@ -292,7 +292,7 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.314
 shape = SubResource("CapsuleShape3D_vv0bg")
 
 [node name="Camera3D" type="Camera3D" parent="PlayerRig/Player"]
-transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 0, 1.214, 7.205)
+transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 0, 1.214, 6.57374)
 
 [node name="diver" parent="PlayerRig/Player" instance=ExtResource("30_xbtnc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.107)
