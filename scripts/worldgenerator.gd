@@ -11,6 +11,7 @@ var MaxPlacedChunks = 1
 var MinPlacedChunks = 1
 var player : Node3D
 const CHUNK_SIZE = 50
+const CHUNK_DISPLACEMENT = .5
 const SAND_LENGHT = 10
 const SAND_Y_DISPLACEMENT = -.25
 
@@ -63,16 +64,14 @@ func on_move_place_chunk(player_position):
 	if (((player_position.x + RENDER_DISTANCE)/CHUNK_SIZE)>MaxPlacedChunks):
 		var chunk_right : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_right)
-		chunk_right.position = Vector3(0+(CHUNK_SIZE*MaxPlacedChunks),0,0)
-		print("Created chunk at ", chunk_right.position)
+		chunk_right.position = Vector3(0+(CHUNK_SIZE*MaxPlacedChunks),CHUNK_DISPLACEMENT,0)
 		MaxPlacedChunks = MaxPlacedChunks + 1
 		#print("place new chunk right")
 		
 	if (((player_position.x - RENDER_DISTANCE)/CHUNK_SIZE)<MinPlacedChunks):
 		var chunk_left : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_left)
-		chunk_left.position = Vector3(0-(CHUNK_SIZE*abs(MinPlacedChunks)),0,0)
-		print("Created chunk at ", chunk_left.position)
+		chunk_left.position = Vector3(0-(CHUNK_SIZE*abs(MinPlacedChunks)),CHUNK_DISPLACEMENT,0)
 		MinPlacedChunks = MinPlacedChunks - 1
 		#print("place new chunk left")
 		
