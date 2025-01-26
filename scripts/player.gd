@@ -97,6 +97,7 @@ func _on_body_entered(body: Node) -> void:
 		
 	# Spikey, ouchie
 	if body.is_in_group("spikey"):
+		AudioManager.play_wilhelm()
 		for ball in balls:
 			ball.size = ball.default_size
 			ball.update_size()
