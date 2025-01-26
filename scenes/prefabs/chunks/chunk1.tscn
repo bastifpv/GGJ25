@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="4_e17kh"]
 [ext_resource type="PackedScene" uid="uid://br8wro5o8too4" path="res://scenes/prefabs/anchor.tscn" id="5_i733f"]
 [ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="6_vkc1b"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/geyser.tscn" id="7_goxpt"]
+[ext_resource type="PackedScene" uid="uid://bbxq4e155qo32" path="res://scenes/prefabs/geyser.tscn" id="7_goxpt"]
 [ext_resource type="PackedScene" uid="uid://cco1mn7jqd3tt" path="res://scenes/prefabs/rocks/rock-sharp.tscn" id="8_fp56q"]
 [ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="9_5ee2t"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="10_ebxoc"]

@@ -1,8 +1,17 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://boiyof61hkrhc"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://boiyof61hkrhc"]
 
 [ext_resource type="FontFile" uid="uid://beku71awwdaib" path="res://materials/font/OpenDyslexic3-Bold.ttf" id="1_5djia"]
 [ext_resource type="StyleBox" uid="uid://bv5wlgkf4f55h" path="res://materials/theme/texture/button_hover.tres" id="2_ryvkn"]
 [ext_resource type="StyleBox" uid="uid://ck3r007egisjo" path="res://materials/theme/texture/button.tres" id="3_jrre0"]
+[ext_resource type="Texture2D" uid="uid://o4ixjn8cv6ca" path="res://our_assets/potato.png" id="4_p8kuf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iapo0"]
+bg_color = Color(0.980392, 0.941176, 0.792157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.956863, 0.827451, 0.368627, 1)
 
 [resource]
 Button/colors/font_color = Color(0.0509804, 0.231373, 0.4, 1)
@@ -14,4 +23,11 @@ Button/styles/hover = ExtResource("2_ryvkn")
 Button/styles/hover_pressed = ExtResource("2_ryvkn")
 Button/styles/normal = ExtResource("3_jrre0")
 Button/styles/pressed = ExtResource("2_ryvkn")
+HSlider/icons/grabber = ExtResource("4_p8kuf")
+HSlider/icons/grabber_disabled = ExtResource("4_p8kuf")
+HSlider/icons/grabber_highlight = ExtResource("4_p8kuf")
+HSlider/icons/tick = ExtResource("4_p8kuf")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_iapo0")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_iapo0")
+HSlider/styles/slider = SubResource("StyleBoxFlat_iapo0")
 Label/colors/font_color = Color(0.980392, 0.941176, 0.792157, 1)

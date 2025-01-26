@@ -11,19 +11,17 @@ func _ready() -> void:
 	fx_index = AudioServer.get_bus_index("fx")
 	volume_index = AudioServer.get_bus_index("music")
 	
-	fxSlider.value = db_to_linear(AudioServer.get_bus_volume_db(fx_index))
-	musicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(volume_index))
-	
+	#fxSlider.value = db_to_linear(AudioServer.get_bus_volume_db(fx_index))
+	#musicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(volume_index))
+	fxSlider.value = 0.75
+	musicSlider.value = 0.75
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_slider_update() -> void:
-	AudioServer.set_bus_volume_db(fx_index, linear_to_db(fxSlider.value))
-	AudioServer.set_bus_volume_db(volume_index, linear_to_db(musicSlider.value))
+func _on_slider_update(value: bool) -> void:
+	if value:
+		AudioServer.set_bus_volume_db(fx_index, linear_to_db(fxSlider.value))
+		AudioServer.set_bus_volume_db(volume_index, linear_to_db(musicSlider.value))
 
 
 func _on_back_pressed() -> void:
