@@ -9,6 +9,8 @@
 
 [node name="Balloon" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26576, 4.04479, 0)
+axis_lock_linear_z = true
+axis_lock_angular_y = true
 gravity_scale = -1.0
 contact_monitor = true
 max_contacts_reported = 1

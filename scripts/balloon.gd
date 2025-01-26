@@ -34,6 +34,8 @@ func _ready() -> void:
 	ctrl = get_node("/root/Node3D/Control/MarginContainer")
 	$Rope.bottom_point = get_parent().get_node("Player")
 	match name:
+		"Balloon":
+			set_color(Color.MEDIUM_BLUE)
 		"Balloon_2":
 			disable()
 			set_color(Color.FIREBRICK)

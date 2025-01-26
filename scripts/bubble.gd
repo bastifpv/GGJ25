@@ -1,4 +1,3 @@
-@tool
 class_name Bubble extends Node3D
 
 var lifetime: float = 0.0
