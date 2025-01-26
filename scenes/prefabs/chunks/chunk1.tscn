@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cleey1n3vjrye"]
+[gd_scene load_steps=23 format=3 uid="uid://cleey1n3vjrye"]
 
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="1_boaho"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="2_kd1mi"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bc5hxvpqkfomj" path="res://scenes/prefabs/rocks/rock-terrasse.tscn" id="4_e17kh"]
 [ext_resource type="PackedScene" uid="uid://br8wro5o8too4" path="res://scenes/prefabs/anchor.tscn" id="5_i733f"]
 [ext_resource type="PackedScene" uid="uid://bt1u7gmed12y6" path="res://scenes/prefabs/clam.tscn" id="6_vkc1b"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/geyser.tscn" id="7_goxpt"]
+[ext_resource type="PackedScene" uid="uid://bbxq4e155qo32" path="res://scenes/prefabs/geyser.tscn" id="7_goxpt"]
 [ext_resource type="PackedScene" uid="uid://cco1mn7jqd3tt" path="res://scenes/prefabs/rocks/rock-sharp.tscn" id="8_fp56q"]
 [ext_resource type="PackedScene" uid="uid://g37yaco12ekq" path="res://scenes/prefabs/clam-pearl.tscn" id="9_5ee2t"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="10_ebxoc"]
@@ -21,8 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="19_27qal"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="20_4jatg"]
 [ext_resource type="Script" path="res://scripts/explodable.gd" id="21_81171"]
+[ext_resource type="PackedScene" uid="uid://dr874ua4twf4p" path="res://scenes/prefabs/chunks/water_surface.tscn" id="22_bamye"]
 
 [node name="Chunk1" type="Node3D"]
+
+[node name="WaterSurface" parent="." instance=ExtResource("22_bamye")]
 
 [node name="stone-diamond2" parent="." instance=ExtResource("1_boaho")]
 transform = Transform3D(0.395642, 0, -0.918405, 0, 1, 0, 0.918405, 0, 0.395642, 13.8096, -1.38234, -2.14781)
