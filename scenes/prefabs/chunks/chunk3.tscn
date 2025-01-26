@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwcgjfbkfajy2"]
+[gd_scene load_steps=31 format=3 uid="uid://bwcgjfbkfajy2"]
 
 [ext_resource type="PackedScene" uid="uid://dr874ua4twf4p" path="res://scenes/prefabs/chunks/water_surface.tscn" id="1_7rf2j"]
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="2_um30b"]
@@ -19,6 +19,17 @@
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="17_bsl1i"]
 [ext_resource type="PackedScene" uid="uid://bo3i306xu0xyj" path="res://scenes/prefabs/coral-small_green.tscn" id="18_mr4ku"]
 [ext_resource type="PackedScene" uid="uid://ckfgbknhn03ec" path="res://scenes/prefabs/coral-small_pink.tscn" id="19_ra657"]
+[ext_resource type="PackedScene" uid="uid://chjtwbclp6efo" path="res://scenes/prefabs/pirates/crane-wood.fbx" id="20_nf0fj"]
+[ext_resource type="PackedScene" uid="uid://ga8tlgak4ev8" path="res://scenes/prefabs/pirates/cage-hanging.fbx" id="21_s6agn"]
+[ext_resource type="PackedScene" uid="uid://cx1w4owlxocjj" path="res://scenes/prefabs/animals/crab.tscn" id="22_0a5oc"]
+[ext_resource type="PackedScene" uid="uid://c17fifry8cltf" path="res://scenes/prefabs/animals/starfish.tscn" id="23_7ndow"]
+[ext_resource type="PackedScene" uid="uid://w6x5akj1o0xo" path="res://scenes/prefabs/rocks/crystals.tscn" id="24_v0n5o"]
+[ext_resource type="PackedScene" uid="uid://c2vyxg1bv85v5" path="res://scenes/prefabs/sea/grass-sea.tscn" id="25_sa0na"]
+[ext_resource type="PackedScene" uid="uid://c6rkfrlo2ymob" path="res://scenes/prefabs/sea/coral-big_yellow.tscn" id="26_s610d"]
+[ext_resource type="PackedScene" uid="uid://dhjbmebl5fgki" path="res://scenes/prefabs/sea/coral-big_red.tscn" id="27_juu3o"]
+[ext_resource type="PackedScene" uid="uid://chxgm2tt2eiug" path="res://scenes/prefabs/rocks/gems.tscn" id="28_au6jn"]
+[ext_resource type="PackedScene" uid="uid://ccedag7qexb4y" path="res://scenes/prefabs/pirates/barrel.tscn" id="29_6o3yi"]
+[ext_resource type="PackedScene" uid="uid://otlhrapgvrn" path="res://scenes/prefabs/pirates/ship-pirate-vreck-front.fbx" id="30_6hgek"]
 
 [node name="Chunk1" type="Node3D"]
 
@@ -33,11 +44,8 @@ transform = Transform3D(0.11097, 0.00280955, 0.99382, -0.00375756, 0.99999, -0.0
 [node name="rock-terrasse" parent="." instance=ExtResource("4_1frk7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.63271, -0.846502, 0.443867)
 
-[node name="anchor" parent="rock-terrasse" instance=ExtResource("5_vkj0m")]
-transform = Transform3D(-0.822107, 0.564638, 0.0729597, 0.060141, -0.041306, 0.997335, 0.566147, 0.824304, 3.92206e-08, 8.9407e-08, 1.89091, -2.21577)
-
 [node name="rock-terrasse2" parent="." instance=ExtResource("4_1frk7")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.7586, -0.614267, 0.102905)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.3248, -0.614267, 0.102905)
 
 [node name="geyser_1" parent="." instance=ExtResource("6_87oyw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0595, 0.387983, 0)
@@ -48,23 +56,17 @@ spawn_rate = 0.3
 [node name="rock-sharp2" parent="." instance=ExtResource("7_oyse4")]
 transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 13.1778, -0.846959, -5.42688)
 
-[node name="rock-sharp" parent="." instance=ExtResource("7_oyse4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.1996, -0.603312, 0.572301)
+[node name="clam-pearl3" parent="." instance=ExtResource("8_wnjbu")]
+transform = Transform3D(4.13359, 0, -3.80022, 0, 5.615, 0, 3.80022, 0, 4.13359, 15.5451, -0.1, 0)
 
-[node name="clam-pearl" parent="rock-sharp" instance=ExtResource("8_wnjbu")]
-transform = Transform3D(5.09231, 0, 2.36572, 0, 5.615, 0, -2.36572, 0, 5.09231, 1.22818, 0.867487, 0.018837)
+[node name="rock-sharp" parent="." instance=ExtResource("7_oyse4")]
+transform = Transform3D(0.699514, 0, -0.714619, 0, 1, 0, 0.714619, 0, 0.699514, 18.1996, -0.603312, 0.572301)
 
 [node name="rock-sharp3" parent="." instance=ExtResource("7_oyse4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44.8487, -0.8663, -0.0873379)
 
 [node name="clam-pearl" parent="rock-sharp3" instance=ExtResource("8_wnjbu")]
-transform = Transform3D(5.09231, 0, 2.36572, 0, 5.615, 0, -2.36572, 0, 5.09231, -0.185, 1.67375, 4.09352)
-
-[node name="stalags" parent="." instance=ExtResource("9_7yasv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5807, 0.149457, 0.102029)
-
-[node name="stalags2" parent="." instance=ExtResource("9_7yasv")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 24.7413, 0.298914, -0.00383091)
+transform = Transform3D(5.09231, 0, 2.36572, 0, 5.615, 0, -2.36572, 0, 5.09231, -0.185, 1.67375, 7.52737)
 
 [node name="stone-big-tall" parent="." instance=ExtResource("10_fpy70")]
 transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 10.1819, -0.2, -3.77678)
@@ -75,21 +77,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.873, 0.149457, -4.86725)
 [node name="stone-big3" parent="." instance=ExtResource("11_q3716")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.1442, 0, -0.290738)
 
-[node name="stone-big2" parent="." instance=ExtResource("11_q3716")]
-transform = Transform3D(0.740476, -0.672083, 0, 0.672083, 0.740476, 0, 0, 0, 1, 15.5176, -0.168411, 0.388095)
-
-[node name="stalags" parent="stone-big2" instance=ExtResource("9_7yasv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0802526, 0.566855, -0.0214582)
-
-[node name="stalags2" parent="stone-big2" instance=ExtResource("9_7yasv")]
-transform = Transform3D(-0.878817, -8.9407e-08, -0.477159, 8.9407e-08, -1, -1.49012e-08, -0.477159, -4.17145e-08, 0.878817, 0.035078, 0.196433, 0.102)
-
-[node name="stalags3" parent="stone-big2" instance=ExtResource("9_7yasv")]
-transform = Transform3D(-8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, 0, 1, -0.174203, 0.280926, -0.0520819)
-
-[node name="stalags4" parent="stone-big2" instance=ExtResource("9_7yasv")]
-transform = Transform3D(-5.96046e-08, 1, 0, 0.951057, 2.98023e-08, -0.309017, -0.309017, -1.35076e-08, -0.951057, 0.373781, 0.355062, 0.104117)
-
 [node name="rocks-small" parent="." instance=ExtResource("12_flsvn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48445, 0.407627, 1.17696)
 
@@ -97,33 +84,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48445, 0.407627, 1.17696)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.022, 0, 2.9004)
 
 [node name="geyser_3" parent="." instance=ExtResource("6_87oyw")]
-transform = Transform3D(-0.227132, -0.000810139, 0.704279, -0.0364553, 0.739021, -0.0109068, -0.703336, -0.0380433, -0.22687, 37.0617, 1.25589, 0)
+transform = Transform3D(-0.227132, -0.000810139, 0.704279, -0.0364553, 0.739021, -0.0109068, -0.703336, -0.0380433, -0.22687, 33.6279, 1.25589, 0)
 type = "n2"
 content = 1500.0
 
 [node name="stone-pointy" parent="." instance=ExtResource("14_s2wxn")]
-transform = Transform3D(0.737277, 0, 0.67559, 0, 1, 0, -0.67559, 0, 0.737277, 30.9771, 0, 0)
+transform = Transform3D(0.737277, 0, 0.67559, 0, 1, 0, -0.67559, 0, 0.737277, 29.4203, 0, -0.741511)
 
 [node name="stone-round2" parent="." instance=ExtResource("15_6bk4y")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.3241, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.493, 0, 0)
 
 [node name="stone-small-flat" parent="." instance=ExtResource("16_r8h3q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.59, 0, 1.3476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.452, 0, -2.80987)
 
 [node name="stone-snow" parent="." instance=ExtResource("17_bsl1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2794, -0.171946, -2.42855)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9242, -0.171946, -3.89733)
 
 [node name="geysyr_1" parent="." instance=ExtResource("6_87oyw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.951, 0, 0)
 type = "o2"
 content = 3000.0
 spawn_rate = 0.3
-
-[node name="stalags4" parent="." instance=ExtResource("9_7yasv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9377, -0.3584, -4.22567)
-
-[node name="stalags5" parent="." instance=ExtResource("9_7yasv")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 16.5169, -0.208943, -4.33153)
 
 [node name="stone-round3" parent="." instance=ExtResource("15_6bk4y")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.1186, -0.546452, -5.00716)
@@ -155,8 +136,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.8017, 0.204423, -4.73865)
 [node name="anchor3" parent="." instance=ExtResource("5_vkj0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.8385, 1.73131, -5.32508)
 
-[node name="anchor" parent="." instance=ExtResource("5_vkj0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.996, -0.343008, -2.855)
+[node name="anchor4" parent="." instance=ExtResource("5_vkj0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8557, -0.686016, 1.81678)
 
 [node name="coral-small_orange" parent="." instance=ExtResource("18_mr4ku")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6385, 1.12778, -4.66348)
@@ -182,38 +163,86 @@ transform = Transform3D(-0.257925, 0, -0.966165, 0, 1, 0, 0.966165, 0, -0.257925
 [node name="clam-pearl2" parent="." instance=ExtResource("8_wnjbu")]
 transform = Transform3D(5.28737, -0.467256, -1.8313, 0.282242, 5.5749, -0.607539, 1.86878, 0.480037, 5.27309, 39.2105, 1.6461, -5.03529)
 
-[node name="stalags3" parent="." instance=ExtResource("9_7yasv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4076, 0.149457, 0.102029)
-
-[node name="stalags7" parent="." instance=ExtResource("9_7yasv")]
-transform = Transform3D(-0.579608, 0, -0.814895, 0, 1, 0, 0.814895, 0, -0.579608, 22.0038, 0.298914, 0.652018)
-
 [node name="rock-sharp6" parent="." instance=ExtResource("7_oyse4")]
-transform = Transform3D(-0.00855208, 0, 0.999963, 0, 1, 0, -0.999963, 0, -0.00855208, 26.9316, -0.603312, -0.485476)
-
-[node name="clam-pearl" parent="rock-sharp6" instance=ExtResource("8_wnjbu")]
-transform = Transform3D(4.18213, 0, -3.74674, 0, 5.615, 0, 3.74674, 0, 4.18213, -0.163133, 1.04094, 2.01127)
+transform = Transform3D(0.886147, 0, 0.463404, 0, 1, 0, -0.463404, 0, 0.886147, 20.6559, -0.524747, -0.332991)
 
 [node name="anchor2" parent="." instance=ExtResource("5_vkj0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.644, 0.601337, 1.00025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2102, 0.601337, 1.00025)
 
 [node name="coral-small_orange2" parent="." instance=ExtResource("19_ra657")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.4241, 0.177595, 1.40755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2861, 0.220977, -2.80987)
 
 [node name="rock-sharp7" parent="." instance=ExtResource("7_oyse4")]
-transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 3.86157, -0.846959, -5.42688)
+transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 7.61654, -1.38211, -5.52939)
 
 [node name="stone-big-tall5" parent="." instance=ExtResource("10_fpy70")]
 transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 2.23805, 0.149457, -3.77678)
 
-[node name="stalags8" parent="." instance=ExtResource("9_7yasv")]
-transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 7.2007, -0.2, -4.33153)
-
-[node name="stone-round" parent="." instance=ExtResource("15_6bk4y")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.51, 0, 0)
-
-[node name="rocks-small2" parent="." instance=ExtResource("12_flsvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97552, 0, 0)
-
 [node name="stone-diamond" parent="." instance=ExtResource("2_um30b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.2596, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1761, 0, 0)
+
+[node name="crane-wood" parent="." instance=ExtResource("20_nf0fj")]
+transform = Transform3D(-0.939016, 0, -0.343873, 0, 1, 0, 0.343873, 0, -0.939016, 7.65052, 1.01452, -0.0139347)
+
+[node name="cage-hanging" parent="crane-wood" instance=ExtResource("21_s6agn")]
+transform = Transform3D(0.43498, 0, 0.90044, 0, 1, 0, -0.90044, 0, 0.43498, 2.42012, -0.823213, 0.082756)
+
+[node name="crab" parent="." instance=ExtResource("22_0a5oc")]
+transform = Transform3D(0.914685, 0, -0.404168, 0, 1, 0, 0.404168, 0, 0.914685, 9.21769, 0.429772, 1.23244)
+
+[node name="crab2" parent="." instance=ExtResource("22_0a5oc")]
+transform = Transform3D(0.939358, 0, 0.342938, 0, 1, 0, -0.342938, 0, 0.939358, 7.74757, 0.367874, 1.71818)
+
+[node name="crab3" parent="." instance=ExtResource("22_0a5oc")]
+transform = Transform3D(0.859585, 0, -0.510993, 0, 1, 0, 0.510993, 0, 0.859585, 8.4759, 0.367874, 1.7652)
+
+[node name="starfish" parent="." instance=ExtResource("23_7ndow")]
+transform = Transform3D(1, 0, 0, 0, 0.61201, -0.79085, 0, 0.79085, 0.61201, 10.3347, 1.81825, -3.13274)
+
+[node name="crystals" parent="." instance=ExtResource("24_v0n5o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9145, 0, -3.67878)
+
+[node name="grass-sea" parent="." instance=ExtResource("25_sa0na")]
+transform = Transform3D(-0.807228, 0, -0.590239, 0, 1, 0, 0.590239, 0, -0.807228, 9.614, 0, -2.4124)
+
+[node name="rock-sharp8" parent="." instance=ExtResource("7_oyse4")]
+transform = Transform3D(0.954881, 0.0725179, 0.288, -0.0399661, 0.992287, -0.117346, -0.294288, 0.100541, 0.950413, 4.46895, -0.846959, -4.58164)
+
+[node name="stone-big6" parent="." instance=ExtResource("11_q3716")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53097, -1.1411, -4.51955)
+
+[node name="stone-snow2" parent="." instance=ExtResource("17_bsl1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46666, -1.0406, -3.675)
+
+[node name="coral-big_yellow" parent="." instance=ExtResource("26_s610d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61601, 0, -2.27056)
+
+[node name="coral-big_yellow2" parent="." instance=ExtResource("27_juu3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.87078, 0, -2.02753)
+
+[node name="gems" parent="." instance=ExtResource("28_au6jn")]
+transform = Transform3D(-0.682687, 0, -0.730711, 0, 1, 0, 0.730711, 0, -0.682687, 11.977, -0.2, 2.485)
+
+[node name="coral-big_yellow3" parent="." instance=ExtResource("27_juu3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3833, 4.76837e-07, -2.73435)
+
+[node name="barrel" parent="." instance=ExtResource("29_6o3yi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5252, 0, -3.18836)
+
+[node name="ship-pirate-vreck-front" parent="." instance=ExtResource("30_6hgek")]
+transform = Transform3D(-0.0087007, 0.981053, 0.193542, -0.0440588, -0.193738, 0.980064, 0.998991, -8.7755e-10, 0.0449097, 20.1652, -3.93523, -16.4492)
+
+[node name="starfish2" parent="." instance=ExtResource("23_7ndow")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 37.9196, 0.600109, 0.795425)
+
+[node name="crab4" parent="." instance=ExtResource("22_0a5oc")]
+transform = Transform3D(1.44079, 0, -1.38713, 0, 2, 0, 1.38713, 0, 1.44079, 40.4012, 0, 0.253752)
+
+[node name="crab5" parent="." instance=ExtResource("22_0a5oc")]
+transform = Transform3D(1.87155, 0, 0.705186, 0, 2, 0, -0.705186, 0, 1.87155, 39.4984, -2.38419e-07, 1.56351)
+
+[node name="crab6" parent="." instance=ExtResource("22_0a5oc")]
+transform = Transform3D(1.71302, 0, -1.03226, 0, 2, 0, 1.03226, 0, 1.71302, 40.5744, 0, -0.645793)
+
+[node name="crab7" parent="." instance=ExtResource("22_0a5oc")]
+transform = Transform3D(1.80011, 0, -0.871562, 0, 2, 0, 0.871562, 0, 1.80011, 41.0983, 0, 0.653836)

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
 [ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
-[ext_resource type="PackedScene" uid="uid://k86unkwgb2lh" path="res://scenes/prefabs/dome.tscn" id="20_6d5p3"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/dome.tscn" id="20_6d5p3"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
