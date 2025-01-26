@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cleey1n3vjrye"]
+[gd_scene load_steps=22 format=3 uid="uid://cleey1n3vjrye"]
 
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="1_boaho"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="2_kd1mi"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="18_8hy88"]
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="19_27qal"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="20_4jatg"]
+[ext_resource type="Script" path="res://scripts/explodable.gd" id="21_81171"]
 
 [node name="Chunk1" type="Node3D"]
 
@@ -72,6 +73,21 @@ transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 
 [node name="stone-big" parent="." instance=ExtResource("12_mqaks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3793, 0.149457, -4.86725)
 
+[node name="stone-big2" parent="." instance=ExtResource("12_mqaks")]
+transform = Transform3D(0.740476, -0.672083, 0, 0.672083, 0.740476, 0, 0, 0, 1, 13.7849, 4.8439, 0.388095)
+
+[node name="stalags" parent="stone-big2" instance=ExtResource("10_ebxoc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0802526, 0.566855, -0.0214582)
+
+[node name="stalags2" parent="stone-big2" instance=ExtResource("10_ebxoc")]
+transform = Transform3D(-0.878817, -8.9407e-08, -0.477159, 8.9407e-08, -1, -1.49012e-08, -0.477159, -4.17145e-08, 0.878817, 0.035078, 0.196433, 0.102)
+
+[node name="stalags3" parent="stone-big2" instance=ExtResource("10_ebxoc")]
+transform = Transform3D(-8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, 0, 1, -0.174203, 0.280926, -0.0520819)
+
+[node name="stalags4" parent="stone-big2" instance=ExtResource("10_ebxoc")]
+transform = Transform3D(-5.96046e-08, 1, 0, 0.951057, 2.98023e-08, -0.309017, -0.309017, -1.35076e-08, -0.951057, 0.373781, 0.355062, 0.104117)
+
 [node name="rocks-small" parent="." instance=ExtResource("13_mhrj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48445, 0.407627, 1.17696)
 
@@ -103,3 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6725, -1.42262, 3.53185)
 
 [node name="stone-snow" parent="." instance=ExtResource("20_4jatg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2794, -0.171946, -2.42855)
+
+[node name="stone-snow2" parent="." instance=ExtResource("20_4jatg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7732, 0.278222, -0.128475)
+script = ExtResource("21_81171")
