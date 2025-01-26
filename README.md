@@ -11,3 +11,6 @@ In Oxygen Odyssey your goal is to save your underwater community by constantly c
 - Simon Reeber [@irenesmober](https://github.com/IreneSmober)
 - Mathias Haimerl [@haimi](https://www.github.com/Haimi)
 - Bastian Reuther [@bastifpv](https://www.github.com/bastifpv)
+
+<img src=./our_assets/img/gameover.png width="100%">
+<img src=./our_assets/img/menu.png width="100%">
