@@ -2,3 +2,7 @@ external
 .godot
 scenes/UI.tscn
 *.tmp
+build/Linux/*
+build/OSX/*
+build/Web/*
+build/Windows/*

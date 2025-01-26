@@ -13,7 +13,7 @@ config_version=5
 config/name="GGJ25"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://materials/png/Icon.svg"
 
 [autoload]
 
@@ -73,3 +73,7 @@ release={
 run/main_scene="res://scene/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
