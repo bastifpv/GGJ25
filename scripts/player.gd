@@ -55,6 +55,7 @@ func _process(delta: float):
 	if new_anim != cur_anim:
 		ap.play(new_anim)
 
+var acc = 0
 
 func _on_body_entered(body: Node) -> void:
 	# Deliver O2
@@ -67,6 +68,8 @@ func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("bubble"):
 		# Bist du schon groß? Prüfe ob man schon sammeln darf
 		var type = body.get_meta("type")
+		var source = body.get_parent()
+		var amount = body.get_meta("value")
 		if !ctrl.may_collect(type):
 			return
 		var add_scale = body.get_node("BubbleMesh").scale
@@ -74,10 +77,11 @@ func _on_body_entered(body: Node) -> void:
 		for i in ctrl.types.size():
 			if ctrl.types[i] == type:
 				ball = balls[i]
-		ball.size += add_scale.x / 10
+		ball.size += amount / 1000
 		body.queue_free()
 		ball.update_size()
-		ctrl.oneForMe(type, add_scale.x * 100)
+		ctrl.oneForMe(type, amount)
+		source.deplete_content(amount)
 		
 	# Spikey, ouchie
 	if body.is_in_group("spikey"):

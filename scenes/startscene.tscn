@@ -1,12 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=26 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
-[ext_resource type="PackedScene" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
-[ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="16_7558u"]
+[ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
@@ -39,17 +38,6 @@ height = 1.8
 shader = ExtResource("25_g11gl")
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Decke" type="Node3D" parent="."]
-
-[node name="stalags" parent="Decke" instance=ExtResource("16_7558u")]
-transform = Transform3D(0.987683, 2.36262e-08, 0.156469, 0, -1, 1.50996e-07, 0.156469, -1.49136e-07, -0.987683, 12.6839, 6.57825, 0)
-
-[node name="stalags2" parent="Decke" instance=ExtResource("16_7558u")]
-transform = Transform3D(0.853405, -7.87063e-08, -0.521248, 0, -1, 1.50996e-07, -0.521248, -1.28861e-07, -0.853405, 14.4753, 6.33466, 0)
-
-[node name="stalags3" parent="Decke" instance=ExtResource("16_7558u")]
-transform = Transform3D(0.855545, -7.81748e-08, -0.517728, 0, -1, 1.50996e-07, -0.517728, -1.29184e-07, -0.855545, 16.2879, 6.46867, 0)
 
 [node name="Dome" type="StaticBody3D" parent="." groups=["dome"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 12.4106, 0)
