@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=26 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
@@ -292,14 +292,14 @@ transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 
 [node name="diver" parent="PlayerRig/Player" instance=ExtResource("30_xbtnc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.107)
 
+[node name="Kopf" type="Marker3D" parent="PlayerRig/Player/diver"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569805, -0.00759411, -0.0250852)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
 
 [node name="Balloonbefestigung" type="Marker3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00637841, 0.897872, 0.0839639)
-
-[node name="Kopf" type="Marker3D" parent="PlayerRig/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569805, -0.00759411, 0.0819148)
 
 [node name="coral-small_orange" parent="." instance=ExtResource("5_sfw8e")]
 transform = Transform3D(-0.995897, 0, 0.0904936, 0, 1, 0, -0.0904936, 0, -0.995897, 7.77056, -0.449376, -2.28277)
