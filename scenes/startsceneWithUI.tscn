@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="4_y1q0b"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="5_71iw4"]
 [ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="5_cif7j"]
-[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="5_pcuml"]
+[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="5_pcuml"]
 [ext_resource type="Texture2D" uid="uid://d2lsmcqedlryc" path="res://materials/png/UI/red.png" id="6_orsgr"]
 [ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="7_8thku"]
 [ext_resource type="Texture2D" uid="uid://bakdyo1ahgpvq" path="res://materials/png/UI/neelde.png" id="7_yk40i"]
