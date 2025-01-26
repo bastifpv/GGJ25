@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func spawn_fish():
 	if fish_counter < 30:
-		if (player.global_position - global_position).abs() < Vector3(10,10,0):
+		if (player.global_position - global_position).abs() < Vector3(30,30,0):
 			return
 		var fish: Node3D =  fishy.instantiate()	
 		add_child(fish)			

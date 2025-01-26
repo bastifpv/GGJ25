@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://hf8nmefcseyj"]
+[gd_scene load_steps=3 format=3 uid="uid://b32pwol05aehd"]
 
 [ext_resource type="PackedScene" uid="uid://kier7cwsmspm" path="res://materials/fish2.glb" id="1_7ev6s"]
 [ext_resource type="Script" path="res://scripts/fishy.gd" id="2_eomlv"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bqf7hwm76usl3"]
+[gd_scene load_steps=28 format=3 uid="uid://cbvfau4klnrgb"]
 
 [ext_resource type="PackedScene" uid="uid://dr874ua4twf4p" path="res://scenes/prefabs/chunks/water_surface.tscn" id="1_oarx8"]
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="2_6kwh0"]
@@ -22,10 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://dldnto3tvw67j" path="res://scenes/prefabs/sea/coral-big_green.tscn" id="20_edl5u"]
 [ext_resource type="PackedScene" uid="uid://cx1w4owlxocjj" path="res://scenes/prefabs/animals/crab.tscn" id="22_q5dmw"]
 [ext_resource type="PackedScene" uid="uid://c17fifry8cltf" path="res://scenes/prefabs/animals/starfish.tscn" id="23_3x5nd"]
-[ext_resource type="PackedScene" uid="uid://w6x5akj1o0xo" path="res://scenes/prefabs/rocks/crystals.tscn" id="24_ayi18"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/rocks/crystals.tscn" id="24_ayi18"]
 [ext_resource type="PackedScene" uid="uid://c2vyxg1bv85v5" path="res://scenes/prefabs/sea/grass-sea.tscn" id="25_g3h16"]
-[ext_resource type="PackedScene" uid="uid://b7yak1os8exal" path="res://scenes/prefabs/rocks/rock-pillar.tscn" id="27_w64rf"]
-[ext_resource type="PackedScene" uid="uid://chxgm2tt2eiug" path="res://scenes/prefabs/rocks/gems.tscn" id="28_ltrtc"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/rocks/rock-pillar.tscn" id="27_w64rf"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/rocks/gems.tscn" id="28_ltrtc"]
 [ext_resource type="PackedScene" uid="uid://ccedag7qexb4y" path="res://scenes/prefabs/pirates/barrel.tscn" id="29_memyk"]
 
 [node name="Chunk1" type="Node3D"]
@@ -242,7 +242,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.4893, -0.4, 0.937828)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.6324, -0.4, 1.04484)
 
 [node name="rock-terrasse3" parent="." instance=ExtResource("4_pehuj")]
-transform = Transform3D(-7.54979e-08, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 22.7211, 9.63725, 0.443867)
+transform = Transform3D(-7.54979e-08, -8.74228e-08, -1, -8.74228e-08, -1, 8.74228e-08, -1, 8.74228e-08, 7.54979e-08, 30.6278, 9.63725, 0.443867)
 
 [node name="stalags2" parent="rock-terrasse3" instance=ExtResource("18_tl1ma")]
 transform = Transform3D(-4.37114e-08, 8.74228e-08, 1, -8.74228e-08, 1, -8.74228e-08, -1, -8.74228e-08, -4.37114e-08, 0.239809, 1.1424, -0.68314)
