@@ -6,8 +6,12 @@ extends Node3D
 
 var bubble = preload("res://scenes/bubble.tscn")
 var rng = RandomNumberGenerator.new()
+
+var player : Node3D
+
 var orig_content: float
 var spawn_timer: float = 0
+
 
 const bubble_color = {
 	"o2": Color.MEDIUM_BLUE,
@@ -17,16 +21,26 @@ const bubble_color = {
 const min_scale = .2
 
 func spawnBubble():
-	var bub: RigidBody3D =  bubble.instantiate()
-	bub.bubbleColor = bubble_color[type]
-	add_child(bub)
-	var scl = Vector3.ONE * rng.randf_range(0.01, 0.4)
-	bub.gravity_scale *= scl.x
-	bub.get_node("BubbleMesh").scale = scl
-	bub.get_node("BubbleShape").scale = scl
-	bub.global_position = global_position + Vector3(rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1))
-	bub.set_meta("type", type)
-	bub.set_meta("value", scl.x * 100)
+
+	if (player.global_position - global_position).abs() < Vector3(60,60,0):
+		var bub: RigidBody3D =  bubble.instantiate()
+		bub.bubbleColor = bubble_color[type]
+		add_child(bub)
+		var scl = Vector3.ONE * rng.randf_range(0.01, 0.4)
+		bub.gravity_scale *= scl.x
+		bub.get_node("BubbleMesh").scale = scl
+		bub.get_node("BubbleShape").scale = scl
+		bub.global_position = global_position + Vector3(rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1))
+		bub.set_meta("type", type)
+    bub.set_meta("value", scl.x * 100
+	else:
+		#print("not spawned, too far away from player")
+		pass
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	player = get_node("/root/Node3D/PlayerRig/Player")
+	
 
 func scale_between(x, minAllowed, maxAllowed, min, max):
 	return (maxAllowed - minAllowed) * (x - min) / (max - min) + minAllowed
