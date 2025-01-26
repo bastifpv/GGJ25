@@ -14,7 +14,7 @@ var bomb_action = false
 const release_per_second = .5
 
 func _ready():
-	ap = $diver/AnimationPlayer
+	ap = $CollisionShape3D/diver/AnimationPlayer
 	ap.playback_default_blend_time = 1.0
 	#ap.autoplay = idle_anim
 	balls.append(get_parent().get_node("Balloon"))
@@ -26,15 +26,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float):
 	var add_vec = Vector3.ZERO
-	targetDirection.z = 0
+	targetDirection.z = 90
 	var cur_anim = ap.current_animation
 	var new_anim = idle_anim
 	if Input.is_action_pressed("up"):
-		targetDirection.z = 45
+		targetDirection.z = 135
 		add_vec.y += force
 		new_anim = "swim"
 	if Input.is_action_pressed("down"):
-		targetDirection.z = -45
+		targetDirection.z = 45
 		add_vec.y -= force
 		new_anim = "swim"
 	if Input.is_action_pressed("right"):
@@ -57,13 +57,13 @@ func _process(delta: float):
 		if bomb_action == false:
 			var bang: Node3D = xplosion.instantiate()
 			get_parent().add_child(bang)
-			bang.global_position = $diver/Kopf.global_position
+			bang.global_position = $CollisionShape3D/diver/Kopf.global_position
 			bomb_action = true
 	else:
 		bomb_action = false
 	
 	apply_central_force(add_vec * delta)
-	$diver.rotation_degrees = lerp($diver.rotation_degrees, targetDirection, delta * 2)
+	$CollisionShape3D.rotation_degrees = lerp($CollisionShape3D.rotation_degrees, targetDirection, delta * 2)
 	if new_anim != cur_anim:
 		ap.play(new_anim)
 
@@ -103,5 +103,5 @@ func _on_body_entered(body: Node) -> void:
 			ctrl.oneForMe(ball.type, -ctrl.tank[ball.type])
 
 func _on_level_up(lvl: int) -> void:
-	var new_ball: RigidBody3D = get_parent().get_node("Balloon_" + str(lvl))
-	new_ball.enable()
+	get_parent().get_node("Balloon_" + str(lvl)).enable()
+	get_parent().get_node("Rope_" + str(lvl)).show()

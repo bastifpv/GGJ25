@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://k86unkwgb2lh"]
+[gd_scene load_steps=14 format=3 uid="uid://bnrfupwvinku"]
 
 [ext_resource type="PackedScene" uid="uid://b13o4b46f1vo5" path="res://our_assets/dome.glb" id="1_vmqht"]
 [ext_resource type="Script" path="res://scripts/dome.gd" id="2_ujo66"]
-[ext_resource type="Material" uid="uid://cmama8v5kuolf" path="res://materials/glass.tres" id="2_yi267"]
+[ext_resource type="Material" path="res://materials/glass.tres" id="2_yi267"]
 [ext_resource type="Material" uid="uid://dogmrtrsf14a0" path="res://materials/anchor.tres" id="3_jrkdo"]
 [ext_resource type="Material" uid="uid://c1ypdgsbcltgh" path="res://materials/bottom.tres" id="5_r5ykr"]
 [ext_resource type="Material" uid="uid://27vqua7k4awh" path="res://materials/coral.tres" id="6_syltl"]
 [ext_resource type="Shader" path="res://shaders/waterA.gdshader" id="7_se6sq"]
-[ext_resource type="Texture2D" uid="uid://ds01amthu20o6" path="res://materials/water_waves_texture.tres" id="8_g06pr"]
+[ext_resource type="Texture2D" uid="uid://dhr2f4u0aqlnb" path="res://materials/water_waves_texture.tres" id="8_g06pr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1gwm"]
 size = Vector3(2.48889, 1.06909, 2.19122)
@@ -47,7 +47,7 @@ script = ExtResource("2_ujo66")
 
 [node name="DomeDock" type="StaticBody3D" parent="." index="0" groups=["dome"]]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="DomeDock" index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DomeDock" index="0" groups=["dome"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335693, -0.488403, 0.0592957)
 shape = SubResource("BoxShape3D_v1gwm")
 

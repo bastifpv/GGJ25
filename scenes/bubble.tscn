@@ -26,6 +26,8 @@ material = SubResource("ShaderMaterial_vqi3u")
 
 [node name="Bubble" type="RigidBody3D" groups=["bubble"]]
 gravity_scale = -0.4
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_ajy6j")
 
 [node name="BubbleMesh" type="MeshInstance3D" parent="."]
@@ -34,3 +36,5 @@ mesh = SubResource("SphereMesh_53kgs")
 
 [node name="BubbleShape" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_yw4p0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
