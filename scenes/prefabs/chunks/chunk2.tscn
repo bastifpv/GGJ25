@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cleey1n3vjrye"]
+[gd_scene load_steps=20 format=3 uid="uid://cuibdhn65gtkj"]
 
 [ext_resource type="PackedScene" uid="uid://dr874ua4twf4p" path="res://scenes/prefabs/chunks/water_surface.tscn" id="1_n4sdj"]
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="2_xy0rd"]
@@ -13,10 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://by5uso73huqbn" path="res://scenes/prefabs/rocks/stone-big.tscn" id="13_jf7kn"]
 [ext_resource type="PackedScene" uid="uid://cl7aov3gwfnso" path="res://scenes/prefabs/rocks/rocks-small.tscn" id="14_578rf"]
 [ext_resource type="PackedScene" uid="uid://dolr0epvciw3e" path="res://scenes/prefabs/rocks/stone-oval.tscn" id="16_q3rmy"]
-[ext_resource type="PackedScene" uid="uid://bo3i306xu0xyj" path="res://scenes/prefabs/coral-small_green.tscn" id="18_rl5xb"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/coral-small_green.tscn" id="18_rl5xb"]
 [ext_resource type="PackedScene" uid="uid://cjym50lv6r43" path="res://scenes/prefabs/rocks/stone-pointy.tscn" id="18_whnwj"]
 [ext_resource type="PackedScene" uid="uid://dvgumaasg8gcp" path="res://scenes/prefabs/rocks/stone-round.tscn" id="19_2rpsp"]
-[ext_resource type="PackedScene" uid="uid://ckfgbknhn03ec" path="res://scenes/prefabs/coral-small_pink.tscn" id="19_afokp"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/coral-small_pink.tscn" id="19_afokp"]
 [ext_resource type="PackedScene" uid="uid://7sgj0imdaniu" path="res://scenes/prefabs/rocks/stone-small-flat.tscn" id="20_518d8"]
 [ext_resource type="PackedScene" uid="uid://bhwitj105m4m3" path="res://scenes/prefabs/rocks/stone-snow.tscn" id="21_hcllx"]
 
