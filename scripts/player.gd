@@ -55,7 +55,7 @@ func _process(delta: float):
 		if bomb_action == false:
 			var bang: Node3D = xplosion.instantiate()
 			get_parent().add_child(bang)
-			bang.global_position = $Kopf.global_position
+			bang.global_position = $diver/Kopf.global_position
 			bomb_action = true
 	else:
 		bomb_action = false
