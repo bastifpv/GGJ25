@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://k86unkwgb2lh"]
+[gd_scene load_steps=6 format=3 uid="uid://bnrfupwvinku"]
 
 [ext_resource type="PackedScene" uid="uid://b13o4b46f1vo5" path="res://our_assets/dome.glb" id="1_vmqht"]
-[ext_resource type="Material" uid="uid://cmama8v5kuolf" path="res://materials/glass.tres" id="2_yi267"]
+[ext_resource type="Material" path="res://materials/glass.tres" id="2_yi267"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1gwm"]
 size = Vector3(2.48889, 1.06909, 2.19122)
@@ -16,7 +16,7 @@ data = PackedVector3Array(-0.0001, -0.2, -5, 0.9754, 0.2, -4.904, -0.0001, 0.2, 
 
 [node name="DomeDock" type="StaticBody3D" parent="." index="0" groups=["dome"]]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="DomeDock" index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DomeDock" index="0" groups=["dome"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335693, -0.488403, 0.0592957)
 shape = SubResource("BoxShape3D_v1gwm")
 
