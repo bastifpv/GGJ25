@@ -11,9 +11,10 @@ func _ready() -> void:
 	fx_index = AudioServer.get_bus_index("fx")
 	volume_index = AudioServer.get_bus_index("music")
 	
-	fxSlider.value = db_to_linear(AudioServer.get_bus_volume_db(fx_index))
-	musicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(volume_index))
-	
+	#fxSlider.value = db_to_linear(AudioServer.get_bus_volume_db(fx_index))
+	#musicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(volume_index))
+	fxSlider.value = 0.75
+	musicSlider.value = 0.75
 	pass # Replace with function body.
 
 

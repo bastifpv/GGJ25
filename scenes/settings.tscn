@@ -79,7 +79,7 @@ layout_mode = 2
 theme = ExtResource("4_vi8hg")
 max_value = 1.0
 step = 0.01
-value = 1.0
+value = 0.7
 
 [node name="FXVolume" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -93,7 +93,7 @@ layout_mode = 2
 theme = ExtResource("4_vi8hg")
 max_value = 1.0
 step = 0.01
-value = 1.0
+value = 0.7
 
 [node name="Control2" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
