@@ -56,6 +56,7 @@ offset_bottom = 1080.0
 texture = SubResource("ViewportTexture_ttpit")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
+visible = false
 z_index = 3
 layout_mode = 1
 anchors_preset = 15
@@ -250,7 +251,6 @@ axis_lock_angular_y = false
 axis_lock_angular_z = false
 
 [node name="Rope" parent="PlayerRig" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("15_23t65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("16_aptq5")
 top_point = NodePath("../Balloon")
 bottom_point = NodePath("../Player")
