@@ -296,8 +296,8 @@ offset_bottom = 60.0
 grow_horizontal = 2
 text = "Pause"
 
-[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_population_change"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="_on_margin_container_population_change"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_population_change"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]

@@ -12,7 +12,7 @@ var player : Node3D
 		bubbleColor = value
 		if has_node("BubbleMesh"):
 			_setBubbleColor(value)
-var rng = RandomNumberGenerator.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_node("/root/Node3D/PlayerRig/Player")
@@ -27,8 +27,7 @@ func _process(delta: float) -> void:
 	if elapsed_time >=lifetime:
 		pop()
 
-func pop():
-
-		if (player.global_position - global_position).abs() < Vector3(10,0,0): # play sound only in nearby bubbles
-			AudioManager.play_plop( rng.randi_range(1,5))
-		queue_free()
+func pop(collected = false):
+	if (player.global_position - global_position).abs() < Vector3(10,0,0): # play sound only in nearby bubbles
+		AudioManager.play_plop($BubbleMesh.scale)
+	queue_free()
