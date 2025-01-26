@@ -6,3 +6,4 @@ build/Linux/*
 build/OSX/*
 build/Web/*
 build/Windows/*
+.DS_store
