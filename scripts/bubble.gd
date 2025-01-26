@@ -25,6 +25,10 @@ func _setBubbleColor(color: Color):
 func _process(delta: float) -> void:
 	elapsed_time += delta
 	if elapsed_time >=lifetime:
+		pop()
+
+func pop():
+
 		if (player.global_position - global_position).abs() < Vector3(10,0,0): # play sound only in nearby bubbles
 			AudioManager.play_plop( rng.randi_range(1,5))
 		queue_free()
