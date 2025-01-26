@@ -326,6 +326,7 @@ environment = ExtResource("31_50be8")
 script = ExtResource("41_6fcj0")
 
 [connection signal="baseStorageChange" from="Control/MarginContainer" to="Control" method="recieveBaseStorage"]
+[connection signal="baseStorageChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]
 [connection signal="level_up" from="Control/MarginContainer" to="PlayerRig/Player" method="_on_level_up"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_population"]

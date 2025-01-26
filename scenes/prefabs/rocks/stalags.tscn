@@ -49,7 +49,7 @@ size = Vector3(0.749512, 2.01215, 0.861206)
 radius = 0.0827831
 height = 0.742314
 
-[node name="stalags" type="StaticBody3D"]
+[node name="stalags" type="StaticBody3D" groups=["spikey"]]
 
 [node name="stalags" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_g5dp3")

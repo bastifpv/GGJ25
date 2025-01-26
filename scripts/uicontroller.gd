@@ -59,3 +59,7 @@ func _on_pause_end_pause() -> void:
 	gamePause.visible = false
 	pauseBtn.visible = true
 	get_tree().paused = false
+
+
+func _on_body_entered(body: Node) -> void:
+	pass # Replace with function body.

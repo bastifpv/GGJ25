@@ -62,7 +62,7 @@ func add_xp(val):
 		xp -= xp_map[player_level]
 		player_level += 1
 		level_up.emit(player_level)
-	xp_change.emit({"xp": xp, "lvl": roundf(player_level)})
+	xp_change.emit({"xp": roundf(xp), "lvl": roundf(player_level)})
 
 # People die (abs num)
 func anotherOneBitesTheDust(val):
