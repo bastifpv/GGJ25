@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://31agulea8hx0"]
+[gd_scene load_steps=23 format=3 uid="uid://cleey1n3vjrye"]
 
 [ext_resource type="PackedScene" uid="uid://dr874ua4twf4p" path="res://scenes/prefabs/chunks/water_surface.tscn" id="1_n4sdj"]
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="2_xy0rd"]
@@ -147,9 +147,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2794, -0.171946, -2.42855)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7839, 0.941182, 0.225196)
 script = ExtResource("22_ly1b6")
 
-[node name="geysyr_1" parent="." instance=ExtResource("7_goxpt")]
+[node name="geysyr_1" parent="." instance=ExtResource("8_dn4hu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7943, 0.681642, 0)
-
 type = "o2"
 content = 3000.0
 spawn_rate = 0.3
