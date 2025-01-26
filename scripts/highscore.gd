@@ -20,7 +20,6 @@ func load_highscore():
 	if parse_result == OK:
 		var parsed_data = json.get_data()
 		var sorted_data = sort_by_value(parsed_data)
-		print(sorted_data)
 		return sorted_data
 	else:
 		return json.parse_string("{}")
@@ -53,7 +52,6 @@ func actualize():
 			for i in range ((24-length)*2):
 				high += "." 
 			high += str(scores[line]) + "\n"
-	print (high)
 	$".".text = high
 		
 	
