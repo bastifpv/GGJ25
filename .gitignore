@@ -2,3 +2,4 @@ external
 .godot
 scenes/UI.tscn
 *.tmp
+build
