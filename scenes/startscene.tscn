@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
 [ext_resource type="PackedScene" uid="uid://0rudqscbrs5u" path="res://scenes/rope.tscn" id="15_23t65"]
 [ext_resource type="Script" path="res://scripts/rope.gd" id="16_aptq5"]
+
 [ext_resource type="PackedScene" uid="uid://bnrfupwvinku" path="res://scenes/prefabs/dome.tscn" id="20_6d5p3"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
@@ -247,10 +248,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78291, 3.70364, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.035, 0)
 axis_lock_linear_z = false
 axis_lock_angular_y = false
-axis_lock_angular_z = false
 
 [node name="Rope" parent="PlayerRig" node_paths=PackedStringArray("top_point", "bottom_point") instance=ExtResource("15_23t65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("16_aptq5")
 top_point = NodePath("../Balloon")
 bottom_point = NodePath("../Player")
