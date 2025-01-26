@@ -41,9 +41,11 @@ func play_plop(scale):
 	plop.play()
 	
 func play_wilhelm():
-	sfx.stream = wilhelm
-	sfx.play()
+	if !sfx.playing:
+		sfx.stream = wilhelm
+		sfx.play()
 	
 func play_boom():
-	sfx.stream = xplode
-	sfx.play()
+	if !sfx.playing:
+		sfx.stream = xplode
+		sfx.play()
