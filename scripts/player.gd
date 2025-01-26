@@ -88,7 +88,7 @@ func _on_body_entered(body: Node) -> void:
 			if ctrl.types[i] == type:
 				ball = balls[i]
 		ball.size += amount / 1000
-		body.queue_free()
+		body.pop()
 		ball.update_size()
 		ctrl.oneForMe(type, amount)
 		source.deplete_content(amount)
