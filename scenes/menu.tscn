@@ -65,7 +65,7 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("4_7qtv7")
 theme_override_font_sizes/font_size = 80
-text = "Oxygen Odysee"
+text = "Oxygen Odyssey"
 
 [node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2

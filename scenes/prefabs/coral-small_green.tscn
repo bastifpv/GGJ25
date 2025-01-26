@@ -1,6 +1,16 @@
-[gd_scene load_steps=5 format=4 uid="uid://bc5wn3qcotu2g"]
+[gd_scene load_steps=7 format=4 uid="uid://bo3i306xu0xyj"]
 
-[ext_resource type="Material" uid="uid://27vqua7k4awh" path="res://materials/coral.tres" id="1_81h21"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xb60n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jrm8j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wn5fj"]
+diffuse_mode = 1
+albedo_color = Color(0, 0.993871, 3.85046e-07, 1)
+metallic = 1.0
+metallic_specular = 0.3
+metallic_texture = SubResource("NoiseTexture2D_xb60n")
+roughness_texture = SubResource("NoiseTexture2D_jrm8j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqkao"]
 resource_name = "LOWPOLY-COLORS"
@@ -45,6 +55,6 @@ shadow_mesh = SubResource("ArrayMesh_yuj34")
 [node name="coral-small_orange" type="Node3D"]
 
 [node name="coral-small_orange" type="MeshInstance3D" parent="."]
-material_override = ExtResource("1_81h21")
+material_override = SubResource("StandardMaterial3D_wn5fj")
 mesh = SubResource("ArrayMesh_evaj7")
 skeleton = NodePath("")
