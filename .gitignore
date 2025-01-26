@@ -1,9 +1,5 @@
-external
+GGJ25.dmg.*
+GGJ25.dmg.*
+*.import
 .godot
-scenes/UI.tscn
-*.tmp
-build/Linux/*
-build/OSX/*
-build/Web/*
-build/Windows/*
-.DS_store
+external
