@@ -4,7 +4,7 @@ extends Node3D
 
 var bubble = preload("res://scenes/bubble.tscn")
 var rng = RandomNumberGenerator.new()
-@export var player : Node3D
+var player : Node3D
 
 const bubble_color = {
 	"o2": Color.MEDIUM_BLUE,
@@ -13,20 +13,24 @@ const bubble_color = {
 }
 
 func spawnBubble():
-	var bub: RigidBody3D =  bubble.instantiate()
-	bub.bubbleColor = bubble_color[type]
-	add_child(bub)
-	var scl = Vector3.ONE * rng.randf_range(0.01, 0.4)
-	bub.gravity_scale *= scl.x
-	bub.get_node("BubbleMesh").scale = scl
-	bub.get_node("BubbleShape").scale = scl
-	bub.global_position = global_position + Vector3(rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1))
-	bub.set_meta("type", type)
+	if (player.global_position - global_position).abs() < Vector3(60,60,0):
+		var bub: RigidBody3D =  bubble.instantiate()
+		bub.bubbleColor = bubble_color[type]
+		add_child(bub)
+		var scl = Vector3.ONE * rng.randf_range(0.01, 0.4)
+		bub.gravity_scale *= scl.x
+		bub.get_node("BubbleMesh").scale = scl
+		bub.get_node("BubbleShape").scale = scl
+		bub.global_position = global_position + Vector3(rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1), rng.randf_range(-0.1, 0.1))
+		bub.set_meta("type", type)
+	else:
+		#print("not spawned, too far away from player")
+		pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	player = get_node("/root/Node3D/PlayerRig/Player")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

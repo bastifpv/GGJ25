@@ -35,12 +35,12 @@ func _process(delta: float) -> void:
 	var degree = -90 + 180 * relative_oxy	
 	$Oxy/needle_oxy.rotation_degrees = degree
 	$Oxy/lbl_oxy.text = str(int(relative_oxy*100)) + "%" 
-	print ("Dome pos: ")
-	print (dome.global_position)
-	print ("Player pos: ")
-	print (player.global_position)
-	print("Angle")
-	print(player.global_position.angle_to(dome.global_position))
+	#print ("Dome pos: ")
+	#print (dome.global_position)
+	#print ("Player pos: ")
+	#print (player.global_position)
+	#print("Angle")
+	#print(player.global_position.angle_to(dome.global_position))
 	var pV2 = Vector2(player.global_position.x,player.global_position.y)
 	var dV2 = Vector2(dome.global_position.x,dome.global_position.y)
 	var direction = player.global_position - dome.global_position
