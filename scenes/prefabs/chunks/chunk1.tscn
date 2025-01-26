@@ -147,8 +147,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2794, -0.171946, -2.42855)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7839, 0.941182, 0.225196)
 script = ExtResource("22_ly1b6")
 
-[node name="geysyr_1" parent="." instance=ExtResource("8_dn4hu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.951, 0, 0)
+[node name="geysyr_1" parent="." instance=ExtResource("7_goxpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7943, 0.681642, 0)
+
 type = "o2"
 content = 3000.0
 spawn_rate = 0.3
