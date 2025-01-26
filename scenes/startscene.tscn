@@ -37,6 +37,7 @@ shader = ExtResource("25_g11gl")
 
 [node name="dome" parent="." instance=ExtResource("20_6d5p3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31644, 9.0174, 0)
+script = null
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -332,7 +333,6 @@ script = ExtResource("41_6fcj0")
 [connection signal="baseStorageChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]
 [connection signal="gameOver" from="Control/MarginContainer" to="Control" method="_on_game_over"]
 [connection signal="level_up" from="Control/MarginContainer" to="PlayerRig/Player" method="_on_level_up"]
-[connection signal="populationChange" from="Control/MarginContainer" to="dome" method="population_change"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_population"]
 [connection signal="tankChange" from="Control/MarginContainer" to="Control" method="recieveTank"]
