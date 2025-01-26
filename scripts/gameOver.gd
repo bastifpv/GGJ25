@@ -1,6 +1,7 @@
 extends Node
 
 @onready var text = $Panel/VBoxContainer/text
+signal update_score
 
 var game_over_messages = [
 	"Only %d gasped their final breath as the last embers of your world faded to darkness.",
@@ -25,11 +26,13 @@ var game_over_messages = [
 	"%d hearts faltered, choked beneath the weight of your civilisation's last moments.",
 	"%d souls clung to the dying embers of life, only to be lost in the cold vacuum of oblivion."
 ]
+var highscore_file = "user://highscore.json"
+var highscore = 0
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	text.text = game_over_messages[randi_range(0, 20)] % Global.population
+	text.text = game_over_messages[randi_range(0, 20)] % 500 #Global.population
+	update_score.emit()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
