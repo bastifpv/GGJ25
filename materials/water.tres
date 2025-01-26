@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c8vpctkomubu6"]
+
+[ext_resource type="Shader" path="res://shaders/waterA.gdshader" id="1_ibqtr"]
+[ext_resource type="Texture2D" uid="uid://ds01amthu20o6" path="res://materials/water_waves_texture.tres" id="2_0eleb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ibqtr")
+shader_parameter/time_speed = 0.5
+shader_parameter/surface_speed = 0.5
+shader_parameter/spin = 1.0
+shader_parameter/brightness = 0.6
+shader_parameter/color_intensity = 0.0
+shader_parameter/horizontal_frequency = 2.0
+shader_parameter/vertical_frequency = 2.0
+shader_parameter/size = 3.0
+shader_parameter/banding_bias = 0.6
+shader_parameter/wave_height = 0.3
+shader_parameter/texture_height = 0.5
+shader_parameter/color1 = Color(0.59, 0.761, 1, 1)
+shader_parameter/color2 = Color(0.274, 0.474, 0.98, 1)
+shader_parameter/color3 = Color(0.059, 0.389, 0.85, 1)
+shader_parameter/color4 = Color(0, 0.267, 1, 1)
+shader_parameter/noise_texture = ExtResource("2_0eleb")
