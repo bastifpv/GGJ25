@@ -31,7 +31,7 @@ var highscore = 0
 
 
 func _ready() -> void:
-	text.text = game_over_messages[randi_range(0, 20)] % 500 #Global.population
+	text.text = game_over_messages[randi_range(0, 20)] % Global.population
 	update_score.emit()
 	pass # Replace with function body.
 

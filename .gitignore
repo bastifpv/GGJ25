@@ -3,3 +3,4 @@ GGJ25.dmg.*
 *.import
 .godot
 external
+build/*
