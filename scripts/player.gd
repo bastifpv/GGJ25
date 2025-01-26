@@ -48,14 +48,16 @@ func _process(delta: float):
 	if Input.is_action_pressed("release"):
 		var rel = release_per_second * delta
 		for ball in balls:
-			ball.size -= rel / 10
-			ball.update_size()
-			ctrl.oneForMe(ball.type, rel * -100)
+			print(ball.size)
+			if ball.size > 0.2:
+				ball.size -= rel / 10
+				ball.update_size()
+				ctrl.oneForMe(ball.type, rel * -100)
 	if Input.is_action_pressed("bomb"):
 		if bomb_action == false:
 			var bang: Node3D = xplosion.instantiate()
-			$Kopf.add_child(bang)
-			bang.position = Vector3.ZERO
+			get_parent().add_child(bang)
+			bang.global_position = $diver/Kopf.global_position
 			bomb_action = true
 	else:
 		bomb_action = false
@@ -88,7 +90,7 @@ func _on_body_entered(body: Node) -> void:
 			if ctrl.types[i] == type:
 				ball = balls[i]
 		ball.size += amount / 1000
-		body.queue_free()
+		body.pop()
 		ball.update_size()
 		ctrl.oneForMe(type, amount)
 		source.deplete_content(amount)

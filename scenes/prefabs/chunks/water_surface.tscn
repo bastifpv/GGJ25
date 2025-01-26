@@ -15,7 +15,7 @@ backface_collision = true
 [node name="WaterSurface" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 16, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 18, 0)
 mesh = SubResource("PlaneMesh_76fa5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]

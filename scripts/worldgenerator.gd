@@ -2,7 +2,8 @@ extends Node
 
 var sand = preload("res://scenes/prefabs/sand.tscn")
 var chunks = [
-	preload("res://scenes/prefabs/chunks/chunk1.tscn")
+	preload("res://scenes/prefabs/chunks/chunk1.tscn"),
+	preload("res://scenes/prefabs/chunks/chunk2.tscn")
 ]
 const RENDER_DISTANCE = 50
 var MaxRenderd = 0
@@ -10,9 +11,9 @@ var MinRenderd = 0
 var MaxPlacedChunks = 1
 var MinPlacedChunks = 1
 var player : Node3D
-const CHUNK_SIZE = 50
+const CHUNK_SIZE = 50.0
 const CHUNK_DISPLACEMENT = .5
-const SAND_LENGHT = 10
+const SAND_LENGHT = 10.0
 const SAND_Y_DISPLACEMENT = -.25
 
 
@@ -76,5 +77,5 @@ func on_move_place_chunk(player_position):
 		#print("place new chunk left")
 		
 func get_random_chunk():
-	var random_index = randf_range(0, chunks.size()-1)
+	var random_index = randi_range(0, chunks.size()-1)
 	return chunks[random_index]

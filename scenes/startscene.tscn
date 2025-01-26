@@ -1,14 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=24 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
-
-[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="10_xeve3"]
-[ext_resource type="PackedScene" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
-[ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="16_7558u"]
-
+[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
+[ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
+[ext_resource type="PackedScene" uid="uid://k86unkwgb2lh" path="res://scenes/prefabs/dome.tscn" id="20_6d5p3"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
@@ -23,13 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://coivd5lnqq1pb" path="res://materials/png/UI/arrow.png" id="38_83g8f"]
 [ext_resource type="Script" path="res://scripts/worldgenerator.gd" id="41_6fcj0"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0n1vw"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_at1xs"]
-radius = 0.498221
-
-[sub_resource type="SphereMesh" id="SphereMesh_tlxp3"]
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_ttpit"]
 viewport_path = NodePath("Control/UIOverlay")
 
@@ -42,18 +33,8 @@ shader = ExtResource("25_g11gl")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Dome" type="StaticBody3D" parent="." groups=["dome"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 12.4106, 0)
-physics_material_override = SubResource("PhysicsMaterial_0n1vw")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Dome"]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
-shape = SubResource("SphereShape3D_at1xs")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Dome"]
-transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0)
-mesh = SubResource("SphereMesh_tlxp3")
-skeleton = NodePath("../..")
+[node name="dome" parent="." instance=ExtResource("20_6d5p3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31644, 9.0174, 0)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -166,7 +147,7 @@ size = Vector2i(1920, 1080)
 [node name="Node2D" type="Node2D" parent="Control/UIOverlay" node_paths=PackedStringArray("player", "dome")]
 script = ExtResource("31_iakcm")
 player = NodePath("../../../PlayerRig/Player")
-dome = NodePath("../../../Dome")
+dome = NodePath("../../../dome")
 
 [node name="UiBackground" type="Sprite2D" parent="Control/UIOverlay/Node2D"]
 z_index = 1
@@ -258,7 +239,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("38_83g8f")
 
 [node name="PlayerRig" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78291, 2.98399, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78291, 3.70364, 0)
 
 [node name="Balloon" parent="PlayerRig" instance=ExtResource("14_2s8vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.035, 0)
@@ -270,6 +251,7 @@ transform = Transform3D(-4.37114e-08, -0.23005, 0.973179, 0, 0.973179, 0.23005, 
 transform = Transform3D(-4.37114e-08, 0.23005, 0.973179, 0, 0.973179, -0.23005, -1, -1.00558e-08, -4.2539e-08, 0.233021, 0.989553, 0.00621954)
 
 [node name="Player" type="RigidBody3D" parent="PlayerRig"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0899534)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
