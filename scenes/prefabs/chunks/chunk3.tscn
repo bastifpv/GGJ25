@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bwcgjfbkfajy2"]
+[gd_scene load_steps=32 format=3 uid="uid://bwcgjfbkfajy2"]
 
 [ext_resource type="PackedScene" uid="uid://dr874ua4twf4p" path="res://scenes/prefabs/chunks/water_surface.tscn" id="1_7rf2j"]
 [ext_resource type="PackedScene" uid="uid://cn7axt50y73oj" path="res://scenes/prefabs/rocks/stone-diamond.tscn" id="2_um30b"]
@@ -30,6 +30,9 @@
 [ext_resource type="PackedScene" uid="uid://chxgm2tt2eiug" path="res://scenes/prefabs/rocks/gems.tscn" id="28_au6jn"]
 [ext_resource type="PackedScene" uid="uid://ccedag7qexb4y" path="res://scenes/prefabs/pirates/barrel.tscn" id="29_6o3yi"]
 [ext_resource type="PackedScene" uid="uid://otlhrapgvrn" path="res://scenes/prefabs/pirates/ship-pirate-vreck-front.fbx" id="30_6hgek"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f0h7q"]
+size = Vector3(3.57861, 4.28369, 1)
 
 [node name="Chunk1" type="Node3D"]
 
@@ -186,6 +189,12 @@ transform = Transform3D(-0.939016, 0, -0.343873, 0, 1, 0, 0.343873, 0, -0.939016
 
 [node name="cage-hanging" parent="crane-wood" instance=ExtResource("21_s6agn")]
 transform = Transform3D(0.43498, 0, 0.90044, 0, 1, 0, -0.90044, 0, 0.43498, 2.42012, -0.823213, 0.082756)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="crane-wood"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crane-wood/StaticBody3D"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.28931, 1.02417, 0)
+shape = SubResource("BoxShape3D_f0h7q")
 
 [node name="crab" parent="." instance=ExtResource("22_0a5oc")]
 transform = Transform3D(0.914685, 0, -0.404168, 0, 1, 0, 0.404168, 0, 0.914685, 9.21769, 0.429772, 1.23244)

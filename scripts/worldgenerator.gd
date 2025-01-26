@@ -4,7 +4,8 @@ var sand = preload("res://scenes/prefabs/sand.tscn")
 var chunks = [
 	preload("res://scenes/prefabs/chunks/chunk1.tscn"),
 	preload("res://scenes/prefabs/chunks/chunk2.tscn"),
-	preload("res://scenes/prefabs/chunks/chunk3.tscn")
+	preload("res://scenes/prefabs/chunks/chunk3.tscn"),
+	preload("res://scenes/prefabs/chunks/chunk4.tscn")
 ]
 const RENDER_DISTANCE = 50
 var MaxRenderd = 0
