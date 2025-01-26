@@ -2,6 +2,8 @@ extends RigidBody3D
 
 @export var default_size = .2
 var size: float = default_size
+var type: String = "o2"
+var ctrl: MarginContainer
 
 func set_color(col: Color):
 	var mesh: MeshInstance3D = $baloon.get_children()[0]
@@ -29,18 +31,26 @@ func enable():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-		$Rope.bottom_point = get_parent().get_node("Player")
-		match name:
-			"Balloon_2":
-				disable()
-				set_color(Color.FIREBRICK)
-			"Balloon_3":
-				disable()
-				set_color(Color.DARK_GREEN)
-		$Rope.init()
-		update_size()
+	ctrl = get_node("/root/Node3D/Control/MarginContainer")
+	$Rope.bottom_point = get_parent().get_node("Player")
+	match name:
+		"Balloon_2":
+			disable()
+			set_color(Color.FIREBRICK)
+			type = "h2"
+		"Balloon_3":
+			disable()
+			set_color(Color.DARK_GREEN)
+			type = "n2"
+	$Rope.init()
+	update_size()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	return
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("spikey"):
+		reset()
+		ctrl.oneForMe(type, -ctrl.tank[type])

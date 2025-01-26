@@ -25,14 +25,13 @@ func _process(delta: float) -> void:
 	var degree = -90 + 180 * relative_oxy	
 	$Oxy/needle_oxy.rotation_degrees = degree
 	$Oxy/lbl_oxy.text = str(int(relative_oxy*100)) + "%" 
-	$home/Arrow_home.rotation = player.global_position.angle_to(dome.global_position)
+	$home/Arrow_home.global_rotation = player.global_position.angle_to(dome.global_position)
 
 
 
-
-
-func get_oxy(val: Variant) -> void:
-	oxy = val
+func get_oxy(type: String, val: int) -> void:
+	if type == "o2":
+		oxy = val
 
 
 func get_population(val: Variant) -> void:

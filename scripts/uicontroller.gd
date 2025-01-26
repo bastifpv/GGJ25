@@ -36,11 +36,12 @@ func setPlayerXP(val):
 	playerXP.set_text(str(val))
 	
 
-func recieveOxygenBase(val: Variant) -> void:
+func recieveBaseStorage(type: String, val: int) -> void:
 	setOxygenBase(val)
 
-func recieveOxygenTank(val: Variant) -> void:
-	setOxygenTank(val)
+func recieveTank(type: String, val: int) -> void:
+	if type == "o2":
+		setOxygenTank(val)
 
 
 func _on_margin_container_xp_change(val: Variant) -> void:
@@ -64,3 +65,7 @@ func _on_pause_end_pause() -> void:
 	gamePause.visible = false
 	pauseBtn.visible = true
 	get_tree().paused = false
+
+
+func _on_body_entered(body: Node) -> void:
+	pass # Replace with function body.
