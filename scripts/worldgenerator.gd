@@ -11,9 +11,9 @@ var MinRenderd = 0
 var MaxPlacedChunks = 1
 var MinPlacedChunks = 1
 var player : Node3D
-const CHUNK_SIZE = 50
+const CHUNK_SIZE = 50.0
 const CHUNK_DISPLACEMENT = .5
-const SAND_LENGHT = 10
+const SAND_LENGHT = 10.0
 const SAND_Y_DISPLACEMENT = -.25
 
 
