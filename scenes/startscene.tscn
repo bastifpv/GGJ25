@@ -1,9 +1,6 @@
-
-[gd_scene load_steps=29 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=27 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
-[ext_resource type="Shader" path="res://shaders/glass.gdshader" id="2_00ffh"]
-
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
@@ -331,9 +328,9 @@ environment = ExtResource("31_50be8")
 [node name="Worldgenerator" type="Node" parent="."]
 script = ExtResource("41_6fcj0")
 
-[connection signal="gameOver" from="Control/MarginContainer" to="Control" method="_on_game_over"]
 [connection signal="baseStorageChange" from="Control/MarginContainer" to="Control" method="recieveBaseStorage"]
 [connection signal="baseStorageChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]
+[connection signal="gameOver" from="Control/MarginContainer" to="Control" method="_on_game_over"]
 [connection signal="level_up" from="Control/MarginContainer" to="PlayerRig/Player" method="_on_level_up"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_population"]

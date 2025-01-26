@@ -64,7 +64,7 @@ func generate_initial_world():
 	#Generate right Chunk
 	var chunk_left1 : Node3D = get_random_chunk().instantiate()
 	add_child(chunk_left1)
-	chunk_left1.position = Vector3(0-CHUNK_SIZE,0,0)
+	chunk_left1.position = Vector3(0-CHUNK_SIZE,0.5,0)
 	MaxPlacedChunks = 1
 	MinPlacedChunks = 1
 
@@ -73,14 +73,14 @@ func on_move_place_chunk(player_position):
 	if (((player_position.x + RENDER_DISTANCE)/CHUNK_SIZE)>MaxPlacedChunks):
 		var chunk_right : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_right)
-		chunk_right.position = Vector3(0+(CHUNK_SIZE*MaxPlacedChunks),0,0)
+		chunk_right.position = Vector3(0+(CHUNK_SIZE*MaxPlacedChunks),0.5,0)
 		MaxPlacedChunks = MaxPlacedChunks + 1
 		#print("place new chunk right")
 		
 	if (((player_position.x - RENDER_DISTANCE)/CHUNK_SIZE)<MinPlacedChunks):
 		var chunk_left : Node3D = get_random_chunk().instantiate()
 		add_child(chunk_left)
-		chunk_left.position = Vector3(0-(CHUNK_SIZE*abs(MinPlacedChunks)),0,0)
+		chunk_left.position = Vector3(0-(CHUNK_SIZE*abs(MinPlacedChunks)),0.5,0)
 		MinPlacedChunks = MinPlacedChunks - 1
 		#print("place new chunk left")
 		
