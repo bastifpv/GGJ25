@@ -57,7 +57,7 @@ spawn_rate = 0.3
 transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 13.1778, -0.846959, -5.42688)
 
 [node name="clam-pearl3" parent="." instance=ExtResource("8_wnjbu")]
-transform = Transform3D(4.13359, 0, -3.80022, 0, 5.615, 0, 3.80022, 0, 4.13359, 15.5451, -0.1, 0)
+transform = Transform3D(4.13359, 0, -3.80022, 0, 5.615, 0, 3.80022, 0, 4.13359, 15.545, -0.25, 0)
 
 [node name="rock-sharp" parent="." instance=ExtResource("7_oyse4")]
 transform = Transform3D(0.699514, 0, -0.714619, 0, 1, 0, 0.714619, 0, 0.699514, 18.1996, -0.603312, 0.572301)
@@ -89,13 +89,13 @@ type = "n2"
 content = 1500.0
 
 [node name="stone-pointy" parent="." instance=ExtResource("14_s2wxn")]
-transform = Transform3D(0.737277, 0, 0.67559, 0, 1, 0, -0.67559, 0, 0.737277, 29.4203, 0, -0.741511)
+transform = Transform3D(0.737277, 0, 0.67559, 0, 1, 0, -0.67559, 0, 0.737277, 29.4203, -0.3, -0.741511)
 
 [node name="stone-round2" parent="." instance=ExtResource("15_6bk4y")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.493, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 26.493, -0.3, 0)
 
 [node name="stone-small-flat" parent="." instance=ExtResource("16_r8h3q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.452, 0, -2.80987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.452, -0.5, -2.80987)
 
 [node name="stone-snow" parent="." instance=ExtResource("17_bsl1i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9242, -0.171946, -3.89733)
@@ -170,16 +170,16 @@ transform = Transform3D(0.886147, 0, 0.463404, 0, 1, 0, -0.463404, 0, 0.886147, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2102, 0.601337, 1.00025)
 
 [node name="coral-small_orange2" parent="." instance=ExtResource("19_ra657")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2861, 0.220977, -2.80987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2861, -0.250729, -2.80987)
 
 [node name="rock-sharp7" parent="." instance=ExtResource("7_oyse4")]
 transform = Transform3D(-0.946604, 0, 0.322398, 0, 1, 0, -0.322398, 0, -0.946604, 7.61654, -1.38211, -5.52939)
 
 [node name="stone-big-tall5" parent="." instance=ExtResource("10_fpy70")]
-transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 2.23805, 0.149457, -3.77678)
+transform = Transform3D(0.992546, 0, -0.121869, 0, 1, 0, 0.121869, 0, 0.992546, 2.23805, -0.457808, -3.77678)
 
 [node name="stone-diamond" parent="." instance=ExtResource("2_um30b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1761, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.1761, -0.3, 0)
 
 [node name="crane-wood" parent="." instance=ExtResource("20_nf0fj")]
 transform = Transform3D(-0.939016, 0, -0.343873, 0, 1, 0, 0.343873, 0, -0.939016, 7.65052, 1.01452, -0.0139347)
@@ -200,7 +200,7 @@ transform = Transform3D(0.859585, 0, -0.510993, 0, 1, 0, 0.510993, 0, 0.859585, 
 transform = Transform3D(1, 0, 0, 0, 0.61201, -0.79085, 0, 0.79085, 0.61201, 10.3347, 1.81825, -3.13274)
 
 [node name="crystals" parent="." instance=ExtResource("24_v0n5o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9145, 0, -3.67878)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.914, -0.25, -3.679)
 
 [node name="grass-sea" parent="." instance=ExtResource("25_sa0na")]
 transform = Transform3D(-0.807228, 0, -0.590239, 0, 1, 0, 0.590239, 0, -0.807228, 9.614, 0, -2.4124)
@@ -215,19 +215,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53097, -1.1411, -4.51955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.46666, -1.0406, -3.675)
 
 [node name="coral-big_yellow" parent="." instance=ExtResource("26_s610d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61601, 0, -2.27056)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.616, -0.35, -2.271)
 
 [node name="coral-big_yellow2" parent="." instance=ExtResource("27_juu3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.87078, 0, -2.02753)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.871, -0.35, -2.028)
 
 [node name="gems" parent="." instance=ExtResource("28_au6jn")]
-transform = Transform3D(-0.682687, 0, -0.730711, 0, 1, 0, 0.730711, 0, -0.682687, 11.977, -0.2, 2.485)
+transform = Transform3D(-0.682687, 0, -0.730711, 0, 1, 0, 0.730711, 0, -0.682687, 11.977, -0.346762, 2.485)
 
 [node name="coral-big_yellow3" parent="." instance=ExtResource("27_juu3o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3833, 4.76837e-07, -2.73435)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3833, -0.35, -2.73435)
 
 [node name="barrel" parent="." instance=ExtResource("29_6o3yi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5252, 0, -3.18836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5252, -0.35, -3.18836)
 
 [node name="ship-pirate-vreck-front" parent="." instance=ExtResource("30_6hgek")]
 transform = Transform3D(-0.0087007, 0.981053, 0.193542, -0.0440588, -0.193738, 0.980064, 0.998991, -8.7755e-10, 0.0449097, 20.1652, -3.93523, -16.4492)
@@ -236,13 +236,13 @@ transform = Transform3D(-0.0087007, 0.981053, 0.193542, -0.0440588, -0.193738, 0
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 37.9196, 0.600109, 0.795425)
 
 [node name="crab4" parent="." instance=ExtResource("22_0a5oc")]
-transform = Transform3D(1.44079, 0, -1.38713, 0, 2, 0, 1.38713, 0, 1.44079, 40.4012, 0, 0.253752)
+transform = Transform3D(1.44079, 0, -1.38713, 0, 2, 0, 1.38713, 0, 1.44079, 40.4012, -0.35, 0.253752)
 
 [node name="crab5" parent="." instance=ExtResource("22_0a5oc")]
-transform = Transform3D(1.87155, 0, 0.705186, 0, 2, 0, -0.705186, 0, 1.87155, 39.4984, -2.38419e-07, 1.56351)
+transform = Transform3D(1.87155, 0, 0.705186, 0, 2, 0, -0.705186, 0, 1.87155, 39.4984, -0.35, 1.56351)
 
 [node name="crab6" parent="." instance=ExtResource("22_0a5oc")]
-transform = Transform3D(1.71302, 0, -1.03226, 0, 2, 0, 1.03226, 0, 1.71302, 40.5744, 0, -0.645793)
+transform = Transform3D(1.71302, 0, -1.03226, 0, 2, 0, 1.03226, 0, 1.71302, 40.5744, -0.35, -0.645793)
 
 [node name="crab7" parent="." instance=ExtResource("22_0a5oc")]
-transform = Transform3D(1.80011, 0, -0.871562, 0, 2, 0, 0.871562, 0, 1.80011, 41.0983, 0, 0.653836)
+transform = Transform3D(1.80011, 0, -0.871562, 0, 2, 0, 0.871562, 0, 1.80011, 41.0983, -0.35, 0.653836)
