@@ -1,13 +1,10 @@
-
-[gd_scene load_steps=29 format=3 uid="uid://dmt841w82m1p1"]
+[gd_scene load_steps=27 format=3 uid="uid://dmt841w82m1p1"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5xwa5"]
-[ext_resource type="Shader" path="res://shaders/glass.gdshader" id="2_00ffh"]
-
 [ext_resource type="PackedScene" uid="uid://bc5wn3qcotu2g" path="res://scenes/prefabs/coral-small_orange.tscn" id="5_sfw8e"]
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
-[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
+[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="10_xeve3"]
 [ext_resource type="PackedScene" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
 [ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="16_7558u"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
@@ -282,7 +279,6 @@ transform = Transform3D(-4.37114e-08, -0.23005, 0.973179, 0, 0.973179, 0.23005, 
 transform = Transform3D(-4.37114e-08, 0.23005, 0.973179, 0, 0.973179, -0.23005, -1, -1.00558e-08, -4.2539e-08, 0.233021, 0.989553, 0.00621954)
 
 [node name="Player" type="RigidBody3D" parent="PlayerRig"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0899534)
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
@@ -331,9 +327,9 @@ environment = ExtResource("31_50be8")
 [node name="Worldgenerator" type="Node" parent="."]
 script = ExtResource("41_6fcj0")
 
-[connection signal="gameOver" from="Control/MarginContainer" to="Control" method="_on_game_over"]
 [connection signal="baseStorageChange" from="Control/MarginContainer" to="Control" method="recieveBaseStorage"]
 [connection signal="baseStorageChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_oxy"]
+[connection signal="gameOver" from="Control/MarginContainer" to="Control" method="_on_game_over"]
 [connection signal="level_up" from="Control/MarginContainer" to="PlayerRig/Player" method="_on_level_up"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control/UIOverlay/Node2D" method="get_population"]

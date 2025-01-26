@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="4_y1q0b"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="5_71iw4"]
 [ext_resource type="Texture2D" uid="uid://b8xf8c8c1mgn7" path="res://materials/png/UI/circle.png" id="5_cif7j"]
-[ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="5_pcuml"]
+[ext_resource type="PackedScene" path="res://scenes/gamePause.tscn" id="5_pcuml"]
 [ext_resource type="Texture2D" uid="uid://d2lsmcqedlryc" path="res://materials/png/UI/red.png" id="6_orsgr"]
 [ext_resource type="FontFile" uid="uid://f5cv2odxh5jp" path="res://materials/font/OpenDyslexic3-Regular.ttf" id="7_8thku"]
 [ext_resource type="Texture2D" uid="uid://bakdyo1ahgpvq" path="res://materials/png/UI/neelde.png" id="7_yk40i"]
@@ -296,12 +296,8 @@ offset_bottom = 60.0
 grow_horizontal = 2
 text = "Pause"
 
-[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="_on_margin_container_oxygen_base_change"]
-[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_oxygen_base_change"]
-[connection signal="oxygenBaseChange" from="Control/MarginContainer" to="Control" method="recieveOxygenBase"]
-[connection signal="oxygenTankChange" from="Control/MarginContainer" to="Control" method="recieveOxygenTank"]
-[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="_on_margin_container_population_change"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="receive_population_change"]
+[connection signal="populationChange" from="Control/MarginContainer" to="Player/SubViewport/Node2D" method="_on_margin_container_population_change"]
 [connection signal="populationChange" from="Control/MarginContainer" to="Control" method="recievePopulation"]
 [connection signal="end_pause" from="Control/Pause" to="Control" method="_on_pause_end_pause"]
 [connection signal="pressed" from="Control/PauseBtn" to="Control" method="_on_pause_btn_pressed"]
