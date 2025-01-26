@@ -6,18 +6,20 @@ func save_highscore(name, score):
 	actual_highscore[name] = score
 	var json = JSON.new()  # Erstelle eine Instanz von JSON
 	var json_string = json.stringify(actual_highscore)  # Wandle das Dictionary in einen JSON-String um
-	var file = FileAccess.open(file_path, FileAccess.WRITE)		
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
 	file.store_string(json_string)
 
 func load_highscore():
+	if not FileAccess.file_exists(file_path):
+		var file = FileAccess.open(file_path, FileAccess.WRITE)
+		file.store_string("{}")
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	var content = file.get_as_text()
 	var json = JSON.new()  # Erstelle eine Instanz von JSON
 	var parse_result = json.parse(content)  # JSON-Text parsen
 	if parse_result == OK:
-		var parsed_data = json.get_data()		
+		var parsed_data = json.get_data()
 		var sorted_data = sort_by_value(parsed_data)
-		print(sorted_data)
 		return sorted_data
 	else:
 		return json.parse_string("{}")
@@ -50,7 +52,6 @@ func actualize():
 			for i in range ((24-length)*2):
 				high += "." 
 			high += str(scores[line]) + "\n"
-	print (high)
 	$".".text = high
 		
 	

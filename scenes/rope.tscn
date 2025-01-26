@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0rudqscbrs5u"]
 
-[ext_resource type="Material" uid="uid://bdauwvvtyqi4l" path="res://materials/rope.tres" id="1_pfdkl"]
+[ext_resource type="Material" uid="uid://cltpv6ypf5u36" path="res://materials/rope.tres" id="1_pfdkl"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_c0dg7"]
 material = ExtResource("1_pfdkl")
@@ -16,13 +16,13 @@ height = 0.2
 
 [node name="Rope" type="Node3D"]
 
-[node name="BottomJoint" type="Generic6DOFJoint3D" parent="."]
+[node name="BottomJoint" type="PinJoint3D" parent="."]
 node_a = NodePath("../RigidBody3D")
-angular_limit_z/enabled = false
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 collision_layer = 0
 collision_mask = 0
+mass = 0.02
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
@@ -43,6 +43,7 @@ node_b = NodePath("../RigidBody3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 collision_layer = 0
 collision_mask = 0
+mass = 0.02
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
@@ -63,6 +64,7 @@ node_b = NodePath("../RigidBody3D2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 collision_layer = 0
 collision_mask = 0
+mass = 0.02
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
@@ -83,6 +85,7 @@ node_b = NodePath("../RigidBody3D3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 collision_layer = 0
 collision_mask = 0
+mass = 0.02
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
@@ -103,6 +106,7 @@ node_b = NodePath("../RigidBody3D4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00190529, 0.8, -6.31809e-05)
 collision_layer = 0
 collision_mask = 0
+mass = 0.02
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D5"]

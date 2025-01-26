@@ -65,7 +65,8 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("4_gejmb")
 theme_override_font_sizes/font_size = 80
-text = "Oxygen Odysee"
+text = "Oxygen Odysey
+"
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -82,6 +83,7 @@ Moritz Schönauer
 Philipp Herud
 Simon Reeber
 
+Some assets by polyperfect
 "
 horizontal_alignment = 1
 autowrap_mode = 2
