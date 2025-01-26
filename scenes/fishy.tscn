@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://hf8nmefcseyj"]
+
+[ext_resource type="PackedScene" uid="uid://kier7cwsmspm" path="res://materials/fish2.glb" id="1_7ev6s"]
+[ext_resource type="Script" path="res://scripts/fishy.gd" id="2_eomlv"]
+
+[node name="fish" instance=ExtResource("1_7ev6s")]
+script = ExtResource("2_eomlv")
+
+[node name="Empty" parent="." index="0"]
+visible = false
+
+[node name="Empty_001" parent="." index="1"]
+visible = false
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(0.0839351, -6.33693e-09, -3.53744e-15, 0.996471)
+bones/1/rotation = Quaternion(0.253891, -0.000984066, 0.00374884, 0.967225)
+bones/2/rotation = Quaternion(0.705864, 0.0700803, 0.703625, 0.0419018)
+bones/3/rotation = Quaternion(-0.0270245, -0.00285233, -0.234205, 0.971807)
+bones/4/rotation = Quaternion(0.0343785, 0.00508354, 0.25494, 0.966332)
+bones/5/rotation = Quaternion(-0.529697, 0.468131, 0.466113, 0.53199)
+bones/6/rotation = Quaternion(-0.050094, -0.0504929, -0.297723, 0.951999)
+
+[node name="Camera3D" type="Camera3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

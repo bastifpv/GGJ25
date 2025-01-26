@@ -75,11 +75,6 @@ release={
 ]
 }
 
-run/main_scene="res://scene/menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
-
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
-
