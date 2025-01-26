@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt5rvqtf6f2l"]
+[gd_scene load_steps=10 format=3 uid="uid://dldqcs8atuvr"]
 
 [ext_resource type="Texture2D" uid="uid://bf5rn8o27cxsq" path="res://materials/png/background.png" id="2_l6ubu"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="3_0xih4"]
+[ext_resource type="Script" path="res://scripts/highscore.gd" id="3_uhyvn"]
 [ext_resource type="StyleBox" uid="uid://bv5wlgkf4f55h" path="res://materials/theme/texture/button_hover.tres" id="4_t5k62"]
 [ext_resource type="Script" path="res://scripts/gameOver.gd" id="4_w5py3"]
+[ext_resource type="Script" path="res://scripts/highscore_name.gd" id="6_c5j5i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_83xt2"]
 texture = ExtResource("2_l6ubu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_efxjm"]
+font_size = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o4qfm"]
 
 [node name="gameOver" type="Control"]
 process_mode = 3
@@ -34,10 +41,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.5
-offset_top = -200.0
-offset_right = 125.5
-offset_bottom = 152.0
+offset_left = -60.0
+offset_top = -332.0
+offset_right = 557.0
+offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -99,6 +106,49 @@ theme = ExtResource("3_0xih4")
 action_mode = 0
 text = "Quit"
 
+[node name="Highscore_Container" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 208.0
+offset_right = 724.0
+offset_bottom = 516.0
+
+[node name="Title" type="Label" parent="Panel/Highscore_Container"]
+layout_mode = 2
+theme = ExtResource("3_0xih4")
+theme_override_font_sizes/font_size = 90
+text = "Highscore
+"
+
+[node name="Subtitle" type="Label" parent="Panel/Highscore_Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_0xih4")
+theme_override_font_sizes/font_size = 30
+text = "Name           Score"
+horizontal_alignment = 2
+
+[node name="highscores" type="Label" parent="Panel/Highscore_Container"]
+layout_mode = 2
+text = "Simon           5000"
+label_settings = SubResource("LabelSettings_efxjm")
+script = ExtResource("3_uhyvn")
+
+[node name="name" type="LineEdit" parent="Panel"]
+layout_mode = 2
+offset_left = 248.0
+offset_top = 834.0
+offset_right = 722.0
+offset_bottom = 874.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o4qfm")
+text = "Your Name"
+caret_blink = true
+script = ExtResource("6_c5j5i")
+
+[connection signal="update_score" from="." to="Panel/Highscore_Container/highscores" method="_on_game_over_update_score"]
 [connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="text_changed" from="Panel/name" to="Panel/Highscore_Container/highscores" method="_on_name_text_changed"]
+[connection signal="text_submitted" from="Panel/name" to="Panel/Highscore_Container/highscores" method="_on_name_text_submitted"]

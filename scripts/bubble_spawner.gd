@@ -36,6 +36,7 @@ func spawnBubble():
 	bub.set_meta("type", type)
 	bub.set_meta("value", scl.x * 100)
 
+
 func scale_between(x, minAllowed, maxAllowed, min, max):
 	return (maxAllowed - minAllowed) * (x - min) / (max - min) + minAllowed
 
