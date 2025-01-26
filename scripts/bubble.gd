@@ -31,3 +31,9 @@ func pop(collected = false):
 	if (player.global_position - global_position).abs() < Vector3(10,0,0): # play sound only in nearby bubbles
 		AudioManager.play_plop($BubbleMesh.scale)
 	queue_free()
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("surface"):
+		self.pop(false)
+	pass # Replace with function body.
