@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://g0kt48vcohpm"]
+[gd_scene load_steps=4 format=3 uid="uid://ck56g4r14yp6m"]
 
-[ext_resource type="Material" uid="uid://bli3nxcnaa6ie" path="res://materials/sand.tres" id="1_d4png"]
+[ext_resource type="Material" uid="uid://bwqq1pbb2fhus" path="res://materials/sand.tres" id="1_d4png"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qt2fb"]
 material = ExtResource("1_d4png")
@@ -10,6 +10,7 @@ size = Vector3(10, 0.5, 10)
 size = Vector3(10, 0.5, 10)
 
 [node name="Sand" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.275, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152259, 0, -0.0482693)

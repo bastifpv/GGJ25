@@ -5,8 +5,7 @@
 [ext_resource type="Script" path="res://scripts/uicontroller.gd" id="8_b8ppg"]
 [ext_resource type="Script" path="res://scripts/oxylation.gd" id="9_bkbyw"]
 [ext_resource type="PackedScene" uid="uid://d0qpj6ojdbngd" path="res://scenes/gamePause.tscn" id="10_xeve3"]
-[ext_resource type="PackedScene" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
-[ext_resource type="PackedScene" uid="uid://bgqk81xt23ewx" path="res://scenes/prefabs/rocks/stalags.tscn" id="16_7558u"]
+[ext_resource type="PackedScene" uid="uid://c2qxa78rmhewd" path="res://scenes/balloon_rigged.tscn" id="14_2s8vx"]
 [ext_resource type="Shader" path="res://shaders/post_processing.gdshader" id="25_g11gl"]
 [ext_resource type="Theme" uid="uid://boiyof61hkrhc" path="res://materials/theme/theme.tres" id="27_ww8tf"]
 [ext_resource type="PackedScene" uid="uid://cplgnl1anj6kb" path="res://scenes/diver.tscn" id="30_xbtnc"]
@@ -39,17 +38,6 @@ height = 1.8
 shader = ExtResource("25_g11gl")
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Decke" type="Node3D" parent="."]
-
-[node name="stalags" parent="Decke" instance=ExtResource("16_7558u")]
-transform = Transform3D(0.987683, 2.36262e-08, 0.156469, 0, -1, 1.50996e-07, 0.156469, -1.49136e-07, -0.987683, 12.6839, 6.57825, 0)
-
-[node name="stalags2" parent="Decke" instance=ExtResource("16_7558u")]
-transform = Transform3D(0.853405, -7.87063e-08, -0.521248, 0, -1, 1.50996e-07, -0.521248, -1.28861e-07, -0.853405, 14.4753, 6.33466, 0)
-
-[node name="stalags3" parent="Decke" instance=ExtResource("16_7558u")]
-transform = Transform3D(0.855545, -7.81748e-08, -0.517728, 0, -1, 1.50996e-07, -0.517728, -1.29184e-07, -0.855545, 16.2879, 6.46867, 0)
 
 [node name="Dome" type="StaticBody3D" parent="." groups=["dome"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53629, 12.4106, 0)
@@ -307,6 +295,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.28448)
 
 [node name="Balloonbefestigung" type="Marker3D" parent="PlayerRig/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00637841, 0.897872, 0.0839639)
+
+[node name="Kopf" type="Marker3D" parent="PlayerRig/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.569805, -0.00759411, 0.0819148)
 
 [node name="coral-small_orange" parent="." instance=ExtResource("5_sfw8e")]
 transform = Transform3D(-0.995897, 0, 0.0904936, 0, 1, 0, -0.0904936, 0, -0.995897, 7.77056, -0.449376, -2.28277)

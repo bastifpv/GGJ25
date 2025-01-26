@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbxq4e155qo32"]
+[gd_scene load_steps=4 format=3 uid="uid://bbyjoay637aji"]
 
 [ext_resource type="PackedScene" uid="uid://bxsx7m8nem675" path="res://our_assets/geyser.glb" id="1_nlraq"]
 [ext_resource type="Material" uid="uid://csjfks646ksme" path="res://materials/caustic_rocks.tres" id="2_mpger"]
